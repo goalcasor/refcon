@@ -12,9 +12,9 @@
         "detailsButton": "Mehr entdecken"
     },
     "about": {
-        "title": "Unsere Essenz",
-        "description1": "Refcon entstand aus der Leidenschaft für gut gemachte Bauarbeiten. Mit über einem Jahrzehnt Erfahrung verbinden wir traditionelles Handwerk mit Innovation, um Räume zu schaffen, die nicht nur ästhetisch, sondern auch funktional und langlebig sind.",
-        "description2": "Unser Engagement basiert auf der vollsten Zufriedenheit unserer Kunden. Deshalb engagieren wir uns bei jedem Projekt, als wäre es unser eigenes, übertreffen Erwartungen und bauen langfristige Vertrauensbeziehungen auf. Bei Refcon ist jedes Projekt ein Kunstwerk.",
+        "title": "Unsere Essenz: 30 Jahre Vertrauen aufbauen",
+        "description1": "Seit 1995 steht Refcon für die Leidenschaft für gut gemachte Bauarbeiten. Mit 30 Jahren Erfahrung verbinden wir traditionelles Handwerk, das uns auszeichnet, mit ständiger Innovation, um Räume zu schaffen, die nicht nur ästhetisch, sondern auch funktional und langlebig sind.",
+        "description2": "Unser Engagement basiert auf der vollsten Zufriedenheit unserer Kunden. Deshalb engagieren wir uns bei jedem Projekt, als wäre es unser eigenes, übertreffen Erwartungen und bauen langfristige Vertrauensbeziehungen auf, die auf jahrzehntelanger Arbeit basieren. Bei Refcon ist jedes Projekt ein Kunstwerk.",
         "reason1": "Meisterschaft und Erfahrung",
         "reason2": "Qualität und Präzision",
         "reason3": "Transparenz und Vertrauen"
@@ -28,7 +28,7 @@
         },
         "step2": {
             "title": "Design und detailliertes Angebot",
-            "description": "Wir entwickeln einen maßgeschneiderten Aktionsplan und ein transparentes Budget ohne Kleingedrucktes, angepasst an Ihre Träume."
+            "description": "Wir entwickeln einen maßgeschneiderten Aktionsplan und ein transparentes Budget, ohne Kleingedrucktes, angepasst an Ihre Träume."
         },
         "step3": {
             "title": "Ausführung und Meisterschaft",

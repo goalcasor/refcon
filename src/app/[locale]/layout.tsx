@@ -10,7 +10,7 @@ import { ThemeProvider } from "next-themes";
 
 const siteConfig = {
   name: 'Refcon',
-  description: 'Constructores de sueños. Soluciones expertas en reformas, construcción y piscinas.',
+  description: 'Con 30 años de experiencia desde 1995, en Refcon somos constructores de sueños. Ofrecemos soluciones expertas en reformas, construcción y piscinas.',
   url: 'https://example.com', // Replace with your actual domain
   ogImage: '', // Replace with your actual OG image URL
 };
@@ -75,7 +75,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="theme-green"
           enableSystem={false}
-          themes={['theme-blue', 'dark-theme-blue', 'theme-green', 'dark-theme-green', 'theme-orange', 'dark-theme-orange', 'theme-purple', 'dark-theme-purple', 'theme-luxury', 'dark-theme-luxury']}
+          themes={['theme-green', 'dark-theme-green']}
         >
           <AuthProvider>
             {children}
