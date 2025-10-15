@@ -1,109 +1,109 @@
 
 {
     "hero": {
-        "title": "Solucions expertes de construcció i reformes",
-        "subtitle": "Oferim una àmplia gamma de serveis de construcció i oficis per a llars, negocis i projectes industrials. Qualitat i confiança a cada maó.",
-        "cta": "Pressupost al instant",
-        "ctaSecondary": "Els Nostres Serveis"
+        "title": "Materialitzem els teus projectes, construïm els teus somnis",
+        "subtitle": "A Refcon, transformem les teves idees en realitat. Oferim un servei integral en construcció, reformes i oficis per a llars i negocis, garantint qualitat i confiança en cada detall.",
+        "cta": "Obtén el teu pressupost",
+        "ctaSecondary": "Explora serveis"
     },
     "services": {
-        "title": "Els Nostres Serveis Especialitzats",
-        "subtitle": "Des d'obra nova fins al manteniment de la seva piscina, el nostre equip d'experts està a punt per fer realitat el seu projecte.",
-        "detailsButton": "Veure més detalls"
+        "title": "Els Nostres Serveis d'Excel·lència",
+        "subtitle": "Des d'una renovació completa fins a la creació de la teva piscina ideal, el nostre equip de mestres artesans està preparat per fer realitat la teva visió.",
+        "detailsButton": "Descobreix-ne més"
     },
     "about": {
-        "title": "Sobre Nosaltres",
-        "description1": "Som una empresa especialitzada en reformes i construcció. Estem des del 2003 al sector, per la qual cosa et garantim que rebràs de la nostra part la màxima seriositat, responsabilitat, compromís i professionalitat, brindant-te els millors resultats en els treballs que realitzem.",
-        "description2": "La nostra reputació es basa en la satisfacció del client, per la qual cosa ens esforcem per superar les expectatives a cada projecte que emprenem. La nostra empresa és l'elecció ideal per a aquells que busquen qualitat, professionalisme i compromís.",
-        "reason1": "Professionals Experimentats",
-        "reason2": "Qualitat i Atenció al Detall",
-        "reason3": "Transparència i Compromís"
+        "title": "La Nostra Essència",
+        "description1": "Refcon neix de la passió per la construcció ben feta. Amb més d'una dècada d'experiència, fusionem l'artesania tradicional amb la innovació per crear espais que no només són estètics, sinó també funcionals i duradors.",
+        "description2": "El nostre compromís es fonamenta en la satisfacció total del client. Per això, ens impliquem en cada projecte com si fos nostre, superant expectatives i forjant relacions de confiança a llarg termini. A Refcon, cada projecte és una obra d'art.",
+        "reason1": "Mestria i Experiència",
+        "reason2": "Qualitat i Precisió",
+        "reason3": "Transparència i Confiança"
     },
     "process": {
-        "title": "El Nostre Procés de Treball",
-        "subtitle": "Et guiem a cada pas del camí, des de la idea inicial fins a l'entrega final del teu projecte.",
+        "title": "El Nostre Mètode de Treball",
+        "subtitle": "T'acompanyem en cada fase del projecte, garantint un procés clar, fluid i sense sorpreses.",
         "step1": {
-            "title": "Consulta Inicial",
-            "description": "Tot comença amb una conversa per entendre les teves necessitats, idees i pressupost."
+            "title": "Visió i Consulta",
+            "description": "Tot comença escoltant-te. Entenem els teus anhels, necessitats i el pressupost per donar forma a la idea inicial."
         },
         "step2": {
-            "title": "Disseny i Pressupost",
-            "description": "Creem un pla detallat i un pressupost transparent adaptat a les teves especificacions."
+            "title": "Disseny i Pressupost Detallat",
+            "description": "Elaborem un pla d'acció a mida i un pressupost transparent, sense lletra petita, ajustat als teus somnis."
         },
         "step3": {
-            "title": "Execució i Supervisió",
-            "description": "El nostre equip d'experts executa el projecte amb la màxima qualitat i supervisió constant."
+            "title": "Execució i Mestria",
+            "description": "El nostre equip d'artesans i tècnics executa el projecte amb precisió, qualitat superior i una supervisió rigorosa."
         },
         "step4": {
-            "title": "Entrega i Garantia",
-            "description": "Lliurem el projecte acabat, assegurant la teva total satisfacció i oferint garantia per la nostra feina."
+            "title": "Lliurament i Garantia de Satisfacció",
+            "description": "Lliurem el teu somni fet realitat, assegurant la teva completa felicitat i recolzant el nostre treball amb una sòlida garantia."
         },
         "cta": {
-            "title": "Veus que fàcil? Comença ara.",
-            "subtitle": "Fes el primer pas per fer realitat el teu projecte."
+            "title": "Veus que fàcil? El primer pas és teu.",
+            "subtitle": "Inicia el viatge per materialitzar el teu projecte somiat."
         }
     },
     "projects": {
-        "title": "Projectes Destacats",
-        "subtitle": "Una mostra de la nostra feina. Projectes reals per a clients satisfets.",
+        "title": "Projectes que Inspiren",
+        "subtitle": "Un portafoli dels nostres treballs. Somnis complerts per a clients feliços.",
         "project1": {
-            "title": "Reforma Integral de Cuina",
-            "category": "Disseny d'Interiors"
+            "title": "Cuina d'Autor",
+            "category": "Disseny Interior"
         },
         "project2": {
-            "title": "Piscina de Disseny",
+            "title": "Oasi Privat",
             "category": "Construcció de Piscines"
         },
         "project3": {
-            "title": "Rehabilitació de Façana",
-            "category": "Paraments Verticals"
+            "title": "Façana amb Caràcter",
+            "category": "Rehabilitació d'Exteriors"
         },
         "project4": {
-            "title": "Reforma de Bany Modern",
+            "title": "Santuari de Bany Modern",
             "category": "Reformes d'Interiors"
         },
         "project5": {
-            "title": "Renovació de Cuina Elegant",
+            "title": "Renaixement d'una Cuina",
             "category": "Disseny de Cuines"
         },
         "project6": {
-            "title": "Idea per a Bany",
+            "title": "Harmonia al Bany",
             "category": "Reformes de Banys"
         },
         "project7": {
-            "title": "Inspiració per a Bany",
+            "title": "Inspiració per al teu Bany",
             "category": "Disseny d'Interiors"
         },
         "project8": {
-            "title": "Renovació de Terrassa",
+            "title": "Terrassa amb Vistes al Cel",
             "category": "Disseny d'Exteriors"
         },
         "project9": {
-            "title": "Transformació de Jardí",
-            "category": "Jardineria"
+            "title": "Jardí Secret",
+            "category": "Paisatgisme"
         },
         "project10": {
-            "title": "Façana Vibrant",
+            "title": "Façana que Parla",
             "category": "Disseny Exterior"
         },
         "cta": {
-            "title": "Comença el teu projecte",
-            "subtitle": "Tens una idea? Fem-la realitat.",
-            "button": "Pressupost al instant"
+            "title": "Comença el Teu Somni",
+            "subtitle": "Tens una visió? La construïm junts.",
+            "button": "Obtén el teu pressupost"
         }
     },
     "testimonials": {
-        "title": "L'opinió dels nostres clients",
-        "subtitle": "Ens enorgulleix la feina que fem i la satisfacció dels qui confien en nosaltres.",
-        "testimonial2": "Vam contractar l'empresa per al nostre projecte de reforma integral i l'experiència va ser de 5 estrelles en tots els sentits. La qualitat de la construcció és impecable, però el que més destaco és la seva eficiència i el respecte pels terminis. Són veritables experts en edificació. Si busques una constructora de confiança que sàpiga el que fa, aquesta és l'opció.",
-        "customer2": "Gerson Agredo",
-        "testimonial3": "Vam contractar l'empresa per al nostre projecte de reforma integral i l'experiència va ser de 5 estrelles en tots els sentits. La qualitat de la construcció és impecable, però el que més destaco és la seva eficiència i el respecte pels terminis. Són veritables experts en edificació. Si busques una constructora de confiança que sàpiga el que fa, aquesta és l'opció.",
-        "customer3": "Alex Castells",
-        "project": "Reforma Integral"
+        "title": "La Veu dels Nostres Clients",
+        "subtitle": "Ens sentim orgullosos del llegat que construïm i la confiança que els nostres clients dipositen en nosaltres.",
+        "testimonial2": "Vam contractar Refcon per a una reforma integral i va ser una experiència de 10. La qualitat dels acabats és sublim, però el que realment ens va impressionar va ser la seva puntualitat i la seva increïble atenció al detall. Són autèntics artesans. Si busques una empresa que estimi el que fa, no busquis més.",
+        "customer2": "Elena García",
+        "testimonial3": "L'equip de Refcon va transformar el nostre antic local en un negoci vibrant. La seva professionalitat, la seva comunicació constant i la seva capacitat per resoldre imprevistos amb creativitat va ser excepcional. Van complir amb els terminis i el pressupost a la perfecció. Totalment recomanables.",
+        "customer3": "Marcos Jiménez",
+        "project": "Reforma Integral d'Habitatge"
     },
     "finalCta": {
-        "title": "A punt per començar el teu projecte?",
-        "subtitle": "Contacta amb nosaltres avui mateix per a una consulta gratuïta i sense compromís. El nostre equip està a punt per ajudar-te a fer realitat la teva visió.",
-        "reviewLink": "Valora el nostre servei, ens ayuda a créixer!"
+        "title": "A punt per construir els teus somnis?",
+        "subtitle": "Parlem-ne. Contacta avui per a una consulta sense compromís i descobreix com podem ajudar-te a materialitzar la teva visió.",
+        "reviewLink": "Valora la nostra mestria, la teva opinió ens fa créixer!"
     }
 }

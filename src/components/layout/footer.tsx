@@ -7,9 +7,9 @@ export function Footer({ t }: { t?: any }) {
     <footer className="w-full bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="flex flex-col items-center text-center gap-6">
-          <Logo width={30} height={30} />
+          <Logo width={120} height={40} />
           <p className="mt-2 text-sm text-muted-foreground max-w-xs">
-            Tu socio de confianza en construcción y reformas.
+            Constructores de sueños.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">Política de Privacidad</Link>
@@ -24,7 +24,7 @@ export function Footer({ t }: { t?: any }) {
           )}
         </div>
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Nombre de empresa. Todos los derechos reservados.</p>
+          <p>&copy; {currentYear} Refcon. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

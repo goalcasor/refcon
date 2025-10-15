@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: { slug: string, loc
     return {};
   }
 
-  const title = `${serviceTranslation.title} | Nombre de empresa`;
+  const title = `${serviceTranslation.title} | Refcon`;
   const description = serviceTranslation.shortDescription;
 
   return {

@@ -1,109 +1,109 @@
 
 {
     "hero": {
-        "title": "Soluciones expertas de construcción y reformas",
-        "subtitle": "Ofrecemos una amplia gama de servicios de construcción y oficios para hogares, negocios y proyectos industriales. Calidad y confianza en cada ladrillo.",
-        "cta": "Presupuesto al instante",
-        "ctaSecondary": "Nuestros Servicios"
+        "title": "Materializamos tus proyectos, construimos tus sueños",
+        "subtitle": "En Refcon, transformamos tus ideas en realidad. Ofrecemos un servicio integral en construcción, reformas y oficios para hogares y negocios, garantizando calidad y confianza en cada detalle.",
+        "cta": "Obtén tu presupuesto",
+        "ctaSecondary": "Explora servicios"
     },
     "services": {
-        "title": "Nuestros Servicios Especializados",
-        "subtitle": "Desde obra nueva hasta el mantenimiento de su piscina, nuestro equipo de expertos está listo para hacer realidad su proyecto.",
-        "detailsButton": "Ver más detalles"
+        "title": "Nuestros Servicios de Excelencia",
+        "subtitle": "Desde una renovación completa hasta la creación de tu piscina ideal, nuestro equipo de maestros artesanos está preparado para hacer realidad tu visión.",
+        "detailsButton": "Descubrir más"
     },
     "about": {
-        "title": "Sobre Nosotros",
-        "description1": "Somos una empresa especializada en reformas y construcción. Estamos desde el 2003 en el sector, por lo que te garantizamos que recibirás de nuestra parte la máxima seriedad, responsabilidad, compromiso y profesionalidad, brindándote los mejores resultados en los trabajos que realizamos.",
-        "description2": "Nuestra reputación se basa en la satisfacción del cliente, por lo que nos esforzamos por superar las expectativas en cada proyecto que emprendemos. Nuestra empresa es la elección ideal para aquellos que buscan calidad, profesionalismo y compromiso.",
-        "reason1": "Profesionales Experimentados",
-        "reason2": "Calidad y Atención al Detalle",
-        "reason3": "Transparencia y Compromiso"
+        "title": "Nuestra Esencia",
+        "description1": "Refcon nace de la pasión por la construcción bien hecha. Con más de una década de experiencia, fusionamos la artesanía tradicional con la innovación para crear espacios que no solo son estéticos, sino también funcionales y duraderos.",
+        "description2": "Nuestro compromiso se fundamenta en la satisfacción total del cliente. Por eso, nos implicamos en cada proyecto como si fuera nuestro, superando expectativas y forjando relaciones de confianza a largo plazo. En Refcon, cada proyecto es una obra de arte.",
+        "reason1": "Maestría y Experiencia",
+        "reason2": "Calidad y Precisión",
+        "reason3": "Transparencia y Confianza"
     },
     "process": {
-        "title": "Nuestro Proceso de Trabajo",
-        "subtitle": "Te guiamos en cada paso del camino, desde la idea inicial hasta la entrega final de tu proyecto.",
+        "title": "Nuestro Método de Trabajo",
+        "subtitle": "Te acompañamos en cada fase del proyecto, garantizando un proceso claro, fluido y sin sorpresas.",
         "step1": {
-            "title": "Consulta Inicial",
-            "description": "Todo empieza con una conversación para entender tus necesidades, ideas y presupuesto."
+            "title": "Visión y Consulta",
+            "description": "Todo comienza con escucharte. Entendemos tus anhelos, necesidades y el presupuesto para dar forma a la idea inicial."
         },
         "step2": {
-            "title": "Diseño y Presupuesto",
-            "description": "Creamos un plan detallado y un presupuesto transparente adaptado a tus especificaciones."
+            "title": "Diseño y Presupuesto Detallado",
+            "description": "Elaboramos un plan de acción a medida y un presupuesto transparente, sin letra pequeña, ajustado a tus sueños."
         },
         "step3": {
-            "title": "Ejecución y Supervisión",
-            "description": "Nuestro equipo de expertos ejecuta el proyecto con la máxima calidad y supervisión constante."
+            "title": "Ejecución y Maestría",
+            "description": "Nuestro equipo de artesanos y técnicos ejecuta el proyecto con precisión, calidad superior y una supervisión rigurosa."
         },
         "step4": {
-            "title": "Entrega y Garantía",
-            "description": "Entregamos el proyecto terminado, asegurando tu total satisfacción y ofreciendo garantía por nuestro trabajo."
+            "title": "Entrega y Garantía de Satisfacción",
+            "description": "Entregamos tu sueño hecho realidad, asegurando tu completa felicidad y respaldando nuestro trabajo con una sólida garantía."
         },
         "cta": {
-            "title": "¿Ves qué fácil? Empieza ahora.",
-            "subtitle": "Da el primer paso para hacer realidad tu proyecto."
+            "title": "¿Ves qué fácil? El primer paso es tuyo.",
+            "subtitle": "Inicia el viaje para materializar tu proyecto soñado."
         }
     },
     "projects": {
-        "title": "Proyectos Destacados",
-        "subtitle": "Una muestra de nuestro trabajo. Proyectos reales para clientes satisfechos.",
+        "title": "Proyectos que Inspiran",
+        "subtitle": "Un portafolio de nuestros trabajos. Sueños cumplidos para clientes felices.",
         "project1": {
-            "title": "Reforma Integral de Cocina",
-            "category": "Diseño de Interiores"
+            "title": "Cocina de Autor",
+            "category": "Diseño Interior"
         },
         "project2": {
-            "title": "Piscina de Diseño",
+            "title": "Oasis Privado",
             "category": "Construcción de Piscinas"
         },
         "project3": {
-            "title": "Rehabilitación de Fachada",
-            "category": "Paramentos Verticales"
+            "title": "Fachada con Carácter",
+            "category": "Rehabilitación de Exteriores"
         },
         "project4": {
-            "title": "Reforma de Baño Moderno",
+            "title": "Santuario de Baño Moderno",
             "category": "Reformas de Interiores"
         },
         "project5": {
-            "title": "Renovación de Cocina Elegante",
+            "title": "Renacer de una Cocina",
             "category": "Diseño de Cocinas"
         },
         "project6": {
-            "title": "Idea para Baño",
+            "title": "Armonía en el Baño",
             "category": "Reformas de Baños"
         },
         "project7": {
-            "title": "Inspiración para Baño",
+            "title": "Inspiración para tu Baño",
             "category": "Diseño de Interiores"
         },
         "project8": {
-            "title": "Renovación de Terraza",
+            "title": "Terraza con Vistas al Cielo",
             "category": "Diseño de Exteriores"
         },
         "project9": {
-            "title": "Transformación de Jardín",
-            "category": "Jardinería"
+            "title": "Jardín Secreto",
+            "category": "Paisajismo"
         },
         "project10": {
-            "title": "Fachada Vibrante",
+            "title": "Fachada que Habla",
             "category": "Diseño Exterior"
         },
         "cta": {
-            "title": "Comienza tu Proyecto",
-            "subtitle": "¿Tienes una idea? Hagámosla realidad.",
-            "button": "Presupuesto al instante"
+            "title": "Comienza Tu Sueño",
+            "subtitle": "¿Tienes una visión? La construimos juntos.",
+            "button": "Obtén tu presupuesto"
         }
     },
     "testimonials": {
-        "title": "La opinión de nuestros clientes",
-        "subtitle": "Nos enorgullece el trabajo que hacemos y la satisfacción de quienes confían en nosotros.",
-        "testimonial2": "Contratamos a la empresa para nuestro proyecto de reforma integral y la experiencia fue de 5 estrellas en todo sentido. La calidad de la construcción es impecable, pero lo que más destaco es su eficiencia y el respeto por los plazos. Son verdaderos expertos en edificación. Si buscas una constructora de confianza que sepa lo que hace, esta es la opción.",
-        "customer2": "Gerson Agredo",
-        "testimonial3": "Contratamos a la empresa para nuestro proyecto de reforma integral y la experiencia fue de 5 estrellas en todo sentido. La calidad de la construcción es impecable, pero lo que más destaco es su eficiencia y el respeto por los plazos. Son verdaderos expertos en edificación. Si buscas una constructora de confianza que sepa lo que hace, esta es la opción.",
-        "customer3": "Alex Castells",
-        "project": "Reforma Integral"
+        "title": "La Voz de Nuestros Clientes",
+        "subtitle": "Nos sentimos orgullosos del legado que construimos y la confianza que nuestros clientes depositan en nosotros.",
+        "testimonial2": "Contratamos a Refcon para una reforma integral y fue una experiencia de 10. La calidad de los acabados es sublime, pero lo que realmente nos impresionó fue su puntualidad y su increíble atención al detalle. Son auténticos artesanos. Si buscas una empresa que ame lo que hace, no busques más.",
+        "customer2": "Elena García",
+        "testimonial3": "El equipo de Refcon transformó nuestro antiguo local en un negocio vibrante. Su profesionalidad, su comunicación constante y su capacidad para resolver imprevistos con creatividad fue excepcional. Cumplieron con los plazos y el presupuesto a la perfección. Totalmente recomendables.",
+        "customer3": "Marcos Jiménez",
+        "project": "Reforma Integral de Vivienda"
     },
     "finalCta": {
-        "title": "¿Listo para Empezar tu Proyecto?",
-        "subtitle": "Contáctanos hoy mismo para obtener una consulta gratuita y sin compromiso. Nuestro equipo está listo para ayudarte a hacer realidad tu visión.",
-        "reviewLink": "Valora nuestro servicio, ¡nos ayuda a crecer!"
+        "title": "¿Listo para construir tus sueños?",
+        "subtitle": "Hablemos. Contacta hoy para una consulta sin compromiso y descubre cómo podemos ayudarte a materializar tu visión.",
+        "reviewLink": "Valora nuestra maestría, ¡tu opinión nos hace crecer!"
     }
 }

@@ -1,109 +1,109 @@
 
 {
     "hero": {
-        "title": "Kompetente Bau- und Renovierungslösungen",
-        "subtitle": "Wir bieten eine breite Palette von Bau- und Handwerksdienstleistungen für Privathaushalte, Unternehmen und Industrieprojekte. Qualität und Vertrauen in jedem Ziegel.",
-        "cta": "Sofortangebot",
-        "ctaSecondary": "Unsere Dienstleistungen"
+        "title": "Wir verwirklichen Ihre Projekte, wir bauen Ihre Träume",
+        "subtitle": "Bei Refcon verwandeln wir Ihre Ideen in die Realität. Wir bieten umfassende Dienstleistungen in den Bereichen Bau, Renovierung und Handwerk für Privathaushalte und Unternehmen und garantieren Qualität und Vertrauen in jedem Detail.",
+        "cta": "Holen Sie sich Ihr Angebot",
+        "ctaSecondary": "Dienstleistungen erkunden"
     },
     "services": {
-        "title": "Unsere spezialisierten Dienstleistungen",
-        "subtitle": "Vom Neubau bis zur Poolpflege ist unser Expertenteam bereit, Ihr Projekt zu verwirklichen.",
-        "detailsButton": "Mehr Details sehen"
+        "title": "Unsere exzellenten Dienstleistungen",
+        "subtitle": "Von einer kompletten Renovierung bis zur Gestaltung Ihres idealen Pools ist unser Team von Meisterhandwerkern bereit, Ihre Vision zum Leben zu erwecken.",
+        "detailsButton": "Mehr entdecken"
     },
     "about": {
-        "title": "Über uns",
-        "description1": "Wir sind ein auf Renovierungen und Bau spezialisiertes Unternehmen. Wir sind seit 2003 in der Branche tätig und garantieren Ihnen höchste Seriosität, Verantwortung, Engagement und Professionalität, um Ihnen die besten Ergebnisse bei unseren Arbeiten zu liefern.",
-        "description2": "Unser Ruf basiert auf der Zufriedenheit unserer Kunden, weshalb wir uns bemühen, bei jedem Projekt die Erwartungen zu übertreffen. Unser Unternehmen ist die ideale Wahl für alle, die Qualität, Professionalität und Engagement suchen.",
-        "reason1": "Erfahrene Fachleute",
-        "reason2": "Qualität und Detailgenauigkeit",
-        "reason3": "Transparenz und Engagement"
+        "title": "Unsere Essenz",
+        "description1": "Refcon entstand aus der Leidenschaft für gut gemachte Bauarbeiten. Mit über einem Jahrzehnt Erfahrung verbinden wir traditionelles Handwerk mit Innovation, um Räume zu schaffen, die nicht nur ästhetisch, sondern auch funktional und langlebig sind.",
+        "description2": "Unser Engagement basiert auf der vollsten Zufriedenheit unserer Kunden. Deshalb engagieren wir uns bei jedem Projekt, als wäre es unser eigenes, übertreffen Erwartungen und bauen langfristige Vertrauensbeziehungen auf. Bei Refcon ist jedes Projekt ein Kunstwerk.",
+        "reason1": "Meisterschaft und Erfahrung",
+        "reason2": "Qualität und Präzision",
+        "reason3": "Transparenz und Vertrauen"
     },
     "process": {
-        "title": "Unser Arbeitsprozess",
-        "subtitle": "Wir führen Sie durch jeden Schritt, von der ersten Idee bis zur endgültigen Übergabe Ihres Projekts.",
+        "title": "Unsere Arbeitsmethode",
+        "subtitle": "Wir begleiten Sie in jeder Phase des Projekts und gewährleisten einen klaren, reibungslosen Prozess ohne Überraschungen.",
         "step1": {
-            "title": "Erstberatung",
-            "description": "Alles beginnt mit einem Gespräch, um Ihre Bedürfnisse, Ideen und Ihr Budget zu verstehen."
+            "title": "Vision und Beratung",
+            "description": "Alles beginnt damit, Ihnen zuzuhören. Wir verstehen Ihre Wünsche, Bedürfnisse und Ihr Budget, um die anfängliche Idee zu formen."
         },
         "step2": {
-            "title": "Planung & Angebot",
-            "description": "Wir erstellen einen detaillierten Plan und ein transparentes Angebot, das auf Ihre Vorgaben zugeschnitten ist."
+            "title": "Design und detailliertes Angebot",
+            "description": "Wir entwickeln einen maßgeschneiderten Aktionsplan und ein transparentes Budget ohne Kleingedrucktes, angepasst an Ihre Träume."
         },
         "step3": {
-            "title": "Ausführung & Überwachung",
-            "description": "Unser Expertenteam führt das Projekt mit höchster Qualität und ständiger Überwachung aus."
+            "title": "Ausführung und Meisterschaft",
+            "description": "Unser Team von Handwerkern und Technikern führt das Projekt mit Präzision, höchster Qualität und strenger Überwachung durch."
         },
         "step4": {
-            "title": "Übergabe & Garantie",
-            "description": "Wir übergeben das fertige Projekt, stellen Ihre volle Zufriedenheit sicher und bieten eine Garantie auf unsere Arbeit."
+            "title": "Übergabe und Zufriedenheitsgarantie",
+            "description": "Wir liefern Ihren wahr gewordenen Traum, sichern Ihre vollkommene Zufriedenheit und untermauern unsere Arbeit mit einer soliden Garantie."
         },
         "cta": {
-            "title": "Sehen Sie, wie einfach es ist? Fangen Sie jetzt an.",
-            "subtitle": "Machen Sie den ersten Schritt, um Ihr Projekt zu verwirklichen."
+            "title": "Sehen Sie, wie einfach es ist? Der erste Schritt liegt bei Ihnen.",
+            "subtitle": "Beginnen Sie die Reise, um Ihr Traumprojekt zu verwirklichen."
         }
     },
     "projects": {
-        "title": "Ausgewählte Projekte",
-        "subtitle": "Ein Einblick in unsere Arbeit. Echte Projekte für zufriedene Kunden.",
+        "title": "Projekte, die inspirieren",
+        "subtitle": "Ein Portfolio unserer Arbeit. Erfüllte Träume für zufriedene Kunden.",
         "project1": {
-            "title": "Komplette Küchenrenovierung",
+            "title": "Autorenküche",
             "category": "Innenarchitektur"
         },
         "project2": {
-            "title": "Designer-Schwimmbad",
+            "title": "Private Oase",
             "category": "Poolbau"
         },
         "project3": {
-            "title": "Fassadensanierung",
-            "category": "Vertikale Verkleidungen"
+            "title": "Fassade mit Charakter",
+            "category": "Außensanierung"
         },
         "project4": {
-            "title": "Moderne Badezimmerrenovierung",
+            "title": "Modernes Badezimmer-Heiligtum",
             "category": "Innenrenovierungen"
         },
         "project5": {
-            "title": "Elegante Küchenumgestaltung",
+            "title": "Wiedergeburt einer Küche",
             "category": "Küchendesign"
         },
         "project6": {
-            "title": "Badezimmer-Idee",
-            "category": "Badezimmer-Renovierungen"
+            "title": "Harmonie im Badezimmer",
+            "category": "Badezimmerrenovierungen"
         },
         "project7": {
-            "title": "Badezimmer-Inspiration",
+            "title": "Inspiration für Ihr Badezimmer",
             "category": "Innenarchitektur"
         },
         "project8": {
-            "title": "Terrassenrenovierung",
+            "title": "Terrasse mit Himmelsblick",
             "category": "Außendesign"
         },
         "project9": {
-            "title": "Gartenumgestaltung",
-            "category": "Gartenarbeit"
+            "title": "Geheimer Garten",
+            "category": "Landschaftsbau"
         },
         "project10": {
-            "title": "Lebendige Fassade",
+            "title": "Fassade, die spricht",
             "category": "Außendesign"
         },
         "cta": {
-            "title": "Starten Sie Ihr Projekt",
-            "subtitle": "Haben Sie eine Idee? Verwirklichen wir sie.",
-            "button": "Sofortangebot"
+            "title": "Starten Sie Ihren Traum",
+            "subtitle": "Haben Sie eine Vision? Wir bauen sie gemeinsam.",
+            "button": "Holen Sie sich Ihr Angebot"
         }
     },
     "testimonials": {
-        "title": "Was unsere Kunden sagen",
-        "subtitle": "Wir sind stolz auf unsere Arbeit und die Zufriedenheit derer, die uns vertrauen.",
-        "testimonial2": "Wir haben das Unternehmen für unser komplettes Renovierungsprojekt beauftragt und die Erfahrung war in jeder Hinsicht 5 Sterne wert. Die Qualität der Bauausführung ist tadellos, aber was ich am meisten hervorhebe, ist ihre Effizienz und die Einhaltung der Fristen. Sie sind wahre Bauexperten. Wenn Sie ein zuverlässiges Bauunternehmen suchen, das sein Handwerk versteht, sind Sie hier richtig.",
-        "customer2": "Gerson Agredo",
-        "testimonial3": "Wir haben das Unternehmen für unser komplettes Renovierungsprojekt beauftragt und die Erfahrung war in jeder Hinsicht 5 Sterne wert. Die Qualität der Bauausführung ist tadellos, aber was ich am meisten hervorhebe, ist ihre Effizienz und die Einhaltung der Fristen. Sie sind wahre Bauexperten. Wenn Sie ein zuverlässiges Bauunternehmen suchen, das sein Handwerk versteht, sind Sie hier richtig.",
-        "customer3": "Alex Castells",
-        "project": "Komplettsanierung"
+        "title": "Die Stimme unserer Kunden",
+        "subtitle": "Wir sind stolz auf das Erbe, das wir aufbauen, und das Vertrauen, das unsere Kunden in uns setzen.",
+        "testimonial2": "Wir haben Refcon für eine komplette Renovierung beauftragt und es war eine 10/10-Erfahrung. Die Qualität der Oberflächen ist erhaben, aber was uns wirklich beeindruckt hat, war ihre Pünktlichkeit und unglaubliche Liebe zum Detail. Sie sind wahre Handwerker. Wenn Sie ein Unternehmen suchen, das liebt, was es tut, suchen Sie nicht weiter.",
+        "customer2": "Elena García",
+        "testimonial3": "Das Refcon-Team hat unsere alten Räumlichkeiten in ein lebendiges Geschäft verwandelt. Ihre Professionalität, ständige Kommunikation und Fähigkeit, unvorhergesehene Probleme kreativ zu lösen, war außergewöhnlich. Sie haben Termine und Budget perfekt eingehalten. Sehr zu empfehlen.",
+        "customer3": "Marcos Jiménez",
+        "project": "Vollständige Hausrenovierung"
     },
     "finalCta": {
-        "title": "Bereit, Ihr Projekt zu starten?",
-        "subtitle": "Kontaktieren Sie uns noch heute für eine kostenlose, unverbindliche Beratung. Unser Team ist bereit, Ihnen zu helfen, Ihre Vision zu verwirklichen.",
-        "reviewLink": "Bewerten Sie unseren Service, es hilft uns zu wachsen!"
+        "title": "Bereit, Ihre Träume zu bauen?",
+        "subtitle": "Lassen Sie uns reden. Kontaktieren Sie uns noch heute für eine unverbindliche Beratung und entdecken Sie, wie wir Ihnen helfen können, Ihre Vision zu verwirklichen.",
+        "reviewLink": "Bewerten Sie unsere Meisterschaft, Ihre Meinung hilft uns zu wachsen!"
     }
 }

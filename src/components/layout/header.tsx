@@ -36,10 +36,10 @@ export function Header({ t }: { t: any }) {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container-limited flex h-16 items-center">
         <div className="md:hidden">
-          <Logo width={31.5} height={7.875} />
+          <Logo width={90} height={30} />
         </div>
         <div className="hidden md:block">
-          <Logo width={12} height={12} />
+          <Logo width={120} height={40} />
         </div>
         <nav className="hidden md:flex items-center gap-6 ml-10 text-sm font-medium">
           {navLinks.map((link) => (

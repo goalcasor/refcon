@@ -9,8 +9,8 @@ import { ContactFab } from '@/components/contact-fab';
 import { ThemeProvider } from "next-themes";
 
 const siteConfig = {
-  name: 'Nombre de empresa',
-  description: 'Soluciones expertas de construcción, reformas, piscinas y más. Calidad y confianza para tu hogar o negocio.',
+  name: 'Refcon',
+  description: 'Constructores de sueños. Soluciones expertas en reformas, construcción y piscinas.',
   url: 'https://example.com', // Replace with your actual domain
   ogImage: '', // Replace with your actual OG image URL
 };
@@ -60,7 +60,7 @@ export default function RootLayout({
     notFound();
   }
   
-  const faviconUrl = ""; // Replace with your favicon URL
+  const faviconUrl = "https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Frefcon%2FICON.png?alt=media&token=85e8b54c-f52f-416a-8d8c-96026609d95a";
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -73,9 +73,9 @@ export default function RootLayout({
       <body className={cn('font-body antialiased min-h-screen bg-background flex flex-col')}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="theme-blue"
+          defaultTheme="theme-green"
           enableSystem={false}
-          themes={['theme-blue', 'dark-theme-blue', 'theme-green', 'dark-theme-green', 'theme-orange', 'dark-theme-orange']}
+          themes={['theme-blue', 'dark-theme-blue', 'theme-green', 'dark-theme-green', 'theme-orange', 'dark-theme-orange', 'theme-purple', 'dark-theme-purple', 'theme-luxury', 'dark-theme-luxury']}
         >
           <AuthProvider>
             {children}

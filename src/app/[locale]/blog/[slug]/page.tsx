@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return {};
   }
 
-  const title = `${post.title} | Nombre de empresa`;
+  const title = `${post.title} | Refcon`;
   const description = post.excerpt;
 
   return {

@@ -1,109 +1,109 @@
 
 {
     "hero": {
-        "title": "Expert construction and renovation solutions",
-        "subtitle": "We offer a wide range of construction and trade services for homes, businesses, and industrial projects. Quality and trust in every brick.",
-        "cta": "Instant Quote",
-        "ctaSecondary": "Our Services"
+        "title": "We materialize your projects, we build your dreams",
+        "subtitle": "At Refcon, we turn your ideas into reality. We offer a comprehensive service in construction, renovations, and trades for homes and businesses, guaranteeing quality and trust in every detail.",
+        "cta": "Get Your Quote",
+        "ctaSecondary": "Explore Services"
     },
     "services": {
-        "title": "Our Specialized Services",
-        "subtitle": "From new construction to pool maintenance, our team of experts is ready to make your project a reality.",
-        "detailsButton": "See more details"
+        "title": "Our Services of Excellence",
+        "subtitle": "From a complete renovation to creating your ideal pool, our team of master craftsmen is ready to bring your vision to life.",
+        "detailsButton": "Discover More"
     },
     "about": {
-        "title": "About Us",
-        "description1": "We are a company specializing in renovations and construction. We have been in the sector since 2003, so we guarantee that you will receive the utmost seriousness, responsibility, commitment, and professionalism from us, providing you with the best results in the work we do.",
-        "description2": "Our reputation is built on client satisfaction, which is why we strive to exceed expectations on every project we undertake. Our company is the ideal choice for those seeking quality, professionalism, and commitment.",
-        "reason1": "Experienced Professionals",
-        "reason2": "Quality and Attention to Detail",
-        "reason3": "Transparency and Commitment"
+        "title": "Our Essence",
+        "description1": "Refcon was born from a passion for well-done construction. With over a decade of experience, we merge traditional craftsmanship with innovation to create spaces that are not only aesthetic but also functional and durable.",
+        "description2": "Our commitment is based on total client satisfaction. That's why we get involved in every project as if it were our own, exceeding expectations and building long-term relationships of trust. At Refcon, every project is a work of art.",
+        "reason1": "Mastery and Experience",
+        "reason2": "Quality and Precision",
+        "reason3": "Transparency and Trust"
     },
     "process": {
-        "title": "Our Work Process",
-        "subtitle": "We guide you every step of the way, from the initial idea to the final delivery of your project.",
+        "title": "Our Work Method",
+        "subtitle": "We accompany you in every phase of the project, ensuring a clear, fluid process without surprises.",
         "step1": {
-            "title": "Initial Consultation",
-            "description": "It all starts with a conversation to understand your needs, ideas, and budget."
+            "title": "Vision and Consultation",
+            "description": "It all starts with listening to you. We understand your desires, needs, and budget to shape the initial idea."
         },
         "step2": {
-            "title": "Design & Quote",
-            "description": "We create a detailed plan and a transparent quote tailored to your specifications."
+            "title": "Design and Detailed Quote",
+            "description": "We develop a tailored action plan and a transparent budget, with no fine print, adjusted to your dreams."
         },
         "step3": {
-            "title": "Execution & Supervision",
-            "description": "Our expert team executes the project with the highest quality and constant supervision."
+            "title": "Execution and Mastery",
+            "description": "Our team of artisans and technicians executes the project with precision, superior quality, and rigorous supervision."
         },
         "step4": {
-            "title": "Delivery & Guarantee",
-            "description": "We deliver the finished project, ensuring your complete satisfaction and offering a guarantee for our work."
+            "title": "Delivery and Satisfaction Guarantee",
+            "description": "We deliver your dream come true, ensuring your complete happiness and backing our work with a solid guarantee."
         },
         "cta": {
-            "title": "See how easy it is? Start now.",
-            "subtitle": "Take the first step to make your project a reality."
+            "title": "See how easy it is? The first step is yours.",
+            "subtitle": "Start the journey to materialize your dream project."
         }
     },
     "projects": {
-        "title": "Featured Projects",
-        "subtitle": "A showcase of our work. Real projects for satisfied clients.",
+        "title": "Projects That Inspire",
+        "subtitle": "A portfolio of our work. Dreams fulfilled for happy clients.",
         "project1": {
-            "title": "Complete Kitchen Renovation",
+            "title": "Signature Kitchen",
             "category": "Interior Design"
         },
         "project2": {
-            "title": "Designer Swimming Pool",
+            "title": "Private Oasis",
             "category": "Pool Construction"
         },
         "project3": {
-            "title": "Facade Rehabilitation",
-            "category": "Vertical Cladding"
+            "title": "Facade with Character",
+            "category": "Exterior Rehabilitation"
         },
         "project4": {
-            "title": "Modern Bathroom Renovation",
+            "title": "Modern Bathroom Sanctuary",
             "category": "Interior Renovations"
         },
         "project5": {
-            "title": "Elegant Kitchen Remodel",
+            "title": "Rebirth of a Kitchen",
             "category": "Kitchen Design"
         },
         "project6": {
-            "title": "Bathroom Idea",
+            "title": "Harmony in the Bathroom",
             "category": "Bathroom Renovations"
         },
         "project7": {
-            "title": "Bathroom Inspiration",
+            "title": "Inspiration for your Bathroom",
             "category": "Interior Design"
         },
         "project8": {
-            "title": "Terrace Renovation",
+            "title": "Terrace with a View of the Sky",
             "category": "Exterior Design"
         },
         "project9": {
-            "title": "Garden Transformation",
-            "category": "Gardening"
+            "title": "Secret Garden",
+            "category": "Landscaping"
         },
         "project10": {
-            "title": "Vibrant Facade",
+            "title": "Facade that Speaks",
             "category": "Exterior Design"
         },
         "cta": {
-            "title": "Start Your Project",
-            "subtitle": "Got an idea? Let's make it real.",
-            "button": "Instant Quote"
+            "title": "Start Your Dream",
+            "subtitle": "Have a vision? We build it together.",
+            "button": "Get your quote"
         }
     },
     "testimonials": {
-        "title": "What our clients say",
-        "subtitle": "We are proud of the work we do and the satisfaction of those who trust us.",
-        "testimonial2": "We hired the company for our complete renovation project and the experience was 5 stars in every way. The quality of the construction is impeccable, but what I highlight most is their efficiency and respect for deadlines. They are true building experts. If you are looking for a reliable construction company that knows what it's doing, this is the one.",
-        "customer2": "Gerson Agredo",
-        "testimonial3": "We hired the company for our complete renovation project and the experience was 5 stars in every way. The quality of the construction is impeccable, but what I highlight most is their efficiency and respect for deadlines. They are true building experts. If you are looking for a reliable construction company that knows what it's doing, this is the one.",
-        "customer3": "Alex Castells",
-        "project": "Full Renovation"
+        "title": "The Voice of Our Clients",
+        "subtitle": "We are proud of the legacy we build and the trust our clients place in us.",
+        "testimonial2": "We hired Refcon for a complete renovation and it was a 10/10 experience. The quality of the finishes is sublime, but what really impressed us was their punctuality and incredible attention to detail. They are true artisans. If you are looking for a company that loves what they do, look no further.",
+        "customer2": "Elena García",
+        "testimonial3": "The Refcon team transformed our old premises into a vibrant business. Their professionalism, constant communication, and ability to solve unforeseen issues with creativity was exceptional. They met deadlines and the budget perfectly. Highly recommended.",
+        "customer3": "Marcos Jiménez",
+        "project": "Full Home Renovation"
     },
     "finalCta": {
-        "title": "Ready to Start Your Project?",
-        "subtitle": "Contact us today for a free, no-obligation consultation. Our team is ready to help you bring your vision to life.",
-        "reviewLink": "Rate our service, it helps us grow!"
+        "title": "Ready to build your dreams?",
+        "subtitle": "Let's talk. Contact us today for a no-obligation consultation and discover how we can help you materialize your vision.",
+        "reviewLink": "Rate our mastery, your opinion helps us grow!"
     }
 }
