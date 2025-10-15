@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export function ContactFab() {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = '+34626006461';
+  const phoneNumber = '+34661959090';
   const whatsappLink = `https://wa.me/${phoneNumber.replace('+', '')}`;
 
   return (

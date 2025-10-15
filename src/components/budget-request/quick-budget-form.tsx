@@ -43,7 +43,6 @@ const formSchema = z.object({
   renovationType: z.enum(['integral', 'bathrooms', 'kitchen', 'pool']),
   squareMeters: z.coerce.number().min(1, 'La superficie debe ser de al menos 1 m²'),
   quality: z.enum(['basic', 'medium', 'premium']),
-  testEmail: z.string().email({ message: 'Introduce un email de prueba válido.' }).optional().or(z.literal('')),
 });
 
 type QuickFormValues = z.infer<typeof formSchema>;
@@ -64,7 +63,6 @@ export function QuickBudgetForm({ t }: { t: any; }) {
       renovationType: 'kitchen',
       squareMeters: 1,
       quality: 'basic',
-      testEmail: '',
     },
   });
 
@@ -86,11 +84,8 @@ export function QuickBudgetForm({ t }: { t: any; }) {
       const db = getSafeDb();
       const mailCollection = collection(db, 'mail');
       
-      const isTestEmail = values.testEmail && values.testEmail.trim() !== '';
-      const recipientEmail = isTestEmail ? values.testEmail : 'your-email@example.com';
-      const subject = isTestEmail 
-        ? '[EMAIL DE PRUEBA] Nueva Solicitud de Presupuesto Rápido'
-        : 'Nueva Solicitud de Presupuesto Rápido';
+      const recipientEmail = 'goalcasor@gmail.com';
+      const subject = 'Nueva Solicitud de Presupuesto Rápido';
 
       await addDoc(mailCollection, {
         to: [recipientEmail],
@@ -146,7 +141,7 @@ export function QuickBudgetForm({ t }: { t: any; }) {
   
   if (isSubmitted) {
     const isPool = watchRenovationType === 'pool';
-    const reviewLink = "#"; // Replace with your GMB review link
+    const reviewLink = "https://www.habitissimo.es/pro/refcon";
 
     return (
         <div className="text-center max-w-2xl mx-auto">
@@ -271,14 +266,7 @@ export function QuickBudgetForm({ t }: { t: any; }) {
                     </ul>
                 </div>
                )}
-
-              <div className="flex flex-col sm:flex-row justify-end items-center gap-4 mt-8">
-                <FormField control={form.control} name="testEmail" render={({ field }) => (
-                  <FormItem className="w-full sm:w-auto sm:min-w-64">
-                    <FormControl><Input type="email" placeholder="email@de-prueba.com" {...field} /></FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )} />
+              <div className="flex justify-end items-center gap-4 mt-8">
                 <Button type="submit" disabled={isLoading} size="lg" className='w-full sm:w-auto'>
                   {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                   {isLoading ? t.budgetRequest.form.buttons.loading : t.budgetRequest.form.buttons.submit}

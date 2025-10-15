@@ -23,14 +23,14 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       label: t.phone.label,
-      value: "+34 626 00 64 61",
-      href: "tel:+34626006461",
+      value: "+34 661959090",
+      href: "tel:+34661959090",
     },
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       label: t.email.label,
-      value: "info@yakuconstrucciones.com",
-      href: "mailto:info@yakuconstrucciones.com",
+      value: "goalcasor@gmail.com",
+      href: "mailto:goalcasor@gmail.com",
     }
   ];
 
