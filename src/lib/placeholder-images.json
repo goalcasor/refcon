@@ -3,7 +3,7 @@
     {
       "id": "hero-construction",
       "description": "A modern house under construction.",
-      "imageUrl": "https://images.unsplash.com/photo-1628745277862-bc0b2d68c50c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBob3VzZXxlbnwwfHx8fDE3NTk2NDg0MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fimage-to-hero-engineering-objects-workplace-top-view-construction-concept-engineering-tools-vintage-tone-retro-filter-effect-soft-focus-selective-focus.jpg?alt=media&token=c10c51cc-40ea-4f7d-bef0-5fd71ea71eaf",
       "imageHint": "modern house"
     },
     {
@@ -15,25 +15,25 @@
     {
       "id": "about-us-image",
       "description": "A team of construction workers collaborating on a project.",
-      "imageUrl": "https://images.unsplash.com/photo-1509453721491-c3af5961df76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29uc3RydWN0aW9uJTIwdGVhbXxlbnwwfHx8fDE3NTk3MzEyMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fabout-us.jpg?alt=media&token=da59795c-52a5-4b70-bd5b-c084558a6638",
       "imageHint": "construction team"
     },
     {
       "id": "project-1",
       "description": "A beautifully renovated modern kitchen.",
-      "imageUrl": "https://images.unsplash.com/photo-1632583824020-937ae9564495?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb2Rlcm4lMjBraXRjaGVufGVufDB8fHx8MTc1OTcxNDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fopen-plan-kitchen-area.jpg?alt=media&token=3fadbfd9-bdaa-46af-95e7-90a8860f0974",
       "imageHint": "modern kitchen"
     },
     {
       "id": "project-2",
       "description": "A luxurious swimming pool in a backyard.",
-      "imageUrl": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBwb29sfGVufDB8fHx8MTc1OTc3Mjg5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Freforma_piscina.jpg?alt=media&token=4f25ea1a-d990-47b8-a2e7-e4431c869113",
       "imageHint": "luxury pool"
     },
     {
       "id": "project-3",
       "description": "An exterior facade of a renovated house.",
-      "imageUrl": "https://images.unsplash.com/photo-1737205785859-3727c4145aed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxob3VzZSUyMGZhY2FkZXxlbnwwfHx8fDE3NTk2NzU2MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Freformas-fachadas.jpg?alt=media&token=1e412683-60d7-45a5-b6db-ce565ab16a11",
       "imageHint": "house facade"
     },
     {

@@ -1,18 +1,27 @@
 "use client"
 
+import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
 
 export function ThemeSwitcher() {
-  const { setTheme, theme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => setMounted(true), [])
 
   const toggleDarkMode = () => {
-    if (theme?.startsWith('dark-')) {
-      setTheme(theme.substring(5)); // From dark-theme-green to theme-green
-    } else {
-      setTheme(`dark-${theme}`); // From theme-green to dark-theme-green
-    }
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+  }
+
+  // Avoid rendering theme-dependent state until mounted to prevent hydration mismatch.
+  if (!mounted) {
+    return (
+      <Button variant="ghost" size="icon" aria-hidden>
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
+      </Button>
+    )
   }
 
   return (

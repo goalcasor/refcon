@@ -60,7 +60,7 @@ export default function RootLayout({
     notFound();
   }
   
-  const faviconUrl = "https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Frefcon%2FICON.png?alt=media&token=85e8b54c-f52f-416a-8d8c-96026609d95a";
+  const faviconUrl = "https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2FICON.png?alt=media&token=8735449a-b5fc-4651-8f1c-12d397691de7";
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -73,9 +73,9 @@ export default function RootLayout({
       <body className={cn('font-body antialiased min-h-screen bg-background flex flex-col')}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="theme-green"
+          defaultTheme="light"
           enableSystem={false}
-          themes={['theme-green', 'dark-theme-green']}
+          storageKey="refcon-theme"
         >
           <AuthProvider>
             {children}

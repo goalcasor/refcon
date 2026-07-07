@@ -26,7 +26,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useState } from 'react';
 import { ArrowLeft, Check, Loader2, MailCheck, RotateCw, Star } from 'lucide-react';
 import Link from 'next/link';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { getSafeDb } from '@/lib/firebase/client';
 
 const pricingConfig = {
@@ -82,8 +82,25 @@ export function QuickBudgetForm({ t }: { t: any; }) {
       }
       
       const db = getSafeDb();
+
+      // Persist the budget request in the Refcon collection (all Refcon data is prefixed with "refcon_").
+      const budgetCollection = collection(db, 'refcon_budget');
+      await addDoc(budgetCollection, {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        address: values.address,
+        renovationType: values.renovationType,
+        squareMeters: values.squareMeters,
+        quality: values.renovationType !== 'pool' ? values.quality : null,
+        estimatedBudget: budget,
+        source: 'quick-budget-form',
+        status: 'new',
+        createdAt: serverTimestamp(),
+      });
+
       const mailCollection = collection(db, 'mail');
-      
+
       const recipientEmail = 'goalcasor@gmail.com';
       const subject = 'Nueva Solicitud de Presupuesto Rápido';
 

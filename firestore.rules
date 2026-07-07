@@ -8,6 +8,11 @@ service cloud.firestore {
       allow create: if true;
     }
 
+    // Allow client to submit budget requests
+    match /refcon_budget/{budgetId} {
+      allow create: if true;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

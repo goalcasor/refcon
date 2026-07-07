@@ -49,7 +49,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
       type: 'video',
       title: t.projects.project4.title,
       category: t.projects.project4.category,
-      src: 'https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Fyaku%2Fvideos%2Ffreepik__dolly-shot-a-serene-bathroom-scene-transitions-fro__5956.mp4?alt=media&token=3107172f-a829-4c26-90d3-f5cf92d31b45',
+      src: 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fvideo%2Ffreepik__dolly-shot-a-serene-bathroom-scene-transitions-fro__5956.mp4?alt=media&token=76a12f63-d80b-44e4-8831-5cb538a8391b',
       imageHint: 'modern bathroom renovation',
       className: 'md:col-span-1 md:row-span-2',
     },
@@ -73,7 +73,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
       type: 'video',
       title: t.projects.project5.title,
       category: t.projects.project5.category,
-      src: 'https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Fyaku%2Fvideos%2Ffreepik__dolly-shot-transition-from-a-cluttered-outdated-ki__5958.mp4?alt=media&token=12755114-0e1a-4e5b-88df-8d9f775d9f5a',
+      src: 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fvideo%2Ffreepik__dolly-shot-transition-from-a-cluttered-outdated-ki__5958.mp4?alt=media&token=8157e8bc-e7b3-4641-8368-0d4f6c05de80',
       imageHint: 'elegant kitchen remodel',
       className: 'md:col-span-2 md:row-span-2',
     },
@@ -81,7 +81,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
       type: 'video',
       title: t.projects.project6.title,
       category: t.projects.project6.category,
-      src: 'https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Fyaku%2Fvideos%2Fidea%20ban%CC%83o%202.mp4?alt=media&token=86b2fe43-39eb-4c46-b279-06409636739e',
+      src: 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fvideo%2Fidea%20ban%CC%83o%202.mp4?alt=media&token=2fcd0a78-db39-4245-b6ae-6efbdd5d74fb',
       imageHint: 'bathroom idea',
       className: 'md:col-span-2 md:row-span-1',
     },
@@ -97,7 +97,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
       type: 'video',
       title: t.projects.project7.title,
       category: t.projects.project7.category,
-      src: 'https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Fyaku%2Fvideos%2Fidea%20ban%CC%83o.mp4?alt=media&token=6a4ee89f-dc86-4b25-8186-dc74c5641466',
+      src: 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fvideo%2Fidea%20ban%CC%83o.mp4?alt=media&token=2efab321-8534-4815-b50c-e5f934c2db08',
       imageHint: 'bathroom idea 2',
       className: 'md:col-span-1 md:row-span-1',
     },
@@ -105,7 +105,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
       type: 'video',
       title: t.projects.project8.title,
       category: t.projects.project8.category,
-      src: 'https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Fyaku%2Fvideos%2Fidea%20terraza.mp4?alt=media&token=447f5f09-1ed9-45d5-83f2-a484e9f24aed',
+      src: 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fvideo%2Fidea%20terraza.mp4?alt=media&token=66ba634f-c712-4531-b31d-4f4e1fe5cee2',
       imageHint: 'terrace idea',
       className: 'md:col-span-2 md:row-span-1',
     },
@@ -113,7 +113,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
       type: 'video',
       title: t.projects.project9.title,
       category: t.projects.project9.category,
-      src: 'https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Fyaku%2Fvideos%2Fjardineria.antes-y-despu%C3%A9s.mp4?alt=media&token=ce70c24e-74fc-4201-a7f8-cfc82a0212e5',
+      src: 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fvideo%2Fjardineria.antes-y-despu%C3%A9s.mp4?alt=media&token=bf01f81f-6490-46e3-9d9a-613c1427523b',
       imageHint: 'gardening before after',
       className: 'md:col-span-1 md:row-span-1',
     },
@@ -121,7 +121,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
       type: 'video',
       title: t.projects.project10.title,
       category: t.projects.project10.category,
-      src: 'https://firebasestorage.googleapis.com/v0/b/local-digital-eye.firebasestorage.app/o/business%2Fyaku%2Fvideos%2Ffreepik__dolly-shot-a-vibrant-yellow-wall-with-a-barred-win__83848.mp4?alt=media&token=95d8291d-dfdb-46f9-9ac3-9e9de720a2ce',
+      src: 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Fvideo%2Ffreepik__a-cinematic-journey-unfolds-as-we-transition-from-__78739.mp4?alt=media&token=a9e05a13-a915-4b43-8b39-8c2c0bcc952e',
       imageHint: 'house facade',
       className: 'md:col-span-1 md:row-span-1',
     }
@@ -289,7 +289,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
           </div>
         </section>
             
-        <section id="projects" className="w-full py-20 md:py-28 bg-gray-100 dark:bg-gray-900">
+        <section id="projects" className="w-full py-20 md:py-28 bg-secondary">
           <div className="container-limited">
             <div className="text-center space-y-4 mb-12">
               <h2 className="font-headline text-3xl md:text-4xl font-bold">{t.projects.title}</h2>
@@ -306,7 +306,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
                   )}
                 >
                   {project.type === 'cta' ? (
-                    <Link href={project.href || '#'} className="h-full flex flex-col justify-center items-center bg-gray-200/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors p-8 text-center">
+                    <Link href={project.href || '#'} className="h-full flex flex-col justify-center items-center bg-background/80 backdrop-blur-sm hover:bg-background transition-colors p-8 text-center">
                       <ArrowRight className="w-10 h-10 mb-4 text-primary group-hover:scale-110 transition-transform" />
                       <h3 className="text-xl md:text-2xl font-bold">{project.title}</h3> 
                       <p className="text-base text-muted-foreground mt-2">{project.subtitle}</p>
@@ -349,7 +349,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
         <section className="relative w-full bg-background pt-20 md:pt-28">
             <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block h-[60px] md:h-[100px] w-[calc(100%+1.3px)]">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-gray-100 dark:fill-gray-900"></path>
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-secondary"></path>
                 </svg>
             </div>
             <div className="container-limited py-20 md:py-28">
