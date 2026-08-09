@@ -28,6 +28,15 @@
                 "pool": "Construcción de Piscina"
             }
         },
+        "callPreference": {
+            "label": "¿Cuándo prefieres que te llamemos?",
+            "options": {
+                "morning": "Mañana (9:00 - 13:00)",
+                "midday": "Mediodía (13:00 - 16:00)",
+                "afternoon": "Tarde (16:00 - 19:00)",
+                "any": "Cualquier momento"
+            }
+        },
         "squareMeters": {
             "label": "Metros cuadrados del suelo (m²)"
         }

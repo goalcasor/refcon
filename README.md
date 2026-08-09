@@ -38,12 +38,26 @@ Este es un proyecto boilerplate diseñado para empresas de construcción, contra
       NEXT_PUBLIC_FIREBASE_APP_ID=...
       ```
 
-4.  **Personalización**:
+4.  **Configurar medición y campañas** (opcional, necesario para Google Ads):
+    ```
+    NEXT_PUBLIC_SITE_URL=https://tudominio.com   # dominio real; sin él los metadatos usan example.com
+    NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
+    NEXT_PUBLIC_GOOGLE_ADS_ID=AW-XXXXXXXXX
+    NEXT_PUBLIC_ADS_LEAD_LABEL=XXXXXXXXXXXXXXX   # etiqueta de la conversión de lead (parte tras la barra)
+    NEXT_PUBLIC_LEADS_EMAIL=destino@tudominio.com # receptor de los leads de los formularios
+    ```
+    Sin `NEXT_PUBLIC_GA4_ID` ni `NEXT_PUBLIC_GOOGLE_ADS_ID` no se carga ninguna etiqueta de Google
+    y el banner de cookies no aparece. El consentimiento se gestiona con Consent Mode v2: el estado
+    por defecto es denegado hasta que el visitante acepta.
+
+    La estrategia de campaña y el estudio de mercado están en [docs/marketing/](docs/marketing/).
+
+5.  **Personalización**:
     - **Nombre y Textos**: Busca "Nombre de empresa" en el proyecto y reemplázalo por el nombre real de tu compañía. Adapta los textos en los archivos de `src/locales/` para que coincidan con tu marca.
     - **Logo**: El logo se encuentra en `src/components/logo.tsx`. Puedes reemplazar el icono `Building` por tu propio logo en formato SVG o imagen.
     - **Estilos**: Modifica los colores y estilos en `src/app/globals.css` y `tailwind.config.ts` para adaptar el diseño a tu identidad de marca.
 
-5.  **Ejecutar en desarrollo**:
+6.  **Ejecutar en desarrollo**:
     ```bash
     npm run dev
     ```

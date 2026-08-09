@@ -28,6 +28,15 @@
                 "pool": "Construcció de Piscina"
             }
         },
+        "callPreference": {
+            "label": "Quan prefereixes que et telefonem?",
+            "options": {
+                "morning": "Matí (9:00 - 13:00)",
+                "midday": "Migdia (13:00 - 16:00)",
+                "afternoon": "Horabaixa (16:00 - 19:00)",
+                "any": "Qualsevol moment"
+            }
+        },
         "squareMeters": {
             "label": "Metres quadrats del terra (m²)"
         }

@@ -2,10 +2,8 @@ import { getDictionary } from '@/lib/dictionaries';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
+import { ContactForm } from '@/components/contact-form';
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 
@@ -53,21 +51,7 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
           <div className="container-limited grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <h2 className="font-headline text-3xl font-bold">{t.formTitle}</h2>
-              <form className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">{t.form.name}</Label>
-                  <Input id="name" placeholder={t.form.namePlaceholder} />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">{t.form.email}</Label>
-                  <Input id="email" type="email" placeholder={t.form.emailPlaceholder} />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">{t.form.message}</Label>
-                  <Textarea id="message" placeholder={t.form.messagePlaceholder} className="min-h-[150px]" />
-                </div>
-                <Button type="submit" size="lg">{t.form.button}</Button>
-              </form>
+              <ContactForm t={t} />
             </div>
             <div className="space-y-8">
               <h2 className="font-headline text-3xl font-bold">{t.infoTitle}</h2>

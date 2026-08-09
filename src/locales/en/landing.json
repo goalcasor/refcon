@@ -1,0 +1,34 @@
+{
+    "trust": {
+        "years": "30 years building in Mallorca",
+        "written": "Fixed price in writing",
+        "noCost": "Free, no obligation",
+        "callback": "We call you when it suits you"
+    },
+    "formTitle": "Get your quote in 1 minute",
+    "formSubtitle": "Fill in the details and get an instant estimate. We then call you back in the time slot you choose.",
+    "inclusionsTitle": "What the work includes",
+    "galleryTitle": "Real projects in Mallorca",
+    "testimonialsTitle": "What our clients say",
+    "ctaSecondary": "Get my quote",
+    "pages": {
+        "reforma-integral": {
+            "h1": "Home Renovation in Mallorca",
+            "subtitle": "We manage your full renovation from start to finish: design, works, finishes and handover. Instant indicative quote, no waiting for a call.",
+            "metaTitle": "Home Renovation in Mallorca | Instant Online Quote",
+            "metaDescription": "English speaking renovation company in Mallorca with 30 years of experience. Calculate your quote online in 1 minute, no obligation."
+        },
+        "reforma-bano": {
+            "h1": "Bathroom Renovation in Mallorca",
+            "subtitle": "Plumbing, tiling, sanitary ware and false ceiling included. Find out what your new bathroom costs before we even call you.",
+            "metaTitle": "Bathroom Renovation in Mallorca | Instant Online Quote",
+            "metaDescription": "We renovate your bathroom in Mallorca with a fixed price and written guarantee. Get your quote online in 1 minute."
+        },
+        "reforma-cocina": {
+            "h1": "Kitchen Renovation in Mallorca",
+            "subtitle": "Units, electrics, plumbing and flooring included. Discover the price of your new kitchen without waiting for a callback.",
+            "metaTitle": "Kitchen Renovation in Mallorca | Instant Online Quote",
+            "metaDescription": "We renovate your kitchen in Mallorca with a fixed price and written guarantee. Get your quote online in 1 minute."
+        }
+    }
+}

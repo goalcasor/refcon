@@ -20,5 +20,15 @@
     },
     "email": {
         "label": "Correu electrònic"
+    },
+    "toast": {
+        "success": {
+            "title": "Missatge enviat!",
+            "description": "Hem rebut el teu missatge. Et respondrem al més aviat possible."
+        },
+        "error": {
+            "title": "Error en enviar",
+            "description": "No s'ha pogut enviar el teu missatge. Torna-ho a provar més tard."
+        }
     }
 }
