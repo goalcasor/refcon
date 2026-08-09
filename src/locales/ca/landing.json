@@ -1,0 +1,34 @@
+{
+    "trust": {
+        "years": "30 anys reformant a Mallorca",
+        "written": "Preu tancat per escrit",
+        "noCost": "Sense compromís ni cost",
+        "callback": "Et telefonam a l’hora que triïs"
+    },
+    "formTitle": "Calcula el teu pressupost en 1 minut",
+    "formSubtitle": "Omple les dades i obtén una estimació a l’instant. Després et telefonam en la franja horària que prefereixis.",
+    "inclusionsTitle": "Què inclou la feina",
+    "galleryTitle": "Feines reals a Mallorca",
+    "testimonialsTitle": "Què diuen els nostres clients",
+    "ctaSecondary": "Veure pressupost",
+    "pages": {
+        "reforma-integral": {
+            "h1": "Reformes Integrals a Mallorca",
+            "subtitle": "Gestionam la teva reforma completa de cap a peus: projecte, obra, acabats i lliurament. Pressupost orientatiu a l’instant, sense esperar telefonades.",
+            "metaTitle": "Reformes Integrals a Mallorca | Pressupost a l’Instant",
+            "metaDescription": "Empresa de reformes integrals a Mallorca amb 30 anys d’experiència. Calcula el teu pressupost en línia en 1 minut, sense compromís."
+        },
+        "reforma-bano": {
+            "h1": "Reforma de Banys a Mallorca",
+            "subtitle": "Fontaneria, enrajolat, sanitaris i fals sostre inclosos. Calcula què costa el teu bany nou abans que et telefonem.",
+            "metaTitle": "Reforma de Banys a Mallorca | Pressupost a l’Instant",
+            "metaDescription": "Reformam el teu bany a Mallorca amb preu tancat i garantia per escrit. Calcula el teu pressupost en línia en 1 minut."
+        },
+        "reforma-cocina": {
+            "h1": "Reforma de Cuines a Mallorca",
+            "subtitle": "Mobiliari, electricitat, fontaneria i paviment inclosos. Descobreix el preu de la teva cuina nova sense esperar que et telefonin.",
+            "metaTitle": "Reforma de Cuines a Mallorca | Pressupost a l’Instant",
+            "metaDescription": "Reformam la teva cuina a Mallorca amb preu tancat i garantia per escrit. Calcula el teu pressupost en línia en 1 minut."
+        }
+    }
+}

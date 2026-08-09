@@ -28,6 +28,15 @@
                 "pool": "Pool Construction"
             }
         },
+        "callPreference": {
+            "label": "When would you like us to call you?",
+            "options": {
+                "morning": "Morning (9:00 - 13:00)",
+                "midday": "Midday (13:00 - 16:00)",
+                "afternoon": "Afternoon (16:00 - 19:00)",
+                "any": "Any time"
+            }
+        },
         "squareMeters": {
             "label": "Floor square meters (m²)"
         }

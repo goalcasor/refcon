@@ -1,0 +1,67 @@
+{
+    "reviewNotice": "Documento pendiente de revisión legal. Sustituye los campos marcados como PENDIENTE por los datos reales de la empresa antes de publicar.",
+    "privacy": {
+        "title": "Política de Privacidad",
+        "updated": "Última actualización: julio de 2026",
+        "sections": [
+            {
+                "heading": "1. Responsable del tratamiento",
+                "body": "Refcon. Domicilio: [PENDIENTE: completar con los datos fiscales de la empresa]. NIF: [PENDIENTE: completar con los datos fiscales de la empresa]. Correo de contacto: [PENDIENTE: completar con los datos fiscales de la empresa]. Teléfono: +34 661 95 90 90."
+            },
+            {
+                "heading": "2. Datos que tratamos",
+                "body": "Cuando solicitas un presupuesto recogemos tu nombre, correo electrónico, teléfono, dirección de la obra, franja horaria preferida de contacto y los datos técnicos del proyecto (tipo de reforma, superficie y nivel de calidad). Si usas el formulario de contacto recogemos tu nombre, correo electrónico y el mensaje. También tratamos datos de navegación si aceptas las cookies de medición."
+            },
+            {
+                "heading": "3. Finalidad y base jurídica",
+                "body": "Tratamos tus datos para elaborar y enviarte el presupuesto solicitado, ponernos en contacto contigo en la franja horaria que indiques y responder a tus consultas. La base jurídica es la aplicación de medidas precontractuales a petición tuya y tu consentimiento. Los datos de navegación y publicidad se tratan únicamente con tu consentimiento expreso."
+            },
+            {
+                "heading": "4. Cookies y medición",
+                "body": "Utilizamos Google Analytics 4 y Google Ads para analizar el uso del sitio y medir la eficacia de nuestras campañas. Estas tecnologías solo se activan si aceptas las cookies en el aviso correspondiente. Puedes rechazarlas y seguir usando el sitio con normalidad, o cambiar tu decisión borrando las cookies del navegador."
+            },
+            {
+                "heading": "5. Destinatarios",
+                "body": "Tus datos se alojan en Google Firebase (Google Cloud). Si aceptas las cookies de medición, Google LLC actúa como destinatario de los datos de navegación. Estas transferencias internacionales se amparan en el Marco de Privacidad de Datos UE-EE. UU. No cedemos tus datos a terceros con fines comerciales."
+            },
+            {
+                "heading": "6. Plazo de conservación",
+                "body": "Conservamos los datos de tu solicitud durante el tiempo necesario para atenderla y, posteriormente, durante los plazos legales de prescripción de responsabilidades. Puedes solicitar su supresión en cualquier momento."
+            },
+            {
+                "heading": "7. Tus derechos",
+                "body": "Puedes ejercer los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a [PENDIENTE: completar con los datos fiscales de la empresa]. También puedes retirar tu consentimiento en cualquier momento y presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es)."
+            }
+        ]
+    },
+    "terms": {
+        "title": "Términos de Servicio",
+        "updated": "Última actualización: julio de 2026",
+        "sections": [
+            {
+                "heading": "1. Objeto",
+                "body": "Estas condiciones regulan el acceso y uso del sitio web de Refcon, empresa de construcción y reformas con actividad en Mallorca."
+            },
+            {
+                "heading": "2. Carácter orientativo de los presupuestos",
+                "body": "La estimación que genera la calculadora de la web es orientativa y NO tiene carácter contractual. Se obtiene aplicando precios medios por metro cuadrado y no contempla las particularidades de cada inmueble. El presupuesto vinculante se emite siempre por escrito tras una visita técnica."
+            },
+            {
+                "heading": "3. Uso del sitio",
+                "body": "Te comprometes a usar el sitio conforme a la ley y a facilitar información veraz en los formularios. No está permitido usar los formularios con fines distintos a la solicitud de servicios."
+            },
+            {
+                "heading": "4. Propiedad intelectual",
+                "body": "Los contenidos, marcas, imágenes y vídeos del sitio pertenecen a Refcon o se utilizan con la correspondiente licencia. No está autorizada su reproducción sin consentimiento previo por escrito."
+            },
+            {
+                "heading": "5. Responsabilidad",
+                "body": "Refcon no se responsabiliza de las interrupciones del servicio ajenas a su control ni de las decisiones tomadas exclusivamente sobre la base de la estimación orientativa de la web."
+            },
+            {
+                "heading": "6. Legislación aplicable",
+                "body": "Estas condiciones se rigen por la legislación española. Para cualquier controversia serán competentes los juzgados y tribunales que correspondan conforme a la normativa de consumidores y usuarios."
+            }
+        ]
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "trust": {
+        "years": "30 Jahre Bauerfahrung auf Mallorca",
+        "written": "Festpreis schriftlich",
+        "noCost": "Unverbindlich und kostenlos",
+        "callback": "Wir rufen Sie zu Ihrer Wunschzeit an"
+    },
+    "formTitle": "Angebot in 1 Minute berechnen",
+    "formSubtitle": "Geben Sie Ihre Daten ein und erhalten Sie sofort eine Schätzung. Anschließend rufen wir Sie im gewünschten Zeitfenster zurück.",
+    "inclusionsTitle": "Was die Arbeit umfasst",
+    "galleryTitle": "Echte Projekte auf Mallorca",
+    "testimonialsTitle": "Was unsere Kunden sagen",
+    "ctaSecondary": "Angebot ansehen",
+    "pages": {
+        "reforma-integral": {
+            "h1": "Komplettrenovierung auf Mallorca",
+            "subtitle": "Wir betreuen Ihre Komplettrenovierung von Anfang bis Ende: Planung, Bau, Ausbau und Übergabe. Sofortige Richtpreisschätzung, ohne auf einen Anruf zu warten.",
+            "metaTitle": "Komplettrenovierung auf Mallorca | Sofortiges Angebot",
+            "metaDescription": "Renovierungsunternehmen auf Mallorca mit 30 Jahren Erfahrung. Berechnen Sie Ihr Angebot online in 1 Minute, unverbindlich."
+        },
+        "reforma-bano": {
+            "h1": "Badezimmerrenovierung auf Mallorca",
+            "subtitle": "Sanitärinstallation, Fliesen, Sanitärobjekte und abgehängte Decke inklusive. Erfahren Sie den Preis Ihres neuen Bads, bevor wir Sie anrufen.",
+            "metaTitle": "Badezimmerrenovierung auf Mallorca | Sofortiges Angebot",
+            "metaDescription": "Wir renovieren Ihr Bad auf Mallorca zum Festpreis mit schriftlicher Garantie. Berechnen Sie Ihr Angebot online in 1 Minute."
+        },
+        "reforma-cocina": {
+            "h1": "Küchenrenovierung auf Mallorca",
+            "subtitle": "Möbel, Elektrik, Sanitär und Bodenbelag inklusive. Entdecken Sie den Preis Ihrer neuen Küche, ohne auf einen Rückruf zu warten.",
+            "metaTitle": "Küchenrenovierung auf Mallorca | Sofortiges Angebot",
+            "metaDescription": "Wir renovieren Ihre Küche auf Mallorca zum Festpreis mit schriftlicher Garantie. Berechnen Sie Ihr Angebot online in 1 Minute."
+        }
+    }
+}

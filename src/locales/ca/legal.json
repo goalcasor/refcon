@@ -1,0 +1,67 @@
+{
+    "reviewNotice": "Document pendent de revisió legal. Substitueix els camps marcats com a PENDIENTE per les dades reals de l'empresa abans de publicar-lo.",
+    "privacy": {
+        "title": "Política de Privacitat",
+        "updated": "Darrera actualització: juliol de 2026",
+        "sections": [
+            {
+                "heading": "1. Responsable del tractament",
+                "body": "Refcon. Domicili: [PENDIENTE: completar con los datos fiscales de la empresa]. NIF: [PENDIENTE: completar con los datos fiscales de la empresa]. Correu de contacte: [PENDIENTE: completar con los datos fiscales de la empresa]. Telèfon: +34 661 95 90 90."
+            },
+            {
+                "heading": "2. Dades que tractam",
+                "body": "Quan demanes un pressupost recollim el teu nom, correu electrònic, telèfon, adreça de l'obra, franja horària preferida de contacte i les dades tècniques del projecte (tipus de reforma, superfície i nivell de qualitat). Si uses el formulari de contacte recollim el teu nom, correu electrònic i el missatge. També tractam dades de navegació si acceptes les galetes de mesurament."
+            },
+            {
+                "heading": "3. Finalitat i base jurídica",
+                "body": "Tractam les teves dades per elaborar i enviar-te el pressupost sol·licitat, contactar-te en la franja horària que indiquis i respondre les teves consultes. La base jurídica és l'aplicació de mesures precontractuals a petició teva i el teu consentiment. Les dades de navegació i publicitat es tracten únicament amb el teu consentiment exprés."
+            },
+            {
+                "heading": "4. Galetes i mesurament",
+                "body": "Utilitzam Google Analytics 4 i Google Ads per analitzar l'ús del web i mesurar l'eficàcia de les nostres campanyes. Aquestes tecnologies només s'activen si acceptes les galetes a l'avís corresponent. Les pots rebutjar i continuar usant el web amb normalitat, o canviar la teva decisió esborrant les galetes del navegador."
+            },
+            {
+                "heading": "5. Destinataris",
+                "body": "Les teves dades s'allotgen a Google Firebase (Google Cloud). Si acceptes les galetes de mesurament, Google LLC actua com a destinatari de les dades de navegació. Aquestes transferències internacionals s'emparen en el Marc de Privadesa de Dades UE-EUA. No cedim les teves dades a tercers amb finalitats comercials."
+            },
+            {
+                "heading": "6. Termini de conservació",
+                "body": "Conservam les dades de la teva sol·licitud durant el temps necessari per atendre-la i, després, durant els terminis legals de prescripció de responsabilitats. En pots demanar la supressió en qualsevol moment."
+            },
+            {
+                "heading": "7. Els teus drets",
+                "body": "Pots exercir els drets d'accés, rectificació, supressió, oposició, limitació del tractament i portabilitat escrivint a [PENDIENTE: completar con los datos fiscales de la empresa]. També pots retirar el teu consentiment en qualsevol moment i presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (www.aepd.es)."
+            }
+        ]
+    },
+    "terms": {
+        "title": "Termes del Servei",
+        "updated": "Darrera actualització: juliol de 2026",
+        "sections": [
+            {
+                "heading": "1. Objecte",
+                "body": "Aquestes condicions regulen l'accés i l'ús del web de Refcon, empresa de construcció i reformes amb activitat a Mallorca."
+            },
+            {
+                "heading": "2. Caràcter orientatiu dels pressuposts",
+                "body": "L'estimació que genera la calculadora del web és orientativa i NO té caràcter contractual. S'obté aplicant preus mitjans per metre quadrat i no contempla les particularitats de cada immoble. El pressupost vinculant s'emet sempre per escrit després d'una visita tècnica."
+            },
+            {
+                "heading": "3. Ús del web",
+                "body": "Et compromets a usar el web d'acord amb la llei i a facilitar informació veraç als formularis. No és permès usar els formularis amb finalitats diferents de la sol·licitud de serveis."
+            },
+            {
+                "heading": "4. Propietat intel·lectual",
+                "body": "Els continguts, marques, imatges i vídeos del web pertanyen a Refcon o s'utilitzen amb la llicència corresponent. No n'és autoritzada la reproducció sense consentiment previ per escrit."
+            },
+            {
+                "heading": "5. Responsabilitat",
+                "body": "Refcon no es responsabilitza de les interrupcions del servei alienes al seu control ni de les decisions preses exclusivament sobre la base de l'estimació orientativa del web."
+            },
+            {
+                "heading": "6. Legislació aplicable",
+                "body": "Aquestes condicions es regeixen per la legislació espanyola. Per a qualsevol controvèrsia seran competents els jutjats i tribunals que corresponguin d'acord amb la normativa de consumidors i usuaris."
+            }
+        ]
+    }
+}

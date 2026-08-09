@@ -20,5 +20,15 @@
     },
     "email": {
         "label": "E-Mail"
+    },
+    "toast": {
+        "success": {
+            "title": "Nachricht gesendet!",
+            "description": "Wir haben Ihre Nachricht erhalten und melden uns so bald wie möglich."
+        },
+        "error": {
+            "title": "Senden fehlgeschlagen",
+            "description": "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut."
+        }
     }
 }

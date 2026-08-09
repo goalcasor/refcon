@@ -3,7 +3,6 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 import { User, onAuthStateChanged, signOut as firebaseSignOut } from 'firebase/auth';
 import { getSafeAuth } from '@/lib/firebase/client';
-import { Skeleton } from '@/components/ui/skeleton';
 
 interface AuthContextType {
   user: User | null;
@@ -41,22 +40,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  if (loading) {
-    return (
-        <div className="w-full h-screen flex flex-col items-center justify-center space-y-4">
-            <Skeleton className="h-16 w-full" />
-            <div className="container flex-1 p-8">
-                <Skeleton className="h-32 w-full" />
-                <div className="grid grid-cols-3 gap-4 mt-8">
-                    <Skeleton className="h-64" />
-                    <Skeleton className="h-64" />
-                    <Skeleton className="h-64" />
-                </div>
-            </div>
-        </div>
-    )
-  }
-
+  // Se renderiza siempre `children`, incluso mientras Firebase resuelve la sesión.
+  //
+  // Antes este provider devolvía un esqueleto a pantalla completa mientras `loading`
+  // era true. Como envuelve todo el árbol en el layout raíz, eso impedía que ninguna
+  // página se renderizara en servidor: el HTML llegaba sin contenido y el texto solo
+  // aparecía tras arrancar Firebase en el cliente. Penalizaba el LCP y la experiencia
+  // de página de destino que puntúa Google Ads.
+  //
+  // Las rutas que sí necesitan sesión se protegen por su cuenta: `dashboard-layout.tsx`
+  // consume `loading` del contexto y redirige a /login.
   return (
     <AuthContext.Provider value={{ user, loading, signOut }}>
       {children}

@@ -28,6 +28,15 @@
                 "pool": "Poolbau"
             }
         },
+        "callPreference": {
+            "label": "Wann sollen wir Sie anrufen?",
+            "options": {
+                "morning": "Vormittag (9:00 - 13:00)",
+                "midday": "Mittag (13:00 - 16:00)",
+                "afternoon": "Nachmittag (16:00 - 19:00)",
+                "any": "Jederzeit"
+            }
+        },
         "squareMeters": {
             "label": "Bodenquadratmeter (m²)"
         }

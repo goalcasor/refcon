@@ -1,0 +1,34 @@
+{
+    "trust": {
+        "years": "30 años reformando en Mallorca",
+        "written": "Precio cerrado por escrito",
+        "noCost": "Sin compromiso ni coste",
+        "callback": "Te llamamos a la hora que elijas"
+    },
+    "formTitle": "Calcula tu presupuesto en 1 minuto",
+    "formSubtitle": "Rellena los datos y obtén una estimación al instante. Después te llamamos en la franja horaria que prefieras.",
+    "inclusionsTitle": "Qué incluye el trabajo",
+    "galleryTitle": "Trabajos reales en Mallorca",
+    "testimonialsTitle": "Lo que dicen nuestros clientes",
+    "ctaSecondary": "Ver presupuesto",
+    "pages": {
+        "reforma-integral": {
+            "h1": "Reformas Integrales en Mallorca",
+            "subtitle": "Gestionamos tu reforma completa de principio a fin: proyecto, obra, acabados y entrega. Presupuesto orientativo al instante, sin esperar llamadas.",
+            "metaTitle": "Reformas Integrales en Mallorca | Presupuesto al Instante",
+            "metaDescription": "Empresa de reformas integrales en Mallorca con 30 años de experiencia. Calcula tu presupuesto online en 1 minuto, sin compromiso."
+        },
+        "reforma-bano": {
+            "h1": "Reforma de Baños en Mallorca",
+            "subtitle": "Fontanería, alicatado, sanitarios y falso techo incluidos. Calcula lo que cuesta tu baño nuevo antes de que te llamemos.",
+            "metaTitle": "Reforma de Baños en Mallorca | Presupuesto al Instante",
+            "metaDescription": "Reformamos tu baño en Mallorca con precio cerrado y garantía por escrito. Calcula tu presupuesto online en 1 minuto."
+        },
+        "reforma-cocina": {
+            "h1": "Reforma de Cocinas en Mallorca",
+            "subtitle": "Mobiliario, electricidad, fontanería y pavimento incluidos. Descubre el precio de tu cocina nueva sin esperar a que te llamen.",
+            "metaTitle": "Reforma de Cocinas en Mallorca | Presupuesto al Instante",
+            "metaDescription": "Reformamos tu cocina en Mallorca con precio cerrado y garantía por escrito. Calcula tu presupuesto online en 1 minuto."
+        }
+    }
+}

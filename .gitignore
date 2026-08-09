@@ -43,3 +43,22 @@ next-env.d.ts
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+# entornos y utilidades de desarrollo
+.agents/
+.idx/
+.modified
+.claude/
+
+# editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# sistema
+Thumbs.db
+
+# documentacion interna de marketing: el repositorio es publico y aqui viven
+# las keywords, negativas, copy de anuncios y presupuestos de la campana
+docs/marketing/

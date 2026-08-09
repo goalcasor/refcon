@@ -6,6 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { trackPhoneClick, trackWhatsappClick } from '@/lib/analytics';
 
 export function ContactFab() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,20 +20,20 @@ export function ContactFab() {
           <>
             <div className="flex flex-col items-center gap-2">
               <Button asChild variant="outline" size="sm" className="bg-background text-xs px-3 h-auto py-1">
-                 <Link href={`tel:${phoneNumber}`}>Llamar Ahora</Link>
+                 <Link href={`tel:${phoneNumber}`} onClick={trackPhoneClick}>Llamar Ahora</Link>
               </Button>
               <Button asChild size="icon" className="rounded-full w-12 h-12 bg-blue-600 hover:bg-blue-700">
-                <Link href={`tel:${phoneNumber}`} aria-label="Llamar">
+                <Link href={`tel:${phoneNumber}`} onClick={trackPhoneClick} aria-label="Llamar">
                   <Phone className="h-6 w-6" />
                 </Link>
               </Button>
             </div>
             <div className="flex flex-col items-center gap-2">
               <Button asChild variant="outline" size="sm" className="bg-background text-xs px-3 h-auto py-1">
-                 <Link href={whatsappLink} target="_blank" rel="noopener noreferrer">WhatsApp</Link>
+                 <Link href={whatsappLink} onClick={trackWhatsappClick} target="_blank" rel="noopener noreferrer">WhatsApp</Link>
               </Button>
                <Button asChild size="icon" className="rounded-full w-12 h-12 bg-teal-500 hover:bg-teal-600">
-                <Link href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+                <Link href={whatsappLink} onClick={trackWhatsappClick} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
                   <FaWhatsapp className="h-6 w-6" />
                 </Link>
               </Button>

@@ -28,6 +28,7 @@ import { ArrowLeft, Check, Loader2, MailCheck, RotateCw, Star } from 'lucide-rea
 import Link from 'next/link';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { getSafeDb } from '@/lib/firebase/client';
+import { trackLead } from '@/lib/analytics';
 
 const pricingConfig = {
     integral: { basic: 400, medium: 600, premium: 800 },
@@ -35,11 +36,16 @@ const pricingConfig = {
     kitchen: { basic: 621, medium: 700, premium: 760 },
 };
 
+export type RenovationType = 'integral' | 'bathrooms' | 'kitchen' | 'pool';
+
 const formSchema = z.object({
   name: z.string().min(2, { message: 'El nombre es obligatorio.' }),
   email: z.string().email({ message: 'Por favor, introduce un correo electrónico válido.' }),
   phone: z.string().min(9, { message: 'Por favor, introduce un número de teléfono válido.' }),
   address: z.string().min(5, { message: 'La dirección del proyecto es necesaria.' }),
+  // Franja horaria en la que el cliente prefiere recibir la llamada de seguimiento.
+  // Lleva valor por defecto para no añadir fricción: quien no elija, envía igual.
+  callPreference: z.enum(['morning', 'midday', 'afternoon', 'any']),
   renovationType: z.enum(['integral', 'bathrooms', 'kitchen', 'pool']),
   squareMeters: z.coerce.number().min(1, 'La superficie debe ser de al menos 1 m²'),
   quality: z.enum(['basic', 'medium', 'premium']),
@@ -47,7 +53,14 @@ const formSchema = z.object({
 
 type QuickFormValues = z.infer<typeof formSchema>;
 
-export function QuickBudgetForm({ t }: { t: any; }) {
+export function QuickBudgetForm({
+  t,
+  defaultRenovationType = 'kitchen',
+}: {
+  t: any;
+  /** Permite a las landings de campaña llegar con el tipo de reforma ya seleccionado. */
+  defaultRenovationType?: RenovationType;
+}) {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -60,7 +73,8 @@ export function QuickBudgetForm({ t }: { t: any; }) {
       email: '',
       phone: '',
       address: '',
-      renovationType: 'kitchen',
+      callPreference: 'any',
+      renovationType: defaultRenovationType,
       squareMeters: 1,
       quality: 'basic',
     },
@@ -83,6 +97,9 @@ export function QuickBudgetForm({ t }: { t: any; }) {
       
       const db = getSafeDb();
 
+      const renovationLabel = t.budgetRequest.quickForm.renovationType.options[values.renovationType];
+      const callPreferenceLabel = t.budgetRequest.quickForm.callPreference.options[values.callPreference];
+
       // Persist the budget request in the Refcon collection (all Refcon data is prefixed with "refcon_").
       const budgetCollection = collection(db, 'refcon_budget');
       await addDoc(budgetCollection, {
@@ -90,6 +107,7 @@ export function QuickBudgetForm({ t }: { t: any; }) {
         email: values.email,
         phone: values.phone,
         address: values.address,
+        callPreference: values.callPreference,
         renovationType: values.renovationType,
         squareMeters: values.squareMeters,
         quality: values.renovationType !== 'pool' ? values.quality : null,
@@ -101,8 +119,9 @@ export function QuickBudgetForm({ t }: { t: any; }) {
 
       const mailCollection = collection(db, 'mail');
 
-      const recipientEmail = 'goalcasor@gmail.com';
-      const subject = 'Nueva Solicitud de Presupuesto Rápido';
+      const recipientEmail = process.env.NEXT_PUBLIC_LEADS_EMAIL || 'goalcasor@gmail.com';
+      // La franja horaria va en el asunto para poder priorizar la bandeja sin abrir el correo.
+      const subject = `Nuevo lead · ${renovationLabel} · Llamar: ${callPreferenceLabel}`;
 
       await addDoc(mailCollection, {
         to: [recipientEmail],
@@ -116,11 +135,12 @@ export function QuickBudgetForm({ t }: { t: any; }) {
                     <li><strong>Nombre:</strong> ${values.name}</li>
                     <li><strong>Email:</strong> ${values.email}</li>
                     <li><strong>Teléfono:</strong> ${values.phone}</li>
+                    <li><strong>Prefiere que le llamen:</strong> ${callPreferenceLabel}</li>
                     <li><strong>Dirección:</strong> ${values.address}</li>
                 </ul>
                 <h2>Detalles del Proyecto:</h2>
                 <ul>
-                    <li><strong>Tipo de Reforma:</strong> ${t.budgetRequest.quickForm.renovationType.options[values.renovationType]}</li>
+                    <li><strong>Tipo de Reforma:</strong> ${renovationLabel}</li>
                     <li><strong>Metros Cuadrados:</strong> ${values.squareMeters} m²</li>
                     ${values.renovationType !== 'pool' ? `<li><strong>Calidad:</strong> ${t.budgetRequest.form.quality.options[values.quality]}</li>` : ''}
                 </ul>
@@ -131,6 +151,14 @@ export function QuickBudgetForm({ t }: { t: any; }) {
                 <p>Por favor, ponte en contacto con el cliente para dar seguimiento.</p>
             `,
         },
+      });
+
+      // Conversión principal de la campaña. Se envía el importe estimado como valor
+      // para poder optimizar por tamaño de proyecto, no solo por número de leads.
+      trackLead({
+        value: budget,
+        renovationType: values.renovationType,
+        callPreference: values.callPreference,
       });
 
       toast({
@@ -225,8 +253,23 @@ export function QuickBudgetForm({ t }: { t: any; }) {
                 <FormField control={form.control} name="phone" render={({ field }) => (
                   <FormItem><FormLabel>{t.budgetRequest.form.phone.label}</FormLabel><FormControl><Input placeholder={t.budgetRequest.form.phone.placeholder} {...field} /></FormControl><FormMessage /></FormItem>
                 )} />
+                <FormField control={form.control} name="callPreference" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t.budgetRequest.quickForm.callPreference.label}</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl>
+                      <SelectContent>
+                        <SelectItem value="morning">{t.budgetRequest.quickForm.callPreference.options.morning}</SelectItem>
+                        <SelectItem value="midday">{t.budgetRequest.quickForm.callPreference.options.midday}</SelectItem>
+                        <SelectItem value="afternoon">{t.budgetRequest.quickForm.callPreference.options.afternoon}</SelectItem>
+                        <SelectItem value="any">{t.budgetRequest.quickForm.callPreference.options.any}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )} />
                 <FormField control={form.control} name="address" render={({ field }) => (
-                  <FormItem><FormLabel>{t.budgetRequest.form.address.label}</FormLabel><FormControl><Input placeholder={t.budgetRequest.form.address.placeholder} {...field} /></FormControl><FormMessage /></FormItem>
+                  <FormItem className="md:col-span-2"><FormLabel>{t.budgetRequest.form.address.label}</FormLabel><FormControl><Input placeholder={t.budgetRequest.form.address.placeholder} {...field} /></FormControl><FormMessage /></FormItem>
                 )} />
               </div>
               <div className={`grid ${watchRenovationType === 'pool' ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6`}>

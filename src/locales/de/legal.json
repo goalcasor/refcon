@@ -1,0 +1,67 @@
+{
+    "reviewNotice": "Dokument steht noch unter rechtlichem Vorbehalt. Ersetzen Sie die mit PENDIENTE markierten Felder vor der Veröffentlichung durch die tatsächlichen Unternehmensdaten.",
+    "privacy": {
+        "title": "Datenschutzerklärung",
+        "updated": "Letzte Aktualisierung: Juli 2026",
+        "sections": [
+            {
+                "heading": "1. Verantwortlicher",
+                "body": "Refcon. Anschrift: [PENDIENTE: completar con los datos fiscales de la empresa]. Steuernummer: [PENDIENTE: completar con los datos fiscales de la empresa]. Kontakt-E-Mail: [PENDIENTE: completar con los datos fiscales de la empresa]. Telefon: +34 661 95 90 90."
+            },
+            {
+                "heading": "2. Verarbeitete Daten",
+                "body": "Wenn Sie ein Angebot anfordern, erheben wir Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer, die Adresse des Bauvorhabens, das bevorzugte Zeitfenster für den Rückruf sowie die technischen Projektdaten (Art der Renovierung, Fläche und Qualitätsstufe). Über das Kontaktformular erheben wir Name, E-Mail-Adresse und Nachricht. Bei Einwilligung verarbeiten wir zudem Nutzungsdaten."
+            },
+            {
+                "heading": "3. Zweck und Rechtsgrundlage",
+                "body": "Wir verarbeiten Ihre Daten, um das angeforderte Angebot zu erstellen und zu übermitteln, Sie im gewählten Zeitfenster zu kontaktieren und Ihre Anfragen zu beantworten. Rechtsgrundlage sind vorvertragliche Maßnahmen auf Ihre Anfrage sowie Ihre Einwilligung. Nutzungs- und Werbedaten werden ausschließlich auf Grundlage Ihrer ausdrücklichen Einwilligung verarbeitet."
+            },
+            {
+                "heading": "4. Cookies und Messung",
+                "body": "Wir verwenden Google Analytics 4 und Google Ads, um die Nutzung der Website zu analysieren und die Wirksamkeit unserer Kampagnen zu messen. Diese Technologien werden nur aktiviert, wenn Sie im entsprechenden Hinweis zustimmen. Sie können ablehnen und die Website normal weiternutzen oder Ihre Entscheidung durch Löschen der Browser-Cookies ändern."
+            },
+            {
+                "heading": "5. Empfänger",
+                "body": "Ihre Daten werden bei Google Firebase (Google Cloud) gehostet. Bei Einwilligung in Messcookies ist Google LLC Empfänger der Nutzungsdaten. Diese internationalen Übermittlungen stützen sich auf das EU-US Data Privacy Framework. Wir geben Ihre Daten nicht zu kommerziellen Zwecken an Dritte weiter."
+            },
+            {
+                "heading": "6. Speicherdauer",
+                "body": "Wir speichern die Daten Ihrer Anfrage so lange, wie es zu deren Bearbeitung erforderlich ist, und anschließend für die gesetzlichen Verjährungsfristen. Sie können jederzeit die Löschung verlangen."
+            },
+            {
+                "heading": "7. Ihre Rechte",
+                "body": "Sie können Ihre Rechte auf Auskunft, Berichtigung, Löschung, Widerspruch, Einschränkung der Verarbeitung und Datenübertragbarkeit unter [PENDIENTE: completar con los datos fiscales de la empresa] geltend machen. Sie können Ihre Einwilligung jederzeit widerrufen und Beschwerde bei der spanischen Datenschutzbehörde (www.aepd.es) einlegen."
+            }
+        ]
+    },
+    "terms": {
+        "title": "Nutzungsbedingungen",
+        "updated": "Letzte Aktualisierung: Juli 2026",
+        "sections": [
+            {
+                "heading": "1. Gegenstand",
+                "body": "Diese Bedingungen regeln den Zugang zu und die Nutzung der Website von Refcon, einem Bau- und Renovierungsunternehmen mit Tätigkeit auf Mallorca."
+            },
+            {
+                "heading": "2. Angebote sind unverbindlich",
+                "body": "Die vom Rechner der Website erstellte Schätzung ist unverbindlich und NICHT vertraglich bindend. Sie beruht auf Durchschnittspreisen pro Quadratmeter und berücksichtigt nicht die Besonderheiten der jeweiligen Immobilie. Ein verbindliches Angebot wird stets schriftlich nach einer technischen Besichtigung erstellt."
+            },
+            {
+                "heading": "3. Nutzung der Website",
+                "body": "Sie verpflichten sich, die Website gesetzeskonform zu nutzen und in den Formularen wahrheitsgemäße Angaben zu machen. Die Nutzung der Formulare zu anderen Zwecken als der Anforderung von Leistungen ist nicht gestattet."
+            },
+            {
+                "heading": "4. Geistiges Eigentum",
+                "body": "Inhalte, Marken, Bilder und Videos dieser Website gehören Refcon oder werden unter entsprechender Lizenz verwendet. Eine Vervielfältigung ohne vorherige schriftliche Zustimmung ist nicht gestattet."
+            },
+            {
+                "heading": "5. Haftung",
+                "body": "Refcon haftet nicht für Betriebsunterbrechungen außerhalb seines Einflussbereichs und nicht für Entscheidungen, die ausschließlich auf der unverbindlichen Schätzung der Website beruhen."
+            },
+            {
+                "heading": "6. Anwendbares Recht",
+                "body": "Diese Bedingungen unterliegen spanischem Recht. Für Streitigkeiten sind die nach der Verbraucherschutzgesetzgebung zuständigen Gerichte berufen."
+            }
+        ]
+    }
+}
