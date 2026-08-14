@@ -9,7 +9,8 @@
         "myBudgets": "Mis Presupuestos",
         "seoGenerator": "Generador SEO",
         "settings": "Ajustes",
-        "pricing": "Configurar Precios"
+        "pricing": "Configurar Precios",
+        "leads": "Solicitudes"
     },
     "requestBudget": {
         "title": "Solicitar Presupuesto",
@@ -18,5 +19,37 @@
     "seoGenerator": {
         "title": "Generador de Blog SEO",
         "description": "Crea artículos de blog optimizados para SEO para atraer más clientes."
+    },
+    "leads": {
+        "title": "Solicitudes de presupuesto",
+        "subtitle": "Todas las solicitudes recibidas desde la web, en tiempo real.",
+        "loading": "Cargando solicitudes…",
+        "empty": "No hay solicitudes con este estado.",
+        "errorTitle": "No se pueden leer las solicitudes",
+        "errorHelp": "Lo habitual es que las reglas de seguridad de Firestore no permitan leer la colección refcon_budget a usuarios autenticados. Revisa las reglas en la consola de Firebase.",
+        "statusError": "No se pudo cambiar el estado",
+        "filters": {
+            "all": "Todas"
+        },
+        "status": {
+            "new": "Nueva",
+            "contacted": "Contactada",
+            "quoted": "Presupuestada",
+            "won": "Ganada",
+            "lost": "Perdida"
+        },
+        "stats": {
+            "total": "Solicitudes totales",
+            "fresh": "Sin contactar",
+            "won": "Ganadas",
+            "pipeline": "Importe en curso"
+        },
+        "fields": {
+            "renovationType": "Tipo de reforma",
+            "callPreference": "Prefiere que le llamen",
+            "squareMeters": "Superficie",
+            "quality": "Calidad",
+            "estimatedBudget": "Presupuesto estimado"
+        }
     }
 }

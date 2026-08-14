@@ -36,12 +36,37 @@ export async function generateMetadata({ params: { locale, slug } }: Props): Pro
 
   const dict = await getDictionary(locale as any);
   const page = dict.landing.pages[slug];
+  const url = `/${locale}/lp/${slug}`;
+  const ogImage = landingPages[slug as LandingSlug].ogImage;
 
   return {
     title: page.metaTitle,
     description: page.metaDescription,
     // Las landings de campaña no se indexan: evitan canibalizar el SEO de /services/.
     robots: { index: false, follow: false },
+    alternates: { canonical: url },
+    /*
+      Open Graph propio de cada oferta. Sin esto se hereda entero el del layout
+      raíz y las cinco landings se ven idénticas al compartirlas por WhatsApp.
+      La imagen la genera opengraph-image.tsx con el precio de cada una.
+    */
+    openGraph: {
+      type: 'website',
+      url,
+      siteName: 'Refcon',
+      title: page.h1,
+      description: page.subtitle,
+      locale: locale === 'en' ? 'en_GB' : locale === 'de' ? 'de_DE' : 'es_ES',
+      ...(ogImage && {
+        images: [{ url: ogImage, width: 1200, height: 630, alt: page.h1 }],
+      }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.h1,
+      description: page.subtitle,
+      ...(ogImage && { images: [ogImage] }),
+    },
   };
 }
 
