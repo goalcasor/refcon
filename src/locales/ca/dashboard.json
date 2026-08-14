@@ -9,7 +9,8 @@
         "myBudgets": "Els meus pressupostos",
         "seoGenerator": "Generador SEO",
         "settings": "Configuració",
-        "pricing": "Configurar preus"
+        "pricing": "Configurar preus",
+        "leads": "Sol·licituds"
     },
     "requestBudget": {
         "title": "Sol·licitar Pressupost",
@@ -18,5 +19,37 @@
     "seoGenerator": {
         "title": "Generador de Blog SEO",
         "description": "Crea articles de blog optimitzats per a SEO per atraure més clients."
+    },
+    "leads": {
+        "title": "Sol·licituds de pressupost",
+        "subtitle": "Totes les sol·licituds rebudes des del web, en temps real.",
+        "loading": "Carregant sol·licituds…",
+        "empty": "No hi ha sol·licituds amb aquest estat.",
+        "errorTitle": "No es poden llegir les sol·licituds",
+        "errorHelp": "Normalment vol dir que les regles de seguretat de Firestore no permeten llegir la col·lecció refcon_budget als usuaris autenticats. Revisa les regles a la consola de Firebase.",
+        "statusError": "No s’ha pogut canviar l’estat",
+        "filters": {
+            "all": "Totes"
+        },
+        "status": {
+            "new": "Nova",
+            "contacted": "Contactada",
+            "quoted": "Pressupostada",
+            "won": "Guanyada",
+            "lost": "Perduda"
+        },
+        "stats": {
+            "total": "Sol·licituds totals",
+            "fresh": "Sense contactar",
+            "won": "Guanyades",
+            "pipeline": "Import en curs"
+        },
+        "fields": {
+            "renovationType": "Tipus de reforma",
+            "callPreference": "Prefereix que el telefonin",
+            "squareMeters": "Superfície",
+            "quality": "Qualitat",
+            "estimatedBudget": "Pressupost estimat"
+        }
     }
 }

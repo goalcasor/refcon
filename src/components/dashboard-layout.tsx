@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
-  FileText,
+  Inbox,
   Lightbulb,
   Settings,
   PlusCircle,
@@ -35,8 +35,8 @@ export function DashboardLayout({ children, t }: { children: React.ReactNode, t:
 
   const navItems = [
     { href: '/dashboard', label: t.dashboard.nav.dashboard, icon: <LayoutDashboard /> },
+    { href: '/dashboard/leads', label: t.dashboard.nav.leads, icon: <Inbox /> },
     { href: '/dashboard/budget-request', label: t.dashboard.nav.requestBudget, icon: <PlusCircle /> },
-    { href: '/dashboard/my-budgets', label: t.dashboard.nav.myBudgets, icon: <FileText /> },
     { href: '/dashboard/seo-generator', label: t.dashboard.nav.seoGenerator, icon: <Lightbulb /> },
   ];
 

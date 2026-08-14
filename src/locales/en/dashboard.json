@@ -9,7 +9,8 @@
         "myBudgets": "My Budgets",
         "seoGenerator": "SEO Blog Generator",
         "settings": "Settings",
-        "pricing": "Pricing Config"
+        "pricing": "Pricing Config",
+        "leads": "Requests"
     },
     "requestBudget": {
         "title": "Request Budget",
@@ -18,5 +19,37 @@
     "seoGenerator": {
         "title": "SEO Blog Generator",
         "description": "Create SEO-optimized blog articles to attract more clients."
+    },
+    "leads": {
+        "title": "Quote requests",
+        "subtitle": "Every request received from the website, in real time.",
+        "loading": "Loading requests…",
+        "empty": "No requests with this status.",
+        "errorTitle": "Requests cannot be read",
+        "errorHelp": "This usually means the Firestore security rules do not allow authenticated users to read the refcon_budget collection. Check the rules in the Firebase console.",
+        "statusError": "The status could not be changed",
+        "filters": {
+            "all": "All"
+        },
+        "status": {
+            "new": "New",
+            "contacted": "Contacted",
+            "quoted": "Quoted",
+            "won": "Won",
+            "lost": "Lost"
+        },
+        "stats": {
+            "total": "Total requests",
+            "fresh": "Not contacted",
+            "won": "Won",
+            "pipeline": "Open pipeline"
+        },
+        "fields": {
+            "renovationType": "Renovation type",
+            "callPreference": "Preferred call time",
+            "squareMeters": "Floor area",
+            "quality": "Quality",
+            "estimatedBudget": "Estimated quote"
+        }
     }
 }

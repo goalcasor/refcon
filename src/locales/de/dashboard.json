@@ -3,13 +3,14 @@
         "title": "Willkommen in Ihrem Dashboard",
         "description": "Verwalten Sie Ihre Projekte und Budgetanfragen von hier aus."
     },
-     "nav": {
+    "nav": {
         "dashboard": "Dashboard",
         "requestBudget": "Budget anfordern",
         "myBudgets": "Meine Budgets",
         "seoGenerator": "SEO-Generator",
         "settings": "Einstellungen",
-        "pricing": "Preise konfigurieren"
+        "pricing": "Preise konfigurieren",
+        "leads": "Anfragen"
     },
     "requestBudget": {
         "title": "Budget anfordern",
@@ -18,5 +19,37 @@
     "seoGenerator": {
         "title": "SEO-Blog-Generator",
         "description": "Erstellen Sie SEO-optimierte Blogartikel, um mehr Kunden zu gewinnen."
+    },
+    "leads": {
+        "title": "Angebotsanfragen",
+        "subtitle": "Alle über die Website eingegangenen Anfragen, in Echtzeit.",
+        "loading": "Anfragen werden geladen…",
+        "empty": "Keine Anfragen mit diesem Status.",
+        "errorTitle": "Anfragen können nicht gelesen werden",
+        "errorHelp": "In der Regel erlauben die Firestore-Sicherheitsregeln authentifizierten Nutzern nicht, die Sammlung refcon_budget zu lesen. Prüfen Sie die Regeln in der Firebase-Konsole.",
+        "statusError": "Der Status konnte nicht geändert werden",
+        "filters": {
+            "all": "Alle"
+        },
+        "status": {
+            "new": "Neu",
+            "contacted": "Kontaktiert",
+            "quoted": "Angebot erstellt",
+            "won": "Gewonnen",
+            "lost": "Verloren"
+        },
+        "stats": {
+            "total": "Anfragen gesamt",
+            "fresh": "Nicht kontaktiert",
+            "won": "Gewonnen",
+            "pipeline": "Offenes Volumen"
+        },
+        "fields": {
+            "renovationType": "Art der Renovierung",
+            "callPreference": "Bevorzugte Anrufzeit",
+            "squareMeters": "Fläche",
+            "quality": "Qualität",
+            "estimatedBudget": "Geschätztes Angebot"
+        }
     }
 }
