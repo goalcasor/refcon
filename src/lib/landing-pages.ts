@@ -1,48 +1,72 @@
 import type { RenovationType } from '@/components/budget-request/quick-budget-form';
 
 /**
- * Landings dedicadas de la campaña de Google Ads.
+ * Landings de oferta de la campaña de Google Ads.
  *
- * Una por grupo de anuncios, para que el titular de la página replique la keyword
- * del grupo. Van con `noindex` para no canibalizar el SEO de /services/.
+ * Una por grupo de anuncios, con el titular replicando la keyword del grupo y el
+ * mismo precio que anuncian las creatividades. Van con `noindex` para no
+ * canibalizar el SEO de /services/.
  */
-export type LandingSlug = 'reforma-integral' | 'reforma-bano' | 'reforma-cocina';
+export type LandingSlug =
+  | 'reforma-integral'
+  | 'reforma-bano'
+  | 'reforma-cocina'
+  | 'cambiar-banera-por-ducha'
+  | 'bano-sin-obras';
 
 type LandingConfig = {
   /** Preselecciona el tipo en el formulario, para que el visitante no tenga que elegirlo. */
   renovationType: RenovationType;
-  /** Clave de `budgetRequest.reformInclusions`: reutiliza el desglose ya traducido a 4 idiomas. */
-  inclusionsKey: 'integral' | 'bathrooms' | 'kitchen';
-  media: { type: 'image' | 'video'; src: string };
+  /** Importe del "desde" de la creatividad, en euros. */
+  price: number;
+  /** `perSqm` muestra "€/m²"; `fixed` muestra el importe cerrado. */
+  priceMode: 'perSqm' | 'fixed';
 };
-
-const STORAGE = 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o';
 
 export const landingPages: Record<LandingSlug, LandingConfig> = {
   'reforma-integral': {
     renovationType: 'integral',
-    inclusionsKey: 'integral',
-    media: {
-      type: 'image',
-      src: `${STORAGE}/refcon%2Freformas-interiores.jpg?alt=media&token=4851e102-3289-442b-bc00-dc0356241b1e`,
-    },
+    price: 437,
+    priceMode: 'perSqm',
   },
   'reforma-bano': {
     renovationType: 'bathrooms',
-    inclusionsKey: 'bathrooms',
-    media: {
-      type: 'video',
-      src: `${STORAGE}/refcon%2Fvideo%2Ffreepik__dolly-shot-a-serene-bathroom-scene-transitions-fro__5956.mp4?alt=media&token=76a12f63-d80b-44e4-8831-5cb538a8391b`,
-    },
+    price: 5900,
+    priceMode: 'fixed',
   },
   'reforma-cocina': {
     renovationType: 'kitchen',
-    inclusionsKey: 'kitchen',
-    media: {
-      type: 'video',
-      src: `${STORAGE}/refcon%2Fvideo%2Ffreepik__dolly-shot-transition-from-a-cluttered-outdated-ki__5958.mp4?alt=media&token=8157e8bc-e7b3-4641-8368-0d4f6c05de80`,
-    },
+    price: 9797,
+    priceMode: 'fixed',
+  },
+  'cambiar-banera-por-ducha': {
+    renovationType: 'showerSwap',
+    price: 1990,
+    priceMode: 'fixed',
+  },
+  'bano-sin-obras': {
+    renovationType: 'bathroomNoWorks',
+    price: 5900,
+    priceMode: 'fixed',
   },
 };
 
 export const landingSlugs = Object.keys(landingPages) as LandingSlug[];
+
+/**
+ * Formatea el importe sin el símbolo de moneda, para poder pintar el € aparte
+ * en dorado como en las creatividades.
+ *
+ * `useGrouping: 'always'` es necesario: es-ES no agrupa los números de cuatro
+ * cifras por defecto y 5900 se imprimía como "5900" en vez de "5.900".
+ */
+export function formatOfferAmount(config: LandingConfig, locale: string) {
+  return new Intl.NumberFormat(locale === 'en' ? 'en-GB' : 'es-ES', {
+    maximumFractionDigits: 0,
+    useGrouping: 'always',
+  }).format(config.price);
+}
+
+/** Sufijo que acompaña al símbolo: "/m²" en las tarifas por superficie. */
+export const offerPriceSuffix = (config: LandingConfig) =>
+  config.priceMode === 'perSqm' ? '/m²' : '';

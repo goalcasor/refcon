@@ -1,4 +1,3 @@
-
 {
     "title": "Request Your Quote",
     "description": "Choose the level of detail you want to provide, and we'll give you an estimate.",
@@ -25,7 +24,9 @@
                 "integral": "Full Renovation",
                 "bathrooms": "Bathroom Renovation",
                 "kitchen": "Kitchen Renovation",
-                "pool": "Pool Construction"
+                "pool": "Pool Construction",
+                "showerSwap": "Bath to Shower Conversion",
+                "bathroomNoWorks": "Bathroom Without Building Work"
             }
         },
         "callPreference": {

@@ -43,7 +43,9 @@ Este es un proyecto boilerplate diseñado para empresas de construcción, contra
     NEXT_PUBLIC_SITE_URL=https://tudominio.com   # dominio real; sin él los metadatos usan example.com
     NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
     NEXT_PUBLIC_GOOGLE_ADS_ID=AW-XXXXXXXXX
-    NEXT_PUBLIC_ADS_LEAD_LABEL=XXXXXXXXXXXXXXX   # etiqueta de la conversión de lead (parte tras la barra)
+    NEXT_PUBLIC_ADS_LEAD_LABEL=XXXXXXXXXXXXXXX       # conversion: envio del formulario
+    NEXT_PUBLIC_ADS_WHATSAPP_LABEL=XXXXXXXXXXXXXXX   # conversion: clic en WhatsApp
+    NEXT_PUBLIC_ADS_CALL_LABEL=XXXXXXXXXXXXXXX       # conversion: clic en telefono
     NEXT_PUBLIC_LEADS_EMAIL=destino@tudominio.com # receptor de los leads de los formularios
     ```
     Sin `NEXT_PUBLIC_GA4_ID` ni `NEXT_PUBLIC_GOOGLE_ADS_ID` no se carga ninguna etiqueta de Google

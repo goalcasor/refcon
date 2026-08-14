@@ -1,4 +1,3 @@
-
 {
     "title": "Fordern Sie Ihr Angebot an",
     "description": "Wählen Sie den gewünschten Detaillierungsgrad und wir erstellen Ihnen einen Kostenvoranschlag.",
@@ -25,7 +24,9 @@
                 "integral": "Komplettrenovierung",
                 "bathrooms": "Badezimmerrenovierung",
                 "kitchen": "Küchenrenovierung",
-                "pool": "Poolbau"
+                "pool": "Poolbau",
+                "showerSwap": "Badewanne zu Dusche",
+                "bathroomNoWorks": "Bad ohne Bauarbeiten"
             }
         },
         "callPreference": {

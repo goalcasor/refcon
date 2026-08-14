@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ContactForm } from '@/components/contact-form';
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
+import { PHONE, PHONE_DISPLAY } from '@/lib/site-config';
 
 export default async function ContactPage({ params: { locale } }: { params: { locale: string } }) {
   const dict = await getDictionary(locale);
@@ -21,8 +22,8 @@ export default async function ContactPage({ params: { locale } }: { params: { lo
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       label: t.phone.label,
-      value: "+34 661959090",
-      href: "tel:+34661959090",
+      value: PHONE_DISPLAY,
+      href: `tel:${PHONE}`,
     },
     {
       icon: <Mail className="h-6 w-6 text-primary" />,

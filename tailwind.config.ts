@@ -12,9 +12,19 @@ export default {
       fontFamily: {
         body: ['"Inter"', 'sans-serif'],
         headline: ['"Inter"', 'sans-serif'],
+        // Serif con cursiva de verdad, para los acentos manuscritos del folleto.
+        accent: ['"Playfair Display"', 'Georgia', 'serif'],
         code: ['monospace'],
       },
       colors: {
+        forest: {
+          DEFAULT: 'hsl(var(--brand-forest))',
+          light: 'hsl(var(--brand-forest-light))',
+        },
+        gold: {
+          DEFAULT: 'hsl(var(--brand-gold))',
+          light: 'hsl(var(--brand-gold-light))',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

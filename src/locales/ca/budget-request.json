@@ -1,4 +1,3 @@
-
 {
     "title": "Sol·licita el teu pressupost",
     "description": "Tria el nivell de detall que vols proporcionar i et donarem una estimació.",
@@ -25,7 +24,9 @@
                 "integral": "Reforma Integral",
                 "bathrooms": "Reforma de Bany",
                 "kitchen": "Reforma de Cuina",
-                "pool": "Construcció de Piscina"
+                "pool": "Construcció de Piscina",
+                "showerSwap": "Canvi de Banyera per Dutxa",
+                "bathroomNoWorks": "Bany sense Obres"
             }
         },
         "callPreference": {

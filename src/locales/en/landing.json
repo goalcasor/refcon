@@ -5,30 +5,171 @@
         "noCost": "Free, no obligation",
         "callback": "We call you when it suits you"
     },
+    "offer": {
+        "badge": "Special offer",
+        "vat": "+ VAT · All inclusive",
+        "termLabel": "Completion time",
+        "seals": {
+            "fixedPrice": "Fixed price",
+            "noSurprises": "No surprises",
+            "warranty": "5-year guarantee"
+        },
+        "ctaPrimary": "Get my quote",
+        "ctaSecondary": "Call now",
+        "disclaimer": "Indicative price, not contractually binding. The final quote is issued in writing after a site visit.",
+        "ctaWhatsapp": "WhatsApp",
+        "ctaQuoteLink": "Or calculate your quote online"
+    },
+    "includesTitle": "What's included",
+    "benefitsTitle": "Why Refcon",
+    "benefits": [
+        {
+            "title": "On schedule",
+            "description": "A firm completion date agreed from day one."
+        },
+        {
+            "title": "Premium quality",
+            "description": "Leading materials and brands, no surprise substitutions."
+        },
+        {
+            "title": "One point of contact",
+            "description": "The same person with you throughout the works."
+        },
+        {
+            "title": "All inclusive",
+            "description": "Labour, materials, waste removal and final clean."
+        },
+        {
+            "title": "5-year guarantee",
+            "description": "In writing, on every job we do."
+        }
+    ],
+    "beforeAfter": {
+        "title": "Before and after",
+        "before": "Before",
+        "after": "After"
+    },
     "formTitle": "Get your quote in 1 minute",
     "formSubtitle": "Fill in the details and get an instant estimate. We then call you back in the time slot you choose.",
-    "inclusionsTitle": "What the work includes",
-    "galleryTitle": "Real projects in Mallorca",
-    "testimonialsTitle": "What our clients say",
-    "ctaSecondary": "Get my quote",
+    "reviews": {
+        "title": "What our clients say",
+        "count": "from {count} reviews",
+        "verified": "Verified reviews on Habitissimo",
+        "age": "{years} years ago",
+        "seeAll": "See all {count} reviews on Habitissimo"
+    },
+    "finalCta": {
+        "title": "Shall we start your project?",
+        "subtitle": "Free quote, no obligation. We call you back whenever suits you best."
+    },
+    "stickyBar": {
+        "quote": "Quote",
+        "call": "Call",
+        "whatsapp": "WhatsApp"
+    },
     "pages": {
         "reforma-integral": {
             "h1": "Home Renovation in Mallorca",
-            "subtitle": "We manage your full renovation from start to finish: design, works, finishes and handover. Instant indicative quote, no waiting for a call.",
-            "metaTitle": "Home Renovation in Mallorca | Instant Online Quote",
-            "metaDescription": "English speaking renovation company in Mallorca with 30 years of experience. Calculate your quote online in 1 minute, no obligation."
+            "subtitle": "We renovate your whole property, turnkey. Design, works, finishes and handover on a fixed date.",
+            "metaTitle": "Home Renovation in Mallorca from €437/m² | Refcon",
+            "metaDescription": "Turnkey home renovation in Mallorca from €437/m² + VAT. Fixed price, 5-year guarantee and an online quote in 1 minute.",
+            "term": "4-8 weeks",
+            "includes": [
+                "Project design and planning",
+                "Demolition and removal of old fittings",
+                "Complete bathroom renovation",
+                "Complete kitchen renovation",
+                "New internal doors",
+                "Full electrics, plumbing and drainage",
+                "New flooring and skirting throughout",
+                "External aluminium or PVC joinery",
+                "Painting of walls and ceilings",
+                "Waste removal and final clean",
+                "Turnkey handover"
+            ],
+            "priceLabel": "Full renovation from",
+            "h1Accent": "in Mallorca"
         },
         "reforma-bano": {
             "h1": "Bathroom Renovation in Mallorca",
-            "subtitle": "Plumbing, tiling, sanitary ware and false ceiling included. Find out what your new bathroom costs before we even call you.",
-            "metaTitle": "Bathroom Renovation in Mallorca | Instant Online Quote",
-            "metaDescription": "We renovate your bathroom in Mallorca with a fixed price and written guarantee. Get your quote online in 1 minute."
+            "subtitle": "A complete bathroom with everything included: plumbing, tiling, sanitary ware and screen. Ready in little over a week.",
+            "metaTitle": "Bathroom Renovation in Mallorca from €5,900 | Refcon",
+            "metaDescription": "Complete bathroom renovation in Mallorca from €5,900 + VAT, all inclusive. Fixed price, 5-year guarantee and an online quote in 1 minute.",
+            "term": "7-10 days",
+            "includes": [
+                "Demolition and removal of old sanitary ware and tiling",
+                "New plumbing and drainage installation",
+                "Wall and floor coverings of your choice",
+                "Non-slip shower tray with glass screen",
+                "Vanity unit with basin and LED mirror",
+                "High quality taps and fittings",
+                "Water-saving toilet",
+                "LED lighting",
+                "Professional finishes and final clean",
+                "Design and personal guidance"
+            ],
+            "priceLabel": "Complete bathroom from",
+            "h1Accent": "in Mallorca"
         },
         "reforma-cocina": {
             "h1": "Kitchen Renovation in Mallorca",
-            "subtitle": "Units, electrics, plumbing and flooring included. Discover the price of your new kitchen without waiting for a callback.",
-            "metaTitle": "Kitchen Renovation in Mallorca | Instant Online Quote",
-            "metaDescription": "We renovate your kitchen in Mallorca with a fixed price and written guarantee. Get your quote online in 1 minute."
+            "subtitle": "A turnkey new kitchen with units and appliances included. You choose the finishes, we handle everything else.",
+            "metaTitle": "Kitchen Renovation in Mallorca from €9,797 | Refcon",
+            "metaDescription": "Turnkey kitchen renovation in Mallorca from €9,797 + VAT, appliances included. Fixed price and an online quote in 1 minute.",
+            "term": "2-4 weeks",
+            "includes": [
+                "Removal of the existing kitchen",
+                "Demolition of tiling and flooring",
+                "New electrics and plumbing",
+                "Plasterboard ceiling with LED lighting",
+                "Flooring and wall tiling of your choice",
+                "Kitchen units of your choice, fully fitted",
+                "Fridge, dishwasher, electric oven and hob",
+                "Sink and taps",
+                "Extractor and ducting",
+                "Painting, waste removal and cleaning",
+                "Turnkey handover"
+            ],
+            "priceLabel": "Kitchen renovation from",
+            "h1Accent": "in Mallorca"
+        },
+        "cambiar-banera-por-ducha": {
+            "h1": "Bath to Shower Conversion in Mallorca",
+            "subtitle": "More comfortable, safer and more accessible. Without renovating the whole bathroom, in just a couple of days.",
+            "metaTitle": "Bath to Shower Conversion in Mallorca from €1,990 | Refcon",
+            "metaDescription": "We swap your bath for a non-slip shower tray in Mallorca from €1,990 + VAT. Done in 1-2 days, fixed price, all inclusive.",
+            "term": "1-2 days",
+            "includes": [
+                "Removal of the bath and all waste",
+                "Supply and fitting of a non-slip shower tray",
+                "Clear glass shower screen",
+                "High quality single-lever tap",
+                "Up to 2 m² of wall covering in the shower area",
+                "Plumbing and building work",
+                "Professional finishes and final clean"
+            ],
+            "priceLabel": "Bath to shower from",
+            "h1Accent": "in Mallorca"
+        },
+        "bano-sin-obras": {
+            "h1": "Bathroom Refit Without Building Work in Mallorca",
+            "subtitle": "We renew your bathroom with SPC panels over the existing tiles: no rubble, no noise and no days without a bathroom.",
+            "metaTitle": "Bathroom Refit Without Building Work in Mallorca, €5,900 | Refcon",
+            "metaDescription": "Bathroom renewed with no building work or rubble in Mallorca for €5,900, all inclusive. Done in 3-5 days with a 5-year guarantee.",
+            "term": "3-5 days",
+            "includes": [
+                "Removal of all fittings and accessories",
+                "Removal of the bath or shower tray",
+                "SPC wall panels of your choice",
+                "New shower tray fitted",
+                "New toilet fitted",
+                "New vanity unit, basin and mirror",
+                "Suspended ceiling with LED lighting",
+                "Replacement of electrical fittings",
+                "Shower screen fitted"
+            ],
+            "priceLabel": "All inclusive",
+            "h1Accent": "in Mallorca"
         }
     }
 }

@@ -6,7 +6,9 @@ import { Logo } from '@/components/logo';
 import { useAuth } from '@/hooks/use-auth';
 import { UserNav } from '@/components/auth/user-nav';
 import { LanguageSwitcher } from '@/components/language-switcher';
-import { Menu } from 'lucide-react';
+import { Menu, Phone } from 'lucide-react';
+import { PHONE, PHONE_DISPLAY } from '@/lib/site-config';
+import { trackPhoneClick } from '@/lib/analytics';
 import {
   Sheet,
   SheetContent,
@@ -51,6 +53,17 @@ export function Header({ t }: { t: any }) {
         <div className="flex flex-1 items-center justify-end gap-2">
           <ThemeSwitcher />
           <LanguageSwitcher />
+          {/*
+            CTA de llamada visible también en móvil, que es donde se llama.
+            Va en variante outline a propósito: el botón primario sigue siendo el
+            de presupuesto, porque el lead se quiere por formulario.
+          */}
+          <Button asChild variant="outline" size="sm" className="px-2 md:px-3">
+            <a href={`tel:${PHONE}`} onClick={trackPhoneClick} aria-label={`Llamar al ${PHONE_DISPLAY}`}>
+              <Phone className="h-4 w-4 md:mr-2" />
+              <span className="hidden md:inline">{PHONE_DISPLAY}</span>
+            </a>
+          </Button>
           {user ? (
             <UserNav t={t.header.userNav} />
           ) : (
@@ -85,6 +98,12 @@ export function Header({ t }: { t: any }) {
                   </Link>
               </div>
               <div className="absolute bottom-4 right-4 left-4 flex flex-col gap-2">
+                <Button asChild variant="outline" onClick={handleLinkClick}>
+                  <a href={`tel:${PHONE}`} onClick={trackPhoneClick}>
+                    <Phone className="mr-2 h-4 w-4" />
+                    {PHONE_DISPLAY}
+                  </a>
+                </Button>
                 {user ? null : (
                   <Button asChild onClick={handleLinkClick}><Link href="/budget-request">{t.header.nav.budgetRequest}</Link></Button>
                 )}

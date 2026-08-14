@@ -6,12 +6,21 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { trackPhoneClick, trackWhatsappClick } from '@/lib/analytics';
+import { PHONE, WHATSAPP_URL } from '@/lib/site-config';
 
 export function ContactFab() {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = '+34661959090';
-  const whatsappLink = `https://wa.me/${phoneNumber.replace('+', '')}`;
+  const pathname = usePathname();
+  const phoneNumber = PHONE;
+  const whatsappLink = WHATSAPP_URL;
+
+  // Las landings de campaña ya llevan barra fija con llamada y WhatsApp:
+  // el botón flotante se solaparía y duplicaría las mismas acciones.
+  if (pathname?.includes('/lp/')) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

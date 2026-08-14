@@ -30,6 +30,16 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    /*
+      Colores de marca de las creatividades de campaña: verde bosque y dorado.
+      NO se redefinen en .dark a propósito: el panel de oferta es una pieza de
+      marca y debe verse igual en ambos temas, como en el folleto impreso.
+    */
+    --brand-forest: 157 54% 13%;
+    --brand-forest-light: 156 42% 19%;
+    --brand-gold: 43 65% 52%;
+    --brand-gold-light: 44 78% 68%;
   }
 
   /* Global brand theme: Green (dark) */
@@ -76,5 +86,14 @@
   }
   .video-cover video {
     object-fit: cover;
+  }
+  /* Filete dorado con el rótulo centrado, como en las creatividades. */
+  .gold-rule {
+    @apply flex items-center gap-3;
+  }
+  .gold-rule::before,
+  .gold-rule::after {
+    content: '';
+    @apply h-px flex-1 bg-gold/40;
   }
 }

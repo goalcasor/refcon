@@ -5,30 +5,171 @@
         "noCost": "Unverbindlich und kostenlos",
         "callback": "Wir rufen Sie zu Ihrer Wunschzeit an"
     },
+    "offer": {
+        "badge": "Sonderangebot",
+        "vat": "+ MwSt. · Alles inklusive",
+        "termLabel": "Ausführungsdauer",
+        "seals": {
+            "fixedPrice": "Festpreis",
+            "noSurprises": "Keine Überraschungen",
+            "warranty": "5 Jahre Garantie"
+        },
+        "ctaPrimary": "Angebot berechnen",
+        "ctaSecondary": "Jetzt anrufen",
+        "disclaimer": "Richtpreis, nicht vertraglich bindend. Das endgültige Angebot wird nach der Besichtigung schriftlich erstellt.",
+        "ctaWhatsapp": "WhatsApp",
+        "ctaQuoteLink": "Oder berechnen Sie Ihr Angebot online"
+    },
+    "includesTitle": "Was ist enthalten?",
+    "benefitsTitle": "Warum Refcon",
+    "benefits": [
+        {
+            "title": "Termintreue",
+            "description": "Fester Fertigstellungstermin ab dem ersten Tag."
+        },
+        {
+            "title": "Premium-Qualität",
+            "description": "Führende Materialien und Marken, ohne Ersatz im Nachhinein."
+        },
+        {
+            "title": "Persönliche Betreuung",
+            "description": "Ein fester Ansprechpartner während der gesamten Arbeiten."
+        },
+        {
+            "title": "Alles inklusive",
+            "description": "Arbeitsleistung, Material, Bauschutt und Endreinigung."
+        },
+        {
+            "title": "5 Jahre Garantie",
+            "description": "Schriftlich, auf alle unsere Arbeiten."
+        }
+    ],
+    "beforeAfter": {
+        "title": "Vorher und nachher",
+        "before": "Vorher",
+        "after": "Nachher"
+    },
     "formTitle": "Angebot in 1 Minute berechnen",
     "formSubtitle": "Geben Sie Ihre Daten ein und erhalten Sie sofort eine Schätzung. Anschließend rufen wir Sie im gewünschten Zeitfenster zurück.",
-    "inclusionsTitle": "Was die Arbeit umfasst",
-    "galleryTitle": "Echte Projekte auf Mallorca",
-    "testimonialsTitle": "Was unsere Kunden sagen",
-    "ctaSecondary": "Angebot ansehen",
+    "reviews": {
+        "title": "Was unsere Kunden sagen",
+        "count": "aus {count} Bewertungen",
+        "verified": "Verifizierte Bewertungen auf Habitissimo",
+        "age": "Vor {years} Jahren",
+        "seeAll": "Alle {count} Bewertungen auf Habitissimo ansehen"
+    },
+    "finalCta": {
+        "title": "Sollen wir mit Ihrem Projekt beginnen?",
+        "subtitle": "Unverbindliches und kostenloses Angebot. Wir rufen Sie an, wann es Ihnen am besten passt."
+    },
+    "stickyBar": {
+        "quote": "Angebot",
+        "call": "Anrufen",
+        "whatsapp": "WhatsApp"
+    },
     "pages": {
         "reforma-integral": {
             "h1": "Komplettrenovierung auf Mallorca",
-            "subtitle": "Wir betreuen Ihre Komplettrenovierung von Anfang bis Ende: Planung, Bau, Ausbau und Übergabe. Sofortige Richtpreisschätzung, ohne auf einen Anruf zu warten.",
-            "metaTitle": "Komplettrenovierung auf Mallorca | Sofortiges Angebot",
-            "metaDescription": "Renovierungsunternehmen auf Mallorca mit 30 Jahren Erfahrung. Berechnen Sie Ihr Angebot online in 1 Minute, unverbindlich."
+            "subtitle": "Wir renovieren Ihre Immobilie vollständig, schlüsselfertig. Planung, Bau, Ausbau und Übergabe zum festen Termin.",
+            "metaTitle": "Komplettrenovierung auf Mallorca ab 437 €/m² | Refcon",
+            "metaDescription": "Schlüsselfertige Komplettrenovierung auf Mallorca ab 437 €/m² + MwSt. Festpreis, 5 Jahre Garantie und Online-Angebot in 1 Minute.",
+            "term": "4-8 Wochen",
+            "includes": [
+                "Planung und Projektierung",
+                "Abbruch und Entsorgung alter Einbauten",
+                "Komplette Badrenovierung",
+                "Komplette Küchenrenovierung",
+                "Neue Innentüren",
+                "Komplette Elektrik, Sanitär und Entwässerung",
+                "Neue Bodenbeläge und Sockelleisten in allen Räumen",
+                "Außenfenster aus Aluminium oder PVC",
+                "Anstrich von Wänden und Decken",
+                "Bauschuttentsorgung und Endreinigung",
+                "Schlüsselfertige Übergabe"
+            ],
+            "priceLabel": "Komplettrenovierung ab",
+            "h1Accent": "auf Mallorca"
         },
         "reforma-bano": {
             "h1": "Badezimmerrenovierung auf Mallorca",
-            "subtitle": "Sanitärinstallation, Fliesen, Sanitärobjekte und abgehängte Decke inklusive. Erfahren Sie den Preis Ihres neuen Bads, bevor wir Sie anrufen.",
-            "metaTitle": "Badezimmerrenovierung auf Mallorca | Sofortiges Angebot",
-            "metaDescription": "Wir renovieren Ihr Bad auf Mallorca zum Festpreis mit schriftlicher Garantie. Berechnen Sie Ihr Angebot online in 1 Minute."
+            "subtitle": "Komplettes Bad mit allem inklusive: Sanitärinstallation, Fliesen, Sanitärobjekte und Duschwand. Fertig in etwas mehr als einer Woche.",
+            "metaTitle": "Badezimmerrenovierung auf Mallorca ab 5.900 € | Refcon",
+            "metaDescription": "Komplett renoviertes Bad auf Mallorca ab 5.900 € + MwSt., alles inklusive. Festpreis, 5 Jahre Garantie und Online-Angebot in 1 Minute.",
+            "term": "7-10 Tage",
+            "includes": [
+                "Abbruch und Entsorgung alter Sanitärobjekte und Fliesen",
+                "Neue Sanitär- und Abwasserinstallation",
+                "Wand- und Bodenbeläge nach Wahl",
+                "Rutschfeste Duschwanne mit Glasabtrennung",
+                "Waschtisch mit Becken und LED-Spiegel",
+                "Hochwertige Armaturen",
+                "WC mit Wassersparsystem",
+                "LED-Beleuchtung",
+                "Professionelle Ausführung und Endreinigung",
+                "Planung und persönliche Beratung"
+            ],
+            "priceLabel": "Komplettes Bad ab",
+            "h1Accent": "auf Mallorca"
         },
         "reforma-cocina": {
             "h1": "Küchenrenovierung auf Mallorca",
-            "subtitle": "Möbel, Elektrik, Sanitär und Bodenbelag inklusive. Entdecken Sie den Preis Ihrer neuen Küche, ohne auf einen Rückruf zu warten.",
-            "metaTitle": "Küchenrenovierung auf Mallorca | Sofortiges Angebot",
-            "metaDescription": "Wir renovieren Ihre Küche auf Mallorca zum Festpreis mit schriftlicher Garantie. Berechnen Sie Ihr Angebot online in 1 Minute."
+            "subtitle": "Neue schlüsselfertige Küche inklusive Möbeln und Geräten. Sie wählen die Ausführung, wir übernehmen den Rest.",
+            "metaTitle": "Küchenrenovierung auf Mallorca ab 9.797 € | Refcon",
+            "metaDescription": "Schlüsselfertige Küchenrenovierung auf Mallorca ab 9.797 € + MwSt., Geräte inklusive. Festpreis und Online-Angebot in 1 Minute.",
+            "term": "2-4 Wochen",
+            "includes": [
+                "Demontage der bestehenden Küche",
+                "Abbruch von Fliesen und Bodenbelägen",
+                "Neue Elektrik und Sanitärinstallation",
+                "Rigipsdecke mit LED-Beleuchtung",
+                "Boden- und Wandfliesen nach Wahl",
+                "Küchenmöbel nach Wahl, komplett montiert",
+                "Kühlschrank, Geschirrspüler, Backofen und Ceranfeld",
+                "Spüle und Armatur",
+                "Dunstabzug und Rohrinstallation",
+                "Anstrich, Bauschuttentsorgung und Reinigung",
+                "Schlüsselfertige Übergabe"
+            ],
+            "priceLabel": "Küchenrenovierung ab",
+            "h1Accent": "auf Mallorca"
+        },
+        "cambiar-banera-por-ducha": {
+            "h1": "Badewanne zu Dusche umbauen auf Mallorca",
+            "subtitle": "Bequemer, sicherer und barrierefreier. Ohne das ganze Bad zu renovieren und in nur zwei Tagen.",
+            "metaTitle": "Badewanne zu Dusche auf Mallorca ab 1.990 € | Refcon",
+            "metaDescription": "Wir tauschen Ihre Badewanne gegen eine rutschfeste Duschwanne auf Mallorca ab 1.990 € + MwSt. In 1-2 Tagen, Festpreis, alles inklusive.",
+            "term": "1-2 Tage",
+            "includes": [
+                "Entfernung der Badewanne und des Bauschutts",
+                "Lieferung und Montage einer rutschfesten Duschwanne",
+                "Duschabtrennung aus Klarglas",
+                "Hochwertige Einhebelarmatur",
+                "Wandverkleidung von bis zu 2 m² im Duschbereich",
+                "Sanitär- und Maurerarbeiten",
+                "Professionelle Ausführung und Endreinigung"
+            ],
+            "priceLabel": "Wannentausch ab",
+            "h1Accent": "auf Mallorca"
+        },
+        "bano-sin-obras": {
+            "h1": "Badrenovierung ohne Bauarbeiten auf Mallorca",
+            "subtitle": "Wir erneuern Ihr Bad mit SPC-Paneelen über den vorhandenen Fliesen: ohne Bauschutt, ohne Lärm und ohne Tage ohne Bad.",
+            "metaTitle": "Badrenovierung ohne Bauarbeiten auf Mallorca für 5.900 € | Refcon",
+            "metaDescription": "Bad ohne Bauarbeiten und Bauschutt auf Mallorca für 5.900 €, alles inklusive. In 3-5 Tagen und mit 5 Jahren Garantie.",
+            "term": "3-5 Tage",
+            "includes": [
+                "Demontage aller Accessoires",
+                "Entfernung von Badewanne oder Duschwanne",
+                "SPC-Wandpaneele nach Wahl",
+                "Montage einer neuen Duschwanne",
+                "Montage eines neuen WCs",
+                "Neuer Waschtisch, Becken und Spiegel",
+                "Abgehängte Decke mit LED-Beleuchtung",
+                "Austausch der Elektroinstallation",
+                "Montage der Duschabtrennung"
+            ],
+            "priceLabel": "Alles inklusive",
+            "h1Accent": "auf Mallorca"
         }
     }
 }
