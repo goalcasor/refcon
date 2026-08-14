@@ -75,7 +75,7 @@ export default async function RootLayout({
         {faviconUrl && <link rel="icon" href={faviconUrl} sizes="any" />}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,500..800;1,500..800&display=swap" rel="stylesheet" />
         {/*
           Consent Mode v2. Va como <script> inline y no como next/script para
           garantizar que se ejecuta antes que gtag.js: el estado por defecto tiene

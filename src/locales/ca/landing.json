@@ -5,30 +5,171 @@
         "noCost": "Sense compromís ni cost",
         "callback": "Et telefonam a l’hora que triïs"
     },
+    "offer": {
+        "badge": "Oferta especial",
+        "vat": "+ IVA · Tot inclòs",
+        "termLabel": "Termini d’execució",
+        "seals": {
+            "fixedPrice": "Preu tancat",
+            "noSurprises": "Sense sorpreses",
+            "warranty": "Garantia de 5 anys"
+        },
+        "ctaPrimary": "Calcular el meu pressupost",
+        "ctaSecondary": "Telefonar ara",
+        "disclaimer": "Preu orientatiu i no contractual. El pressupost definitiu s’emet per escrit després de la visita tècnica.",
+        "ctaWhatsapp": "WhatsApp",
+        "ctaQuoteLink": "O calcula el teu pressupost en línia"
+    },
+    "includesTitle": "Què inclou?",
+    "benefitsTitle": "Per què Refcon",
+    "benefits": [
+        {
+            "title": "Termini complert",
+            "description": "Data de lliurament tancada des del primer dia."
+        },
+        {
+            "title": "Qualitat premium",
+            "description": "Materials i marques líders, sense substitucions sorpresa."
+        },
+        {
+            "title": "Atenció personalitzada",
+            "description": "Un únic interlocutor durant tota l’obra."
+        },
+        {
+            "title": "Tot inclòs",
+            "description": "Mà d’obra, materials, runa i neteja final."
+        },
+        {
+            "title": "Garantia de 5 anys",
+            "description": "Per escrit, a tots els nostres treballs."
+        }
+    ],
+    "beforeAfter": {
+        "title": "Abans i després",
+        "before": "Abans",
+        "after": "Després"
+    },
     "formTitle": "Calcula el teu pressupost en 1 minut",
     "formSubtitle": "Omple les dades i obtén una estimació a l’instant. Després et telefonam en la franja horària que prefereixis.",
-    "inclusionsTitle": "Què inclou la feina",
-    "galleryTitle": "Feines reals a Mallorca",
-    "testimonialsTitle": "Què diuen els nostres clients",
-    "ctaSecondary": "Veure pressupost",
+    "reviews": {
+        "title": "Què diuen els nostres clients",
+        "count": "sobre {count} opinions",
+        "verified": "Opinions verificades a Habitissimo",
+        "age": "Fa {years} anys",
+        "seeAll": "Veure les {count} opinions a Habitissimo"
+    },
+    "finalCta": {
+        "title": "Començam amb el teu projecte?",
+        "subtitle": "Pressupost sense compromís i sense cost. Et telefonam quan et vagi millor."
+    },
+    "stickyBar": {
+        "quote": "Pressupost",
+        "call": "Telefonar",
+        "whatsapp": "WhatsApp"
+    },
     "pages": {
         "reforma-integral": {
             "h1": "Reformes Integrals a Mallorca",
-            "subtitle": "Gestionam la teva reforma completa de cap a peus: projecte, obra, acabats i lliurament. Pressupost orientatiu a l’instant, sense esperar telefonades.",
-            "metaTitle": "Reformes Integrals a Mallorca | Pressupost a l’Instant",
-            "metaDescription": "Empresa de reformes integrals a Mallorca amb 30 anys d’experiència. Calcula el teu pressupost en línia en 1 minut, sense compromís."
+            "subtitle": "Renovam el teu habitatge per complet, clau en mà. Disseny, obra, acabats i lliurament amb data tancada.",
+            "metaTitle": "Reforma Integral a Mallorca des de 437 €/m² | Refcon",
+            "metaDescription": "Reforma integral clau en mà a Mallorca des de 437 €/m² + IVA. Preu tancat, garantia de 5 anys i pressupost en línia en 1 minut.",
+            "term": "4-8 setmanes",
+            "includes": [
+                "Disseny i planificació del projecte",
+                "Enderroc i retirada d’elements antics",
+                "Reforma completa de bany",
+                "Reforma completa de cuina",
+                "Portes interiors noves",
+                "Electricitat, fontaneria i sanejament complets",
+                "Canvi de paviments i sòcols a totes les estances",
+                "Fusteria exterior d’alumini o PVC",
+                "Pintura de parets i sostres",
+                "Retirada de runa i neteja final",
+                "Lliurament clau en mà"
+            ],
+            "priceLabel": "Reforma completa des de",
+            "h1Accent": "a Mallorca"
         },
         "reforma-bano": {
             "h1": "Reforma de Banys a Mallorca",
-            "subtitle": "Fontaneria, enrajolat, sanitaris i fals sostre inclosos. Calcula què costa el teu bany nou abans que et telefonem.",
-            "metaTitle": "Reforma de Banys a Mallorca | Pressupost a l’Instant",
-            "metaDescription": "Reformam el teu bany a Mallorca amb preu tancat i garantia per escrit. Calcula el teu pressupost en línia en 1 minut."
+            "subtitle": "Bany complet amb tot inclòs: fontaneria, revestiments, sanitaris i mampara. Enllestit en poc més d’una setmana.",
+            "metaTitle": "Reforma de Bany a Mallorca des de 5.900 € | Refcon",
+            "metaDescription": "Bany complet reformat a Mallorca des de 5.900 € + IVA, tot inclòs. Preu tancat, garantia de 5 anys i pressupost en línia en 1 minut.",
+            "term": "7-10 dies",
+            "includes": [
+                "Enderroc i retirada de sanitaris i revestiments antics",
+                "Instal·lació nova de fontaneria i desguassos",
+                "Revestiments de parets i terra a triar",
+                "Plat de dutxa antilliscant amb mampara de vidre",
+                "Moble de bany amb lavabo i mirall LED",
+                "Aixetes d’alta qualitat",
+                "Inodor amb sistema d’estalvi d’aigua",
+                "Il·luminació LED",
+                "Acabats professionals i neteja final",
+                "Projecte i assessorament personalitzat"
+            ],
+            "priceLabel": "Bany complet des de",
+            "h1Accent": "a Mallorca"
         },
         "reforma-cocina": {
             "h1": "Reforma de Cuines a Mallorca",
-            "subtitle": "Mobiliari, electricitat, fontaneria i paviment inclosos. Descobreix el preu de la teva cuina nova sense esperar que et telefonin.",
-            "metaTitle": "Reforma de Cuines a Mallorca | Pressupost a l’Instant",
-            "metaDescription": "Reformam la teva cuina a Mallorca amb preu tancat i garantia per escrit. Calcula el teu pressupost en línia en 1 minut."
+            "subtitle": "Cuina nova clau en mà, amb mobiliari i electrodomèstics inclosos. Tu tries els acabats, nosaltres feim la resta.",
+            "metaTitle": "Reforma de Cuina a Mallorca des de 9.797 € | Refcon",
+            "metaDescription": "Cuina reformada clau en mà a Mallorca des de 9.797 € + IVA, electrodomèstics inclosos. Preu tancat i pressupost en línia en 1 minut.",
+            "term": "2-4 setmanes",
+            "includes": [
+                "Desmuntatge de la cuina actual",
+                "Enderroc de rajoles i paviments",
+                "Electricitat i fontaneria noves",
+                "Sostre de pladur i il·luminació LED",
+                "Paviment i enrajolat a triar",
+                "Mobiliari de cuina a triar i muntatge complet",
+                "Nevera, rentaplats, forn elèctric i vitroceràmica",
+                "Aigüera i aixetes",
+                "Extractor i instal·lació de tubs",
+                "Pintura, retirada de runa i neteja",
+                "Lliurament clau en mà"
+            ],
+            "priceLabel": "Reforma de cuina des de",
+            "h1Accent": "a Mallorca"
+        },
+        "cambiar-banera-por-ducha": {
+            "h1": "Canviar la Banyera per Plat de Dutxa a Mallorca",
+            "subtitle": "Més còmode, més segur i més accessible. Sense reformar tot el bany i en només un parell de dies.",
+            "metaTitle": "Canviar Banyera per Dutxa a Mallorca des de 1.990 € | Refcon",
+            "metaDescription": "Canviam la teva banyera per un plat de dutxa antilliscant a Mallorca des de 1.990 € + IVA. En 1-2 dies, preu tancat i tot inclòs.",
+            "term": "1-2 dies",
+            "includes": [
+                "Retirada de la banyera i de la runa",
+                "Subministrament i instal·lació de plat de dutxa antilliscant",
+                "Mampara de dutxa de vidre transparent",
+                "Aixeta monocomandament d’alta qualitat",
+                "Revestiment de fins a 2 m² de paret a la zona de dutxa",
+                "Treballs de fontaneria i obra",
+                "Acabats professionals i neteja final"
+            ],
+            "priceLabel": "Canvi de banyera des de",
+            "h1Accent": "a Mallorca"
+        },
+        "bano-sin-obras": {
+            "h1": "Reforma de Bany sense Obres a Mallorca",
+            "subtitle": "Renovam el teu bany amb panells SPC damunt l’enrajolat existent: sense runa, sense renou i sense quedar-te sense bany.",
+            "metaTitle": "Reforma de Bany sense Obres a Mallorca per 5.900 € | Refcon",
+            "metaDescription": "Bany renovat sense obres ni runa a Mallorca per 5.900 €, tot inclòs. En 3-5 dies i amb garantia de 5 anys.",
+            "term": "3-5 dies",
+            "includes": [
+                "Desmuntatge de tots els accessoris",
+                "Retirada de banyera o plat de dutxa",
+                "Col·locació de panells SPC a triar",
+                "Col·locació de plat de dutxa nou",
+                "Col·locació de WC nou",
+                "Moble, lavabo i mirall nous",
+                "Fals sostre amb il·luminació LED",
+                "Canvi de mecanismes elèctrics",
+                "Muntatge de mampara"
+            ],
+            "priceLabel": "Tot inclòs",
+            "h1Accent": "a Mallorca"
         }
     }
 }

@@ -29,14 +29,46 @@ import Link from 'next/link';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { getSafeDb } from '@/lib/firebase/client';
 import { trackLead } from '@/lib/analytics';
+import { HABITISSIMO_URL } from '@/lib/site-config';
 
+// Tarifas por m². La básica de integral es 437 € porque es el "desde" que se
+// anuncia en las creatividades de campaña: por debajo, el anuncio y la
+// calculadora darían cifras distintas en la misma página.
 const pricingConfig = {
-    integral: { basic: 400, medium: 600, premium: 800 },
+    integral: { basic: 437, medium: 600, premium: 800 },
     bathrooms: { basic: 1100, medium: 1250, premium: 1750 },
     kitchen: { basic: 621, medium: 700, premium: 760 },
 };
 
-export type RenovationType = 'integral' | 'bathrooms' | 'kitchen' | 'pool';
+/**
+ * Precio mínimo de intervención. Sin esto, una superficie pequeña devuelve un
+ * importe por debajo del "desde" anunciado (un baño de 4 m² salían 4.400 €
+ * frente a los 5.900 € del folleto).
+ */
+const minimumBudget: Partial<Record<RenovationType, number>> = {
+    bathrooms: 5900,
+    kitchen: 9797,
+};
+
+/** Ofertas cerradas: ni superficie ni calidad, el precio es el que es. */
+const fixedPrice: Partial<Record<RenovationType, number>> = {
+    showerSwap: 1990,
+    bathroomNoWorks: 5900,
+};
+
+export type RenovationType =
+  | 'integral'
+  | 'bathrooms'
+  | 'kitchen'
+  | 'pool'
+  | 'showerSwap'
+  | 'bathroomNoWorks';
+
+/** Tipos cuyo precio no depende de los metros cuadrados. */
+const isFixedPrice = (type: RenovationType) => type in fixedPrice;
+
+/** `pool` se presupuesta a medida; las ofertas cerradas ya traen precio. */
+const needsAreaAndQuality = (type: RenovationType) => type !== 'pool' && !isFixedPrice(type);
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'El nombre es obligatorio.' }),
@@ -46,7 +78,7 @@ const formSchema = z.object({
   // Franja horaria en la que el cliente prefiere recibir la llamada de seguimiento.
   // Lleva valor por defecto para no añadir fricción: quien no elija, envía igual.
   callPreference: z.enum(['morning', 'midday', 'afternoon', 'any']),
-  renovationType: z.enum(['integral', 'bathrooms', 'kitchen', 'pool']),
+  renovationType: z.enum(['integral', 'bathrooms', 'kitchen', 'pool', 'showerSwap', 'bathroomNoWorks']),
   squareMeters: z.coerce.number().min(1, 'La superficie debe ser de al menos 1 m²'),
   quality: z.enum(['basic', 'medium', 'premium']),
 });
@@ -81,6 +113,7 @@ export function QuickBudgetForm({
   });
 
   const watchRenovationType = form.watch('renovationType');
+  const showAreaAndQuality = needsAreaAndQuality(watchRenovationType);
   const tInclusions = t.budgetRequest.reformInclusions;
   const inclusionItems = tInclusions[watchRenovationType] || [];
 
@@ -88,13 +121,19 @@ export function QuickBudgetForm({
   async function handleFormSubmit(values: QuickFormValues) {
     setIsLoading(true);
     try {
-      let budget = null;
-      if (values.renovationType !== 'pool') {
+      let budget: number | null = null;
+      if (isFixedPrice(values.renovationType)) {
+        budget = fixedPrice[values.renovationType]!;
+        setCalculatedBudget(budget);
+      } else if (values.renovationType !== 'pool') {
         const prices = pricingConfig[values.renovationType as keyof typeof pricingConfig];
-        budget = values.squareMeters * prices[values.quality as keyof typeof prices];
+        const byArea = values.squareMeters * prices[values.quality as keyof typeof prices];
+        // Nunca por debajo del precio mínimo anunciado.
+        budget = Math.max(byArea, minimumBudget[values.renovationType] ?? 0);
         setCalculatedBudget(budget);
       }
-      
+
+
       const db = getSafeDb();
 
       const renovationLabel = t.budgetRequest.quickForm.renovationType.options[values.renovationType];
@@ -109,8 +148,8 @@ export function QuickBudgetForm({
         address: values.address,
         callPreference: values.callPreference,
         renovationType: values.renovationType,
-        squareMeters: values.squareMeters,
-        quality: values.renovationType !== 'pool' ? values.quality : null,
+        squareMeters: needsAreaAndQuality(values.renovationType) ? values.squareMeters : null,
+        quality: needsAreaAndQuality(values.renovationType) ? values.quality : null,
         estimatedBudget: budget,
         source: 'quick-budget-form',
         status: 'new',
@@ -141,8 +180,10 @@ export function QuickBudgetForm({
                 <h2>Detalles del Proyecto:</h2>
                 <ul>
                     <li><strong>Tipo de Reforma:</strong> ${renovationLabel}</li>
+                    ${needsAreaAndQuality(values.renovationType) ? `
                     <li><strong>Metros Cuadrados:</strong> ${values.squareMeters} m²</li>
-                    ${values.renovationType !== 'pool' ? `<li><strong>Calidad:</strong> ${t.budgetRequest.form.quality.options[values.quality]}</li>` : ''}
+                    <li><strong>Calidad:</strong> ${t.budgetRequest.form.quality.options[values.quality]}</li>` : ''}
+                    ${isFixedPrice(values.renovationType) ? '<li><strong>Oferta cerrada:</strong> precio fijo de campaña</li>' : ''}
                 </ul>
                 <h2>Presupuesto Estimado:</h2>
                 <p style="font-size: 24px; font-weight: bold;">
@@ -186,7 +227,7 @@ export function QuickBudgetForm({
   
   if (isSubmitted) {
     const isPool = watchRenovationType === 'pool';
-    const reviewLink = "https://www.habitissimo.es/pro/refcon";
+    const reviewLink = HABITISSIMO_URL;
 
     return (
         <div className="text-center max-w-2xl mx-auto">
@@ -272,7 +313,7 @@ export function QuickBudgetForm({
                   <FormItem className="md:col-span-2"><FormLabel>{t.budgetRequest.form.address.label}</FormLabel><FormControl><Input placeholder={t.budgetRequest.form.address.placeholder} {...field} /></FormControl><FormMessage /></FormItem>
                 )} />
               </div>
-              <div className={`grid ${watchRenovationType === 'pool' ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6`}>
+              <div className={`grid ${showAreaAndQuality ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-6`}>
                  <FormField control={form.control} name="renovationType" render={({ field }) => (
                   <FormItem>
                     <FormLabel>{t.budgetRequest.quickForm.renovationType.label}</FormLabel>
@@ -282,20 +323,25 @@ export function QuickBudgetForm({
                         <SelectItem value="integral">{t.budgetRequest.quickForm.renovationType.options.integral}</SelectItem>
                         <SelectItem value="bathrooms">{t.budgetRequest.quickForm.renovationType.options.bathrooms}</SelectItem>
                         <SelectItem value="kitchen">{t.budgetRequest.quickForm.renovationType.options.kitchen}</SelectItem>
+                        <SelectItem value="showerSwap">{t.budgetRequest.quickForm.renovationType.options.showerSwap}</SelectItem>
+                        <SelectItem value="bathroomNoWorks">{t.budgetRequest.quickForm.renovationType.options.bathroomNoWorks}</SelectItem>
                         <SelectItem value="pool">{t.budgetRequest.quickForm.renovationType.options.pool}</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
                   </FormItem>
                 )} />
-                 <FormField control={form.control} name="squareMeters" render={({ field }) => (
-                    <FormItem>
-                        <FormLabel>{t.budgetRequest.quickForm.squareMeters.label}</FormLabel>
-                        <FormControl><Input type="number" {...field} /></FormControl>
-                        <FormMessage />
-                    </FormItem>
-                )} />
-                 {watchRenovationType !== 'pool' && (
+                 {/* Las ofertas cerradas no dependen de la superficie: pedir m² sería fricción inútil. */}
+                 {!isFixedPrice(watchRenovationType) && (
+                   <FormField control={form.control} name="squareMeters" render={({ field }) => (
+                      <FormItem>
+                          <FormLabel>{t.budgetRequest.quickForm.squareMeters.label}</FormLabel>
+                          <FormControl><Input type="number" {...field} /></FormControl>
+                          <FormMessage />
+                      </FormItem>
+                  )} />
+                 )}
+                 {showAreaAndQuality && (
                     <FormField control={form.control} name="quality" render={({ field }) => (
                         <FormItem>
                             <FormLabel>{t.budgetRequest.form.quality.label}</FormLabel>

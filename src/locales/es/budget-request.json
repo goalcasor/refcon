@@ -1,4 +1,3 @@
-
 {
     "title": "Solicita tu presupuesto",
     "description": "Elige el nivel de detalle que quieres proporcionar y te daremos una estimación.",
@@ -25,7 +24,9 @@
                 "integral": "Reforma Integral",
                 "bathrooms": "Reforma de Baño",
                 "kitchen": "Reforma de Cocina",
-                "pool": "Construcción de Piscina"
+                "pool": "Construcción de Piscina",
+                "showerSwap": "Cambio de Bañera por Ducha",
+                "bathroomNoWorks": "Baño sin Obras"
             }
         },
         "callPreference": {

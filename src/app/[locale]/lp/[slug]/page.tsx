@@ -1,17 +1,25 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Check, Phone, Star } from 'lucide-react';
+import { BadgeCheck, Check, Clock, Gem, Phone, ShieldCheck, UserCheck } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 import { getDictionary } from '@/lib/dictionaries';
-import { landingPages, landingSlugs, type LandingSlug } from '@/lib/landing-pages';
+import {
+  landingPages,
+  landingSlugs,
+  formatOfferAmount,
+  offerPriceSuffix,
+  type LandingSlug,
+} from '@/lib/landing-pages';
+import { PHONE, PHONE_DISPLAY, WHATSAPP_URL } from '@/lib/site-config';
 import { QuickBudgetForm } from '@/components/budget-request/quick-budget-form';
+import { ReviewsHabitissimo } from '@/components/reviews-habitissimo';
+import { FeaturedProjects } from '@/components/featured-projects';
+import { LandingStickyBar } from '@/components/landing-sticky-bar';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-
-const PHONE = '+34661959090';
+import { CallButton, WhatsappButton } from '@/components/cta-buttons';
 
 type Props = { params: { locale: string; slug: string } };
 
@@ -37,6 +45,18 @@ export async function generateMetadata({ params: { locale, slug } }: Props): Pro
   };
 }
 
+const BENEFIT_ICONS = [Clock, Gem, UserCheck, BadgeCheck, ShieldCheck];
+
+/** Encabezado de sección con el filete dorado del folleto. */
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="text-center">
+      <h2 className="font-headline text-3xl font-extrabold tracking-tight md:text-4xl">{children}</h2>
+      <span className="mx-auto mt-4 block h-1 w-16 rounded-full bg-gradient-to-r from-gold to-gold-light" />
+    </div>
+  );
+}
+
 export default async function LandingPage({ params: { locale, slug } }: Props) {
   if (!landingSlugs.includes(slug as LandingSlug)) {
     notFound();
@@ -46,13 +66,13 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
   const dict = await getDictionary(locale as any);
   const t = dict.landing;
   const page = t.pages[slug];
-  const inclusions: string[] = dict.budgetRequest.reformInclusions[config.inclusionsKey] ?? [];
+  const amount = formatOfferAmount(config, locale);
+  const suffix = offerPriceSuffix(config);
 
-  const testimonials = [
-    { quote: dict.home.testimonials.testimonial2, name: dict.home.testimonials.customer2 },
-    { quote: dict.home.testimonials.testimonial3, name: dict.home.testimonials.customer3 },
-  ];
+  // El acento va siempre al final del titular, en cursiva serif.
+  const [h1Lead] = page.h1Accent ? page.h1.split(page.h1Accent) : [page.h1];
 
+  const seals = [t.offer.seals.fixedPrice, t.offer.seals.noSurprises, t.offer.seals.warranty];
   const trustPoints = [t.trust.years, t.trust.written, t.trust.noCost, t.trust.callback];
 
   return (
@@ -61,122 +81,217 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
         Cabecera reducida a propósito: sin menú de navegación. En una landing de
         campaña, cada enlace que no sea el formulario es una fuga de conversión.
       */}
-      <header className="w-full border-b bg-background">
+      <header className="w-full border-b border-gold/20 bg-background">
         <div className="container-limited flex h-16 items-center justify-between">
           <Logo width={110} height={36} />
-          <Button asChild variant="outline" size="sm">
-            <a href={`tel:${PHONE}`}>
-              <Phone className="mr-2 h-4 w-4" />
-              661 95 90 90
-            </a>
-          </Button>
+          <CallButton size="sm" className="bg-forest font-bold text-white hover:bg-forest-light">
+              <Phone className="mr-2 h-4 w-4 text-gold" />
+              <span className="hidden sm:inline">{t.offer.ctaSecondary} · </span>
+              {PHONE_DISPLAY}
+            </CallButton>
         </div>
       </header>
 
-      <main className="flex-1">
-        <section className="w-full bg-secondary/50 py-14 md:py-20">
-          <div className="container-limited">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="font-headline text-4xl font-bold tracking-tight md:text-5xl">
-                {page.h1}
+      {/* pb-24 en móvil deja hueco para la barra fija inferior. */}
+      <main className="flex-1 pb-24 md:pb-0">
+        <section className="w-full bg-secondary/50 py-12 md:py-20">
+          <div className="container-limited grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <span className="inline-block rounded-full bg-forest px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-gold">
+                {t.offer.badge}
+              </span>
+              <h1 className="mt-5 font-headline text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
+                {h1Lead.trim()}{' '}
+                <em className="block font-accent text-[0.85em] font-medium italic text-primary">
+                  {page.h1Accent}
+                </em>
               </h1>
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 {page.subtitle}
               </p>
-              <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3">
+              <ul className="mt-7 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
                 {trustPoints.map((point) => (
-                  <li key={point} className="flex items-center text-sm font-medium">
-                    <Check className="mr-2 h-4 w-4 shrink-0 text-primary" />
+                  <li key={point} className="flex items-start text-sm font-medium">
+                    <span className="mr-2.5 mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <Check className="h-3 w-3 text-primary" strokeWidth={3} />
+                    </span>
                     {point}
                   </li>
                 ))}
               </ul>
             </div>
+
+            {/*
+              Panel de oferta en verde bosque y dorado, replicando la creatividad.
+              Colores de marca fijos: no cambian con el tema claro/oscuro.
+            */}
+            <div className="overflow-hidden rounded-2xl bg-forest shadow-2xl ring-1 ring-gold/25">
+              <div className="bg-gradient-to-b from-forest-light to-forest px-7 pb-8 pt-7 text-center md:px-9">
+                <p className="gold-rule text-[0.7rem] font-bold uppercase tracking-[0.22em] text-gold">
+                  {t.offer.badge}
+                </p>
+
+                <p className="mt-6 text-sm font-medium uppercase tracking-[0.14em] text-white/60">
+                  {page.priceLabel}
+                </p>
+                <p className="mt-1 font-headline text-6xl font-extrabold leading-none text-white md:text-7xl">
+                  {amount}
+                  <span className="text-gold">€</span>
+                  {suffix && <span className="text-3xl font-bold text-white/70 md:text-4xl">{suffix}</span>}
+                </p>
+
+                <p className="mt-5 inline-block rounded-md bg-gradient-to-r from-gold to-gold-light px-5 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-forest shadow-lg">
+                  {t.offer.vat}
+                </p>
+
+                <div className="mt-8 grid grid-cols-3 gap-3 border-t border-white/15 pt-7">
+                  {seals.map((seal) => (
+                    <div key={seal} className="flex flex-col items-center gap-2">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/50">
+                        <ShieldCheck className="h-5 w-5 text-gold" />
+                      </span>
+                      <span className="text-[0.68rem] font-bold uppercase leading-tight tracking-wide text-white/85">
+                        {seal}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-7 text-sm text-white/70">
+                  {t.offer.termLabel}: <span className="font-bold text-gold">{page.term}</span>
+                </p>
+              </div>
+
+              {/* Llamada y WhatsApp por delante; el presupuesto queda como enlace. */}
+              <div className="space-y-3 bg-forest px-7 pb-7 md:px-9">
+                <CallButton className="w-full bg-gradient-to-r from-gold to-gold-light text-base font-extrabold text-forest shadow-lg hover:from-gold-light hover:to-gold">
+                    <Phone className="mr-2 h-5 w-5" />
+                    {t.offer.ctaSecondary} · {PHONE_DISPLAY}
+                  </CallButton>
+                <WhatsappButton className="w-full bg-[#25D366] text-base font-bold text-white hover:bg-[#1FB855]">
+                    <FaWhatsapp className="mr-2 h-5 w-5" />
+                    {t.offer.ctaWhatsapp}
+                  </WhatsappButton>
+                <p className="pt-1 text-center">
+                  <Link
+                    href="#presupuesto"
+                    className="text-sm text-white/70 underline underline-offset-4 hover:text-gold"
+                  >
+                    {t.offer.ctaQuoteLink}
+                  </Link>
+                </p>
+                <p className="text-center text-[0.7rem] leading-relaxed text-white/45">
+                  {t.offer.disclaimer}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* El formulario va inmediatamente después del titular: es el objetivo de la página. */}
-        <section className="w-full bg-background py-14 md:py-20">
+        <section className="w-full bg-background py-16 md:py-24">
+          <div className="container-limited max-w-4xl">
+            <SectionHeading>{t.includesTitle}</SectionHeading>
+            <ul className="mt-10 grid gap-x-10 gap-y-4 md:grid-cols-2">
+              {page.includes.map((item: string) => (
+                <li key={item} className="flex items-start text-sm">
+                  <span className="mr-3 mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary">
+                    <Check className="h-3 w-3 text-primary-foreground" strokeWidth={3} />
+                  </span>
+                  <span className="leading-relaxed text-muted-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Mismo patrón que "Nuestro Método de Trabajo" de la home: tarjeta con
+            borde, número en esquina e icono, aquí con la paleta de campaña. */}
+        <section className="w-full bg-secondary/40 py-16 md:py-24">
+          <div className="container-limited max-w-6xl">
+            <SectionHeading>{t.benefitsTitle}</SectionHeading>
+            <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
+              {t.benefits.map((benefit: { title: string; description: string }, i: number) => {
+                const Icon = BENEFIT_ICONS[i] ?? Check;
+                return (
+                  <div
+                    key={benefit.title}
+                    className="relative flex flex-col items-center rounded-lg border bg-background p-6 text-center shadow-sm"
+                  >
+                    <div className="absolute -right-2 -top-4 flex h-8 w-8 items-center justify-center rounded-full bg-forest text-sm font-bold text-gold shadow-md">
+                      {i + 1}
+                    </div>
+                    <Icon className="mb-4 h-10 w-10 text-primary" />
+                    <h3 className="mb-2 font-headline text-lg font-bold">{benefit.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {benefit.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Mismo mosaico que "Proyectos que Inspiran" de la home. Su tarjeta de
+            CTA apunta al formulario de esta página, no a /budget-request. */}
+        <section className="w-full bg-secondary py-16 md:py-24">
           <div className="container-limited">
-            <div className="mx-auto mb-10 max-w-2xl text-center">
-              <h2 className="font-headline text-3xl font-bold">{t.formTitle}</h2>
-              <p className="mt-3 text-muted-foreground">{t.formSubtitle}</p>
+            <SectionHeading>{dict.home.projects.title}</SectionHeading>
+            <p className="mx-auto mt-5 max-w-3xl text-center text-lg text-muted-foreground">
+              {dict.home.projects.subtitle}
+            </p>
+            <div className="mt-12">
+              <FeaturedProjects t={dict.home.projects} ctaHref="#presupuesto" />
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full bg-background py-16 md:py-24">
+          <ReviewsHabitissimo locale={locale} t={t.reviews} />
+        </section>
+
+        {/* CTA justo tras la prueba social, que es el pico de persuasión. */}
+        <section className="w-full bg-forest py-16 md:py-24">
+          <div className="container-limited max-w-2xl text-center">
+            <p className="gold-rule mx-auto max-w-xs text-[0.7rem] font-bold uppercase tracking-[0.22em] text-gold">
+              Refcon
+            </p>
+            <h2 className="mt-6 font-headline text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+              {t.finalCta.title}
+            </h2>
+            <p className="mt-4 leading-relaxed text-white/70">{t.finalCta.subtitle}</p>
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+              <CallButton className="bg-gradient-to-r from-gold to-gold-light text-base font-extrabold text-forest shadow-lg hover:from-gold-light hover:to-gold">
+                  <Phone className="mr-2 h-5 w-5" />
+                  {PHONE_DISPLAY}
+                </CallButton>
+              <WhatsappButton className="bg-[#25D366] text-base font-bold text-white hover:bg-[#1FB855]">
+                  <FaWhatsapp className="mr-2 h-5 w-5" />
+                  {t.offer.ctaWhatsapp}
+                </WhatsappButton>
+            </div>
+          </div>
+        </section>
+
+        {/*
+          El formulario cierra la página, en segundo plano respecto a llamada y
+          WhatsApp: es la vía para quien prefiere escribir o quiere el importe
+          antes de hablar con nadie.
+        */}
+        <section id="presupuesto" className="w-full scroll-mt-16 bg-secondary/40 py-16 md:py-24">
+          <div className="container-limited">
+            <div className="mx-auto mb-12 max-w-2xl">
+              <SectionHeading>{t.formTitle}</SectionHeading>
+              <p className="mt-5 text-center leading-relaxed text-muted-foreground">
+                {t.formSubtitle}
+              </p>
             </div>
             <QuickBudgetForm t={dict} defaultRenovationType={config.renovationType} />
           </div>
         </section>
-
-        {inclusions.length > 0 && (
-          <section className="w-full bg-secondary/50 py-14 md:py-20">
-            <div className="container-limited max-w-4xl">
-              <h2 className="text-center font-headline text-3xl font-bold">
-                {t.inclusionsTitle}
-              </h2>
-              <ul className="mt-8 grid gap-x-8 gap-y-3 md:grid-cols-2">
-                {inclusions.map((item) => (
-                  <li key={item} className="flex items-start text-sm text-muted-foreground">
-                    <Check className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )}
-
-        <section className="w-full bg-background py-14 md:py-20">
-          <div className="container-limited max-w-4xl">
-            <h2 className="text-center font-headline text-3xl font-bold">{t.galleryTitle}</h2>
-            <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-xl shadow-lg">
-              {config.media.type === 'video' ? (
-                // preload="none" para no penalizar el LCP: el objetivo es el formulario.
-                <video
-                  src={config.media.src}
-                  className="h-full w-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="none"
-                />
-              ) : (
-                <Image
-                  src={config.media.src}
-                  alt={page.h1}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 896px"
-                />
-              )}
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full bg-secondary/50 py-14 md:py-20">
-          <div className="container-limited max-w-4xl">
-            <h2 className="text-center font-headline text-3xl font-bold">
-              {t.testimonialsTitle}
-            </h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {testimonials.map((item) => (
-                <Card key={item.name} className="border-none bg-background shadow-lg">
-                  <CardContent className="pt-6">
-                    <div className="flex gap-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                      {item.quote}
-                    </p>
-                    <p className="mt-4 font-semibold">{item.name}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
+
+      <LandingStickyBar t={t.stickyBar} />
 
       <footer className="w-full border-t bg-background py-8">
         <div className="container-limited flex flex-col items-center gap-4 text-center text-sm text-muted-foreground">

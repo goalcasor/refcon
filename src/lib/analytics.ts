@@ -11,8 +11,14 @@
 export const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID ?? '';
 export const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? '';
 
-/** Etiqueta de la conversión de lead en Google Ads: la parte tras la barra en `AW-XXXXX/YYYYY`. */
+/**
+ * Etiquetas de las acciones de conversión de Google Ads: la parte tras la barra
+ * en `AW-XXXXX/YYYYY`. Cada CTA tiene la suya para poder verlas por separado en
+ * los informes y decidir cuál merece la pena.
+ */
 export const ADS_LEAD_LABEL = process.env.NEXT_PUBLIC_ADS_LEAD_LABEL ?? '';
+export const ADS_WHATSAPP_LABEL = process.env.NEXT_PUBLIC_ADS_WHATSAPP_LABEL ?? '';
+export const ADS_CALL_LABEL = process.env.NEXT_PUBLIC_ADS_CALL_LABEL ?? '';
 
 export const CONSENT_COOKIE = 'refcon_consent';
 const CONSENT_MAX_AGE = 60 * 60 * 24 * 180; // 180 días
@@ -105,24 +111,40 @@ export function trackLead(params: {
     call_preference: callPreference,
   });
 
-  if (GOOGLE_ADS_ID && ADS_LEAD_LABEL) {
-    trackEvent('conversion', {
-      send_to: `${GOOGLE_ADS_ID}/${ADS_LEAD_LABEL}`,
-      ...amount,
-    });
-  }
+  sendAdsConversion(ADS_LEAD_LABEL, amount);
+}
+
+/** Envía la conversión a Google Ads si la etiqueta está configurada. */
+function sendAdsConversion(label: string, params: Record<string, unknown> = {}) {
+  if (!GOOGLE_ADS_ID || !label) return;
+  trackEvent('conversion', { send_to: `${GOOGLE_ADS_ID}/${label}`, ...params });
+}
+
+/** Clic en WhatsApp: captura el contacto, así que cuenta como conversión. */
+export function trackWhatsappClick() {
+  trackEvent('click_whatsapp');
+  sendAdsConversion(ADS_WHATSAPP_LABEL);
 }
 
 /**
- * Clic en WhatsApp: cuenta como conversión secundaria porque también captura el contacto.
+ * Clic en un enlace `tel:`.
+ *
+ * Se cuenta como conversión desde que la llamada pasó a ser el CTA principal de
+ * las landings: dejarla fuera hacía que Ads viera una fracción de los leads
+ * reales. Si se activa el número de desvío en la extensión de llamada, esta
+ * acción debe pasar a **secundaria**, porque entonces mediría lo mismo dos veces
+ * y con peor calidad (un clic no es una conversación).
  */
-export const trackWhatsappClick = () => trackEvent('click_whatsapp');
+export function trackPhoneClick() {
+  trackEvent('click_phone');
+  sendAdsConversion(ADS_CALL_LABEL);
+}
 
 /**
- * Clic en teléfono: se registra en GA4 solo para observación.
+ * Salida hacia el perfil de Habitissimo.
  *
- * NO se importa como conversión en Google Ads. El propietario prefiere captar el
- * contacto por formulario y llamar después, así que este clic no representa el lead
- * que se quiere optimizar y no debe influir en la puja.
+ * Se mide porque es una fuga con coste real: el visitante llegó por un clic de
+ * pago y Habitissimo es un marketplace donde también aparecen competidores. Con
+ * el dato se puede decidir si el enlace compensa o conviene retirarlo.
  */
-export const trackPhoneClick = () => trackEvent('click_phone');
+export const trackHabitissimoClick = () => trackEvent('click_habitissimo');
