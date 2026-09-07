@@ -8,6 +8,9 @@
     "offer": {
         "badge": "Oferta especial",
         "vat": "+ IVA · Todo incluido",
+        "vatPlus": "+ IVA · Todo incluido",
+        "vatIncluded": "IVA incluido",
+        "turnkeySeal": "Llave en mano · Sin preocupaciones",
         "termLabel": "Plazo de ejecución",
         "seals": {
             "fixedPrice": "Precio cerrado",
@@ -16,7 +19,7 @@
         },
         "ctaPrimary": "Calcular mi presupuesto",
         "ctaSecondary": "Llamar ahora",
-        "disclaimer": "Precio orientativo y no contractual. El presupuesto definitivo se emite por escrito tras la visita técnica.",
+        "disclaimer": "Precio cerrado, sin sorpresas. En la visita técnica gratuita confirmamos el alcance; cualquier trabajo adicional se acuerda por escrito antes de empezar.",
         "ctaWhatsapp": "WhatsApp",
         "ctaQuoteLink": "O calcula tu presupuesto online"
     },
@@ -64,15 +67,86 @@
     },
     "stickyBar": {
         "quote": "Presupuesto",
+        "reserve": "Reservar",
         "call": "Llamar",
         "whatsapp": "WhatsApp"
+    },
+    "agenda": {
+        "title": "Reserva tu visita técnica GRATIS",
+        "subtitle": "Elige el día y la hora que mejor te vengan. Sin compromiso y sin coste.",
+        "reserveCta": "Reserva tu visita GRATIS",
+        "urgencyFallback": "Plazas de instalación limitadas este mes · Reserva tu visita gratis",
+        "steps": {
+            "mode": "¿Cómo prefieres tu cita?",
+            "date": "Elige el día",
+            "time": "Elige la hora",
+            "details": "Tus datos de contacto"
+        },
+        "modes": {
+            "visit": {
+                "title": "Visita a domicilio",
+                "description": "Un técnico acude a tu casa a tomar medidas y asesorarte."
+            },
+            "call": {
+                "title": "Llamada telefónica",
+                "description": "Te llamamos para resolver dudas y orientarte sin desplazarnos."
+            }
+        },
+        "fields": {
+            "name": { "label": "Nombre y apellidos", "placeholder": "Tu nombre" },
+            "email": { "label": "Correo electrónico", "placeholder": "tucorreo@email.com" },
+            "phone": { "label": "Teléfono", "placeholder": "600 000 000" },
+            "address": { "label": "Dirección de la visita", "placeholder": "Calle, número y población" },
+            "notes": { "label": "Comentarios (opcional)", "placeholder": "Cuéntanos brevemente tu proyecto" }
+        },
+        "slots": {
+            "remaining": "{count} libres",
+            "full": "Completo",
+            "none": "No quedan huecos disponibles este día. Prueba otra fecha."
+        },
+        "submit": "Confirmar mi cita",
+        "submitting": "Reservando…",
+        "errors": {
+            "name": "Indícanos tu nombre.",
+            "email": "Introduce un correo electrónico válido.",
+            "phone": "Introduce un teléfono válido.",
+            "address": "La dirección es necesaria para la visita a domicilio.",
+            "slotTaken": {
+                "title": "Ese hueco se acaba de ocupar",
+                "description": "Elige otra hora, hemos actualizado la disponibilidad."
+            },
+            "generic": {
+                "title": "No se pudo reservar",
+                "description": "Inténtalo de nuevo en unos instantes."
+            }
+        },
+        "confirmation": {
+            "title": "¡Tu cita está reservada!",
+            "subtitle": "Te hemos enviado un correo con la confirmación. Nos vemos pronto.",
+            "dateLabel": "Día",
+            "timeLabel": "Hora",
+            "modeLabel": "Modalidad",
+            "addressLabel": "Dirección",
+            "phoneLabel": "Teléfono",
+            "restart": "Reservar otra cita",
+            "doubts": "¿Alguna duda? Llámanos al {phone} o escríbenos por WhatsApp."
+        },
+        "toastSuccess": {
+            "title": "Cita reservada",
+            "description": "Revisa tu correo para ver todos los detalles."
+        },
+        "email": {
+            "clientSubject": "Tu cita con Refcon está reservada",
+            "clientIntro": "¡Gracias por reservar con Refcon! Estos son los datos de tu cita:",
+            "whatExpect": "Un técnico se pondrá en contacto contigo para confirmar los últimos detalles. Si necesitas cambiar la cita, responde a este correo o llámanos."
+        }
     },
     "pages": {
         "reforma-integral": {
             "h1": "Reformas Integrales en Mallorca",
             "subtitle": "Renovamos tu vivienda por completo, llave en mano. Diseño, obra, acabados y entrega con fecha cerrada.",
-            "metaTitle": "Reforma Integral en Mallorca desde 437 €/m² | Refcon",
-            "metaDescription": "Reforma integral llave en mano en Mallorca desde 437 €/m² + IVA. Precio cerrado, garantía de 5 años y presupuesto online en 1 minuto.",
+            "metaTitle": "Reforma Integral en Mallorca 437 €/m² | Refcon",
+            "metaDescription": "Reforma integral llave en mano en Mallorca 437 €/m² + IVA. Precio cerrado, garantía de 5 años y presupuesto online en 1 minuto.",
             "term": "4-8 semanas",
             "includes": [
                 "Diseño y planificación del proyecto",
@@ -87,14 +161,14 @@
                 "Retirada de escombros y limpieza final",
                 "Entrega llave en mano"
             ],
-            "priceLabel": "Reforma completa desde",
+            "priceLabel": "Reforma completa",
             "h1Accent": "en Mallorca"
         },
         "reforma-bano": {
             "h1": "Reforma de Baños en Mallorca",
             "subtitle": "Baño completo con todo incluido: fontanería, revestimientos, sanitarios y mampara. Listo en poco más de una semana.",
-            "metaTitle": "Reforma de Baño en Mallorca desde 5.900 € | Refcon",
-            "metaDescription": "Baño completo reformado en Mallorca desde 5.900 € + IVA, todo incluido. Precio cerrado, garantía de 5 años y presupuesto online en 1 minuto.",
+            "metaTitle": "Reforma de Baño en Mallorca 5.990 € | Refcon",
+            "metaDescription": "Baño completo reformado en Mallorca 5.990 € + IVA, todo incluido. Precio cerrado, garantía de 5 años y presupuesto online en 1 minuto.",
             "term": "7-10 días",
             "includes": [
                 "Demolición y retirada de sanitarios y revestimientos antiguos",
@@ -108,14 +182,14 @@
                 "Acabados profesionales y limpieza final",
                 "Proyecto y asesoramiento personalizado"
             ],
-            "priceLabel": "Baño completo desde",
+            "priceLabel": "Baño completo",
             "h1Accent": "en Mallorca"
         },
         "reforma-cocina": {
             "h1": "Reforma de Cocinas en Mallorca",
             "subtitle": "Cocina nueva llave en mano, con mobiliario y electrodomésticos incluidos. Tú eliges los acabados, nosotros hacemos el resto.",
-            "metaTitle": "Reforma de Cocina en Mallorca desde 9.797 € | Refcon",
-            "metaDescription": "Cocina reformada llave en mano en Mallorca desde 9.797 € + IVA, electrodomésticos incluidos. Precio cerrado y presupuesto online en 1 minuto.",
+            "metaTitle": "Reforma de Cocina en Mallorca 9.797 € | Refcon",
+            "metaDescription": "Cocina reformada llave en mano en Mallorca 9.797 € + IVA, electrodomésticos incluidos. Precio cerrado y presupuesto online en 1 minuto.",
             "term": "2-4 semanas",
             "includes": [
                 "Desmontaje de la cocina actual",
@@ -130,14 +204,14 @@
                 "Pintura, retirada de escombros y limpieza",
                 "Entrega llave en mano"
             ],
-            "priceLabel": "Reforma de cocina desde",
+            "priceLabel": "Reforma de cocina",
             "h1Accent": "en Mallorca"
         },
         "cambiar-banera-por-ducha": {
             "h1": "Cambiar Bañera por Plato de Ducha en Mallorca",
             "subtitle": "Más cómodo, más seguro y más accesible. Sin reformar el baño entero y en apenas un par de días.",
-            "metaTitle": "Cambiar Bañera por Ducha en Mallorca desde 1.990 € | Refcon",
-            "metaDescription": "Cambiamos tu bañera por un plato de ducha antideslizante en Mallorca desde 1.990 € + IVA. En 1-2 días, precio cerrado y todo incluido.",
+            "metaTitle": "Cambiar Bañera por Ducha en Mallorca 1.990 € | Refcon",
+            "metaDescription": "Cambiamos tu bañera por un plato de ducha antideslizante en Mallorca 1.990 € + IVA. En 1-2 días, precio cerrado y todo incluido.",
             "term": "1-2 días",
             "includes": [
                 "Retirada de la bañera y de los escombros",
@@ -148,7 +222,7 @@
                 "Trabajos de fontanería y albañilería",
                 "Acabados profesionales y limpieza final"
             ],
-            "priceLabel": "Cambio de bañera desde",
+            "priceLabel": "Cambio de bañera",
             "h1Accent": "en Mallorca"
         },
         "bano-sin-obras": {

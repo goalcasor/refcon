@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site-config';
+import { JsonLd, serviceSchema, breadcrumb } from '@/lib/structured-data';
 
 export async function generateStaticParams() {
   return services.map((service) => ({
@@ -30,6 +32,7 @@ export async function generateMetadata({ params }: { params: { slug: string, loc
   return {
     title,
     description,
+    alternates: { canonical: `/${params.locale}/services/${params.slug}` },
     openGraph: {
       title,
       description,
@@ -66,8 +69,24 @@ export default async function ServicePage({ params }: { params: { slug: string, 
       notFound();
   }
 
+  const url = `${SITE_URL}/${params.locale}/services/${service.id}`;
+  const jsonLd = [
+    serviceSchema({
+      name: serviceTranslation.title,
+      description: serviceTranslation.shortDescription ?? serviceTranslation.subtitle ?? serviceTranslation.description,
+      url,
+      image: service.image,
+      locale: params.locale,
+    }),
+    breadcrumb([
+      { name: 'Refcon', url: `${SITE_URL}/${params.locale}` },
+      { name: serviceTranslation.title, url },
+    ]),
+  ];
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <Header t={dict} />
       <main className="flex-1">
         <section className="relative h-64 md:h-80 w-full">

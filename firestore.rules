@@ -2,15 +2,45 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    
-    // Allow client to send emails
+
+    // Allow client to send emails (Trigger Email extension)
     match /mail/{mailId} {
       allow create: if true;
     }
 
-    // Allow client to submit budget requests
+    // Allow client to submit budget requests; only signed-in admin can read/manage.
     match /refcon_budget/{budgetId} {
       allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+    match /refcon_contact/{contactId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // ---- Agenda de citas de las landings ----
+
+    // Configuración de la agenda: pública en lectura (la landing la necesita
+    // para pintar los huecos), editable solo por el admin autenticado.
+    match /refcon_agenda_config/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Contadores de aforo por día: SIN datos personales. Lectura pública para
+    // mostrar huecos libres; la reserva los incrementa desde el cliente.
+    // (Endurecer el aforo frente a un cliente malicioso requeriría una Cloud
+    // Function; hoy se apoya en la transacción de reserva.)
+    match /refcon_agenda_slots/{dateKey} {
+      allow read: if true;
+      allow create, update: if true;
+    }
+
+    // Citas con datos personales: creación pública (reserva), pero solo el
+    // admin autenticado puede leerlas y gestionarlas.
+    match /refcon_appointments/{appointmentId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
     }
 
     match /{document=**} {

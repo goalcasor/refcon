@@ -62,3 +62,5 @@ Thumbs.db
 # documentacion interna de marketing: el repositorio es publico y aqui viven
 # las keywords, negativas, copy de anuncios y presupuestos de la campana
 docs/marketing/
+# Configuracion MCP: contiene el token de desarrollador de Google Ads
+.mcp.json

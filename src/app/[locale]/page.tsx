@@ -11,7 +11,17 @@ import placeholderImages from '@/lib/placeholder-images.json';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { getDictionary } from '@/lib/dictionaries';
+import type { Metadata } from 'next';
 import { cn } from '@/lib/utils';
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  return {
+    alternates: {
+      canonical: `/${locale}`,
+      languages: { es: '/es', en: '/en', de: '/de', ca: '/ca', 'x-default': '/es' },
+    },
+  };
+}
 import { ReviewsHabitissimo } from '@/components/reviews-habitissimo';
 import { FeaturedProjects } from '@/components/featured-projects';
 

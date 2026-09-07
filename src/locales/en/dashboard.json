@@ -10,7 +10,9 @@
         "seoGenerator": "SEO Blog Generator",
         "settings": "Settings",
         "pricing": "Pricing Config",
-        "leads": "Requests"
+        "leads": "Requests",
+        "agenda": "Schedule",
+        "agendaSettings": "Schedule Config"
     },
     "requestBudget": {
         "title": "Request Budget",
@@ -50,6 +52,104 @@
             "squareMeters": "Floor area",
             "quality": "Quality",
             "estimatedBudget": "Estimated quote"
+        }
+    },
+    "agenda": {
+        "title": "Appointments schedule",
+        "subtitle": "Every visit and call booked from the landing pages, in real time.",
+        "loading": "Loading appointments…",
+        "empty": "No appointments with this status.",
+        "errorTitle": "Appointments cannot be read",
+        "errorHelp": "This usually means the Firestore security rules do not allow authenticated users to read the refcon_appointments collection. Check the rules in the Firebase console.",
+        "statusError": "The status could not be changed",
+        "filters": {
+            "all": "All"
+        },
+        "status": {
+            "pending": "Pending",
+            "confirmed": "Confirmed",
+            "completed": "Completed",
+            "cancelled": "Cancelled",
+            "no_show": "No-show"
+        },
+        "modes": {
+            "visit": "Visit",
+            "call": "Call"
+        },
+        "stats": {
+            "total": "Total appointments",
+            "today": "Today",
+            "thisWeek": "This week",
+            "pending": "Pending",
+            "confirmed": "Confirmed"
+        },
+        "fields": {
+            "mode": "Mode",
+            "dateTime": "Date and time",
+            "phone": "Phone",
+            "email": "Email",
+            "address": "Address",
+            "renovationType": "Renovation type",
+            "campaign": "Campaign",
+            "notes": "Notes",
+            "createdAt": "Booked on"
+        }
+    },
+    "agendaSettings": {
+        "title": "Schedule settings",
+        "description": "Define when and how visits and calls can be booked from the landing pages. Changes are saved for real and affect the slots customers see.",
+        "sections": {
+            "schedule": "Days and modes",
+            "windows": "Time windows",
+            "limits": "Booking limits",
+            "blackout": "Closed days",
+            "urgency": "Urgency banner"
+        },
+        "weekdaysLabel": "Days of the week when appointments are offered.",
+        "weekdays": {
+            "mon": "Monday",
+            "tue": "Tuesday",
+            "wed": "Wednesday",
+            "thu": "Thursday",
+            "fri": "Friday",
+            "sat": "Saturday",
+            "sun": "Sunday"
+        },
+        "modesLabel": "Offered modes",
+        "modes": {
+            "visit": "On-site visit",
+            "call": "Call"
+        },
+        "windowsLabel": "Time ranges within the day (for example, morning and afternoon).",
+        "windowStart": "Start",
+        "windowEnd": "End",
+        "slotDurationMinutes": "Slot duration (min)",
+        "capacityPerSlot": "Capacity per slot",
+        "leadTimeHours": "Minimum lead time (h)",
+        "horizonDays": "Days ahead",
+        "blackoutLabel": "Specific dates when no appointments are offered.",
+        "blackoutEmpty": "No closed days.",
+        "blackoutDate": "Date",
+        "urgencyLabel": "Scarcity notice shown on the landing page.",
+        "urgencyEnabled": "Show the urgency banner",
+        "urgencyMessage": "Message",
+        "urgencyUntil": "Valid until (optional)",
+        "buttons": {
+            "save": "Save changes",
+            "loading": "Saving…",
+            "addWindow": "Add window",
+            "addBlackout": "Add closed day",
+            "remove": "Remove"
+        },
+        "toast": {
+            "success": {
+                "title": "Settings saved",
+                "description": "The schedule was updated successfully."
+            },
+            "error": {
+                "title": "Could not save",
+                "description": "Check the data and try again."
+            }
         }
     }
 }

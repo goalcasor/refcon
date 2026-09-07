@@ -10,7 +10,9 @@
         "seoGenerator": "Generador SEO",
         "settings": "Ajustes",
         "pricing": "Configurar Precios",
-        "leads": "Solicitudes"
+        "leads": "Solicitudes",
+        "agenda": "Agenda",
+        "agendaSettings": "Configurar Agenda"
     },
     "requestBudget": {
         "title": "Solicitar Presupuesto",
@@ -50,6 +52,104 @@
             "squareMeters": "Superficie",
             "quality": "Calidad",
             "estimatedBudget": "Presupuesto estimado"
+        }
+    },
+    "agenda": {
+        "title": "Agenda de citas",
+        "subtitle": "Todas las visitas y llamadas reservadas desde las landings, en tiempo real.",
+        "loading": "Cargando citas…",
+        "empty": "No hay citas con este estado.",
+        "errorTitle": "No se pueden leer las citas",
+        "errorHelp": "Lo habitual es que las reglas de seguridad de Firestore no permitan leer la colección refcon_appointments a usuarios autenticados. Revisa las reglas en la consola de Firebase.",
+        "statusError": "No se pudo cambiar el estado",
+        "filters": {
+            "all": "Todas"
+        },
+        "status": {
+            "pending": "Pendiente",
+            "confirmed": "Confirmada",
+            "completed": "Completada",
+            "cancelled": "Cancelada",
+            "no_show": "No asistió"
+        },
+        "modes": {
+            "visit": "Visita",
+            "call": "Llamada"
+        },
+        "stats": {
+            "total": "Citas totales",
+            "today": "Hoy",
+            "thisWeek": "Esta semana",
+            "pending": "Pendientes",
+            "confirmed": "Confirmadas"
+        },
+        "fields": {
+            "mode": "Modalidad",
+            "dateTime": "Fecha y hora",
+            "phone": "Teléfono",
+            "email": "Email",
+            "address": "Dirección",
+            "renovationType": "Tipo de reforma",
+            "campaign": "Campaña",
+            "notes": "Notas",
+            "createdAt": "Reservada el"
+        }
+    },
+    "agendaSettings": {
+        "title": "Configurar la agenda",
+        "description": "Define cuándo y cómo se pueden reservar visitas y llamadas desde las landings. Los cambios se guardan de verdad y afectan a los huecos que ven los clientes.",
+        "sections": {
+            "schedule": "Días y modalidades",
+            "windows": "Franjas horarias",
+            "limits": "Límites de reserva",
+            "blackout": "Días cerrados",
+            "urgency": "Banner de urgencia"
+        },
+        "weekdaysLabel": "Días de la semana en los que se atienden citas.",
+        "weekdays": {
+            "mon": "Lunes",
+            "tue": "Martes",
+            "wed": "Miércoles",
+            "thu": "Jueves",
+            "fri": "Viernes",
+            "sat": "Sábado",
+            "sun": "Domingo"
+        },
+        "modesLabel": "Modalidades ofrecidas",
+        "modes": {
+            "visit": "Visita técnica",
+            "call": "Llamada"
+        },
+        "windowsLabel": "Tramos horarios del día (por ejemplo, mañana y tarde).",
+        "windowStart": "Inicio",
+        "windowEnd": "Fin",
+        "slotDurationMinutes": "Duración del hueco (min)",
+        "capacityPerSlot": "Aforo por hueco",
+        "leadTimeHours": "Antelación mínima (h)",
+        "horizonDays": "Días vista",
+        "blackoutLabel": "Fechas concretas en las que no se atienden citas.",
+        "blackoutEmpty": "No hay días cerrados.",
+        "blackoutDate": "Fecha",
+        "urgencyLabel": "Aviso de escasez que se muestra en la landing.",
+        "urgencyEnabled": "Mostrar el banner de urgencia",
+        "urgencyMessage": "Mensaje",
+        "urgencyUntil": "Válido hasta (opcional)",
+        "buttons": {
+            "save": "Guardar cambios",
+            "loading": "Guardando…",
+            "addWindow": "Añadir franja",
+            "addBlackout": "Añadir día cerrado",
+            "remove": "Quitar"
+        },
+        "toast": {
+            "success": {
+                "title": "Configuración guardada",
+                "description": "La agenda se ha actualizado correctamente."
+            },
+            "error": {
+                "title": "No se pudo guardar",
+                "description": "Revisa los datos e inténtalo de nuevo."
+            }
         }
     }
 }

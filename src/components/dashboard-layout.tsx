@@ -10,6 +10,8 @@ import {
   Settings,
   PlusCircle,
   DollarSign,
+  CalendarDays,
+  CalendarCog,
 } from 'lucide-react';
 
 import { useAuth } from '@/hooks/use-auth';
@@ -36,12 +38,14 @@ export function DashboardLayout({ children, t }: { children: React.ReactNode, t:
   const navItems = [
     { href: '/dashboard', label: t.dashboard.nav.dashboard, icon: <LayoutDashboard /> },
     { href: '/dashboard/leads', label: t.dashboard.nav.leads, icon: <Inbox /> },
+    { href: '/dashboard/agenda', label: t.dashboard.nav.agenda, icon: <CalendarDays /> },
     { href: '/dashboard/budget-request', label: t.dashboard.nav.requestBudget, icon: <PlusCircle /> },
     { href: '/dashboard/seo-generator', label: t.dashboard.nav.seoGenerator, icon: <Lightbulb /> },
   ];
 
   const settingsNavItems = [
     { href: '/dashboard/settings/pricing', label: t.dashboard.nav.pricing, icon: <DollarSign /> },
+    { href: '/dashboard/settings/agenda', label: t.dashboard.nav.agendaSettings, icon: <CalendarCog /> },
     { href: '/dashboard/settings', label: t.dashboard.nav.settings, icon: <Settings /> },
   ]
 

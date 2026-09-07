@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Calculator, Phone } from 'lucide-react';
+import { CalendarClock, Phone } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { PHONE, WHATSAPP_URL } from '@/lib/site-config';
@@ -10,7 +10,7 @@ import { trackPhoneClick, trackWhatsappClick } from '@/lib/analytics';
 /**
  * Barra fija inferior en móvil.
  *
- * Llamada y WhatsApp ocupan el peso visual; el presupuesto queda como acción
+ * Llamada y WhatsApp ocupan el peso visual; la reserva de cita queda como acción
  * secundaria en icono. En una landing larga el CTA del hero deja de verse en
  * cuanto se baja a leer, y esta barra evita tener que volver arriba.
  *
@@ -19,8 +19,11 @@ import { trackPhoneClick, trackWhatsappClick } from '@/lib/analytics';
 export function LandingStickyBar({
   t,
 }: {
-  t: { quote: string; call: string; whatsapp: string };
+  t: { quote: string; reserve?: string; call: string; whatsapp: string };
 }) {
+  // `reserve` es la clave nueva; `quote` se mantiene como respaldo por si algún
+  // locale aún no la trae.
+  const reserveLabel = t.reserve ?? t.quote;
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-gold/20 bg-background/95 p-3 backdrop-blur md:hidden">
       <div className="flex items-center gap-2">
@@ -46,10 +49,10 @@ export function LandingStickyBar({
           variant="outline"
           size="icon"
           className="h-11 w-11 shrink-0 border-forest/25"
-          aria-label={t.quote}
+          aria-label={reserveLabel}
         >
-          <Link href="#presupuesto">
-            <Calculator className="h-4 w-4" />
+          <Link href="#reservar">
+            <CalendarClock className="h-4 w-4" />
           </Link>
         </Button>
       </div>

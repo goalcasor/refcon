@@ -8,6 +8,9 @@
     "offer": {
         "badge": "Oferta especial",
         "vat": "+ IVA · Tot inclòs",
+        "vatPlus": "+ IVA · Tot inclòs",
+        "vatIncluded": "IVA inclòs",
+        "turnkeySeal": "Clau en mà · Sense preocupacions",
         "termLabel": "Termini d’execució",
         "seals": {
             "fixedPrice": "Preu tancat",
@@ -16,7 +19,7 @@
         },
         "ctaPrimary": "Calcular el meu pressupost",
         "ctaSecondary": "Telefonar ara",
-        "disclaimer": "Preu orientatiu i no contractual. El pressupost definitiu s’emet per escrit després de la visita tècnica.",
+        "disclaimer": "Preu tancat, sense sorpreses. En la visita tècnica gratuïta confirmem l’abast; qualsevol treball addicional s’acorda per escrit abans de començar.",
         "ctaWhatsapp": "WhatsApp",
         "ctaQuoteLink": "O calcula el teu pressupost en línia"
     },
@@ -64,15 +67,86 @@
     },
     "stickyBar": {
         "quote": "Pressupost",
+        "reserve": "Reservar",
         "call": "Telefonar",
         "whatsapp": "WhatsApp"
+    },
+    "agenda": {
+        "title": "Reserva la teva visita tècnica GRATIS",
+        "subtitle": "Tria el dia i l’hora que millor et vagin. Sense compromís i sense cost.",
+        "reserveCta": "Reserva la teva visita GRATIS",
+        "urgencyFallback": "Places d’instal·lació limitades aquest mes · Reserva la teva visita gratis",
+        "steps": {
+            "mode": "Com prefereixes la teva cita?",
+            "date": "Tria el dia",
+            "time": "Tria l’hora",
+            "details": "Les teves dades de contacte"
+        },
+        "modes": {
+            "visit": {
+                "title": "Visita a domicili",
+                "description": "Un tècnic va a casa teva a prendre mides i assessorar-te."
+            },
+            "call": {
+                "title": "Trucada telefònica",
+                "description": "Et truquem per resoldre dubtes i orientar-te sense desplaçar-nos."
+            }
+        },
+        "fields": {
+            "name": { "label": "Nom i cognoms", "placeholder": "El teu nom" },
+            "email": { "label": "Correu electrònic", "placeholder": "elteucorreu@email.com" },
+            "phone": { "label": "Telèfon", "placeholder": "600 000 000" },
+            "address": { "label": "Adreça de la visita", "placeholder": "Carrer, número i població" },
+            "notes": { "label": "Comentaris (opcional)", "placeholder": "Explica’ns breument el teu projecte" }
+        },
+        "slots": {
+            "remaining": "{count} lliures",
+            "full": "Complet",
+            "none": "No queden hores disponibles aquest dia. Prova una altra data."
+        },
+        "submit": "Confirmar la meva cita",
+        "submitting": "Reservant…",
+        "errors": {
+            "name": "Indica’ns el teu nom.",
+            "email": "Introdueix un correu electrònic vàlid.",
+            "phone": "Introdueix un telèfon vàlid.",
+            "address": "L’adreça és necessària per a la visita a domicili.",
+            "slotTaken": {
+                "title": "Aquesta hora s’acaba d’ocupar",
+                "description": "Tria una altra hora, hem actualitzat la disponibilitat."
+            },
+            "generic": {
+                "title": "No s’ha pogut reservar",
+                "description": "Torna-ho a provar d’aquí a un moment."
+            }
+        },
+        "confirmation": {
+            "title": "La teva cita està reservada!",
+            "subtitle": "T’hem enviat un correu amb la confirmació. Ens veiem aviat.",
+            "dateLabel": "Dia",
+            "timeLabel": "Hora",
+            "modeLabel": "Modalitat",
+            "addressLabel": "Adreça",
+            "phoneLabel": "Telèfon",
+            "restart": "Reservar una altra cita",
+            "doubts": "Cap dubte? Truca’ns al {phone} o escriu-nos per WhatsApp."
+        },
+        "toastSuccess": {
+            "title": "Cita reservada",
+            "description": "Revisa el teu correu per veure tots els detalls."
+        },
+        "email": {
+            "clientSubject": "La teva cita amb Refcon està reservada",
+            "clientIntro": "Gràcies per reservar amb Refcon! Aquestes són les dades de la teva cita:",
+            "whatExpect": "Un tècnic es posarà en contacte amb tu per confirmar els darrers detalls. Si necessites canviar la cita, respon a aquest correu o truca’ns."
+        }
     },
     "pages": {
         "reforma-integral": {
             "h1": "Reformes Integrals a Mallorca",
             "subtitle": "Renovam el teu habitatge per complet, clau en mà. Disseny, obra, acabats i lliurament amb data tancada.",
-            "metaTitle": "Reforma Integral a Mallorca des de 437 €/m² | Refcon",
-            "metaDescription": "Reforma integral clau en mà a Mallorca des de 437 €/m² + IVA. Preu tancat, garantia de 5 anys i pressupost en línia en 1 minut.",
+            "metaTitle": "Reforma Integral a Mallorca 437 €/m² | Refcon",
+            "metaDescription": "Reforma integral clau en mà a Mallorca 437 €/m² + IVA. Preu tancat, garantia de 5 anys i pressupost en línia en 1 minut.",
             "term": "4-8 setmanes",
             "includes": [
                 "Disseny i planificació del projecte",
@@ -87,14 +161,14 @@
                 "Retirada de runa i neteja final",
                 "Lliurament clau en mà"
             ],
-            "priceLabel": "Reforma completa des de",
+            "priceLabel": "Reforma completa",
             "h1Accent": "a Mallorca"
         },
         "reforma-bano": {
             "h1": "Reforma de Banys a Mallorca",
             "subtitle": "Bany complet amb tot inclòs: fontaneria, revestiments, sanitaris i mampara. Enllestit en poc més d’una setmana.",
-            "metaTitle": "Reforma de Bany a Mallorca des de 5.900 € | Refcon",
-            "metaDescription": "Bany complet reformat a Mallorca des de 5.900 € + IVA, tot inclòs. Preu tancat, garantia de 5 anys i pressupost en línia en 1 minut.",
+            "metaTitle": "Reforma de Bany a Mallorca 5.990 € | Refcon",
+            "metaDescription": "Bany complet reformat a Mallorca 5.990 € + IVA, tot inclòs. Preu tancat, garantia de 5 anys i pressupost en línia en 1 minut.",
             "term": "7-10 dies",
             "includes": [
                 "Enderroc i retirada de sanitaris i revestiments antics",
@@ -108,14 +182,14 @@
                 "Acabats professionals i neteja final",
                 "Projecte i assessorament personalitzat"
             ],
-            "priceLabel": "Bany complet des de",
+            "priceLabel": "Bany complet",
             "h1Accent": "a Mallorca"
         },
         "reforma-cocina": {
             "h1": "Reforma de Cuines a Mallorca",
             "subtitle": "Cuina nova clau en mà, amb mobiliari i electrodomèstics inclosos. Tu tries els acabats, nosaltres feim la resta.",
-            "metaTitle": "Reforma de Cuina a Mallorca des de 9.797 € | Refcon",
-            "metaDescription": "Cuina reformada clau en mà a Mallorca des de 9.797 € + IVA, electrodomèstics inclosos. Preu tancat i pressupost en línia en 1 minut.",
+            "metaTitle": "Reforma de Cuina a Mallorca 9.797 € | Refcon",
+            "metaDescription": "Cuina reformada clau en mà a Mallorca 9.797 € + IVA, electrodomèstics inclosos. Preu tancat i pressupost en línia en 1 minut.",
             "term": "2-4 setmanes",
             "includes": [
                 "Desmuntatge de la cuina actual",
@@ -130,14 +204,14 @@
                 "Pintura, retirada de runa i neteja",
                 "Lliurament clau en mà"
             ],
-            "priceLabel": "Reforma de cuina des de",
+            "priceLabel": "Reforma de cuina",
             "h1Accent": "a Mallorca"
         },
         "cambiar-banera-por-ducha": {
             "h1": "Canviar la Banyera per Plat de Dutxa a Mallorca",
             "subtitle": "Més còmode, més segur i més accessible. Sense reformar tot el bany i en només un parell de dies.",
-            "metaTitle": "Canviar Banyera per Dutxa a Mallorca des de 1.990 € | Refcon",
-            "metaDescription": "Canviam la teva banyera per un plat de dutxa antilliscant a Mallorca des de 1.990 € + IVA. En 1-2 dies, preu tancat i tot inclòs.",
+            "metaTitle": "Canviar Banyera per Dutxa a Mallorca 1.990 € | Refcon",
+            "metaDescription": "Canviam la teva banyera per un plat de dutxa antilliscant a Mallorca 1.990 € + IVA. En 1-2 dies, preu tancat i tot inclòs.",
             "term": "1-2 dies",
             "includes": [
                 "Retirada de la banyera i de la runa",
@@ -148,7 +222,7 @@
                 "Treballs de fontaneria i obra",
                 "Acabats professionals i neteja final"
             ],
-            "priceLabel": "Canvi de banyera des de",
+            "priceLabel": "Canvi de banyera",
             "h1Accent": "a Mallorca"
         },
         "bano-sin-obras": {
