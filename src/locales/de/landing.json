@@ -8,6 +8,9 @@
     "offer": {
         "badge": "Sonderangebot",
         "vat": "+ MwSt. · Alles inklusive",
+        "vatPlus": "+ MwSt. · Alles inklusive",
+        "vatIncluded": "MwSt. inklusive",
+        "turnkeySeal": "Schlüsselfertig · Sorgenfrei",
         "termLabel": "Ausführungsdauer",
         "seals": {
             "fixedPrice": "Festpreis",
@@ -16,7 +19,7 @@
         },
         "ctaPrimary": "Angebot berechnen",
         "ctaSecondary": "Jetzt anrufen",
-        "disclaimer": "Richtpreis, nicht vertraglich bindend. Das endgültige Angebot wird nach der Besichtigung schriftlich erstellt.",
+        "disclaimer": "Festpreis ohne Überraschungen. Bei der kostenlosen Besichtigung bestätigen wir den Umfang; zusätzliche Arbeiten werden vorab schriftlich vereinbart.",
         "ctaWhatsapp": "WhatsApp",
         "ctaQuoteLink": "Oder berechnen Sie Ihr Angebot online"
     },
@@ -64,15 +67,86 @@
     },
     "stickyBar": {
         "quote": "Angebot",
+        "reserve": "Termin",
         "call": "Anrufen",
         "whatsapp": "WhatsApp"
+    },
+    "agenda": {
+        "title": "Buchen Sie Ihren KOSTENLOSEN Vor-Ort-Termin",
+        "subtitle": "Wählen Sie den Tag und die Uhrzeit, die Ihnen am besten passen. Unverbindlich und kostenlos.",
+        "reserveCta": "Kostenlosen Termin buchen",
+        "urgencyFallback": "Begrenzte Montagetermine diesen Monat · Buchen Sie Ihren kostenlosen Termin",
+        "steps": {
+            "mode": "Wie möchten Sie Ihren Termin?",
+            "date": "Tag wählen",
+            "time": "Uhrzeit wählen",
+            "details": "Ihre Kontaktdaten"
+        },
+        "modes": {
+            "visit": {
+                "title": "Hausbesuch",
+                "description": "Ein Techniker kommt zu Ihnen nach Hause, nimmt Maß und berät Sie."
+            },
+            "call": {
+                "title": "Telefonat",
+                "description": "Wir rufen Sie an, klären Ihre Fragen und beraten Sie ohne Anfahrt."
+            }
+        },
+        "fields": {
+            "name": { "label": "Vor- und Nachname", "placeholder": "Ihr Name" },
+            "email": { "label": "E-Mail", "placeholder": "sie@email.com" },
+            "phone": { "label": "Telefon", "placeholder": "600 000 000" },
+            "address": { "label": "Besuchsadresse", "placeholder": "Straße, Nummer und Ort" },
+            "notes": { "label": "Anmerkungen (optional)", "placeholder": "Beschreiben Sie kurz Ihr Projekt" }
+        },
+        "slots": {
+            "remaining": "{count} frei",
+            "full": "Belegt",
+            "none": "An diesem Tag sind keine Termine mehr frei. Bitte anderes Datum wählen."
+        },
+        "submit": "Termin bestätigen",
+        "submitting": "Wird gebucht…",
+        "errors": {
+            "name": "Bitte nennen Sie uns Ihren Namen.",
+            "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+            "phone": "Bitte geben Sie eine gültige Telefonnummer ein.",
+            "address": "Für den Hausbesuch ist eine Adresse erforderlich.",
+            "slotTaken": {
+                "title": "Dieser Termin wurde gerade vergeben",
+                "description": "Bitte wählen Sie eine andere Uhrzeit, die Verfügbarkeit wurde aktualisiert."
+            },
+            "generic": {
+                "title": "Buchung fehlgeschlagen",
+                "description": "Bitte versuchen Sie es gleich noch einmal."
+            }
+        },
+        "confirmation": {
+            "title": "Ihr Termin ist gebucht!",
+            "subtitle": "Wir haben Ihnen eine Bestätigungs-E-Mail geschickt. Bis bald.",
+            "dateLabel": "Tag",
+            "timeLabel": "Uhrzeit",
+            "modeLabel": "Art",
+            "addressLabel": "Adresse",
+            "phoneLabel": "Telefon",
+            "restart": "Weiteren Termin buchen",
+            "doubts": "Fragen? Rufen Sie uns an unter {phone} oder schreiben Sie uns per WhatsApp."
+        },
+        "toastSuccess": {
+            "title": "Termin gebucht",
+            "description": "Alle Details finden Sie in Ihrer E-Mail."
+        },
+        "email": {
+            "clientSubject": "Ihr Termin bei Refcon ist gebucht",
+            "clientIntro": "Vielen Dank für Ihre Buchung bei Refcon! Hier sind Ihre Termindaten:",
+            "whatExpect": "Ein Techniker wird sich mit Ihnen in Verbindung setzen, um die letzten Details zu klären. Wenn Sie den Termin ändern möchten, antworten Sie auf diese E-Mail oder rufen Sie uns an."
+        }
     },
     "pages": {
         "reforma-integral": {
             "h1": "Komplettrenovierung auf Mallorca",
             "subtitle": "Wir renovieren Ihre Immobilie vollständig, schlüsselfertig. Planung, Bau, Ausbau und Übergabe zum festen Termin.",
-            "metaTitle": "Komplettrenovierung auf Mallorca ab 437 €/m² | Refcon",
-            "metaDescription": "Schlüsselfertige Komplettrenovierung auf Mallorca ab 437 €/m² + MwSt. Festpreis, 5 Jahre Garantie und Online-Angebot in 1 Minute.",
+            "metaTitle": "Komplettrenovierung auf Mallorca 437 €/m² | Refcon",
+            "metaDescription": "Schlüsselfertige Komplettrenovierung auf Mallorca 437 €/m² + MwSt. Festpreis, 5 Jahre Garantie und Online-Angebot in 1 Minute.",
             "term": "4-8 Wochen",
             "includes": [
                 "Planung und Projektierung",
@@ -87,14 +161,14 @@
                 "Bauschuttentsorgung und Endreinigung",
                 "Schlüsselfertige Übergabe"
             ],
-            "priceLabel": "Komplettrenovierung ab",
+            "priceLabel": "Komplettrenovierung",
             "h1Accent": "auf Mallorca"
         },
         "reforma-bano": {
             "h1": "Badezimmerrenovierung auf Mallorca",
             "subtitle": "Komplettes Bad mit allem inklusive: Sanitärinstallation, Fliesen, Sanitärobjekte und Duschwand. Fertig in etwas mehr als einer Woche.",
-            "metaTitle": "Badezimmerrenovierung auf Mallorca ab 5.900 € | Refcon",
-            "metaDescription": "Komplett renoviertes Bad auf Mallorca ab 5.900 € + MwSt., alles inklusive. Festpreis, 5 Jahre Garantie und Online-Angebot in 1 Minute.",
+            "metaTitle": "Badezimmerrenovierung auf Mallorca 5.990 € | Refcon",
+            "metaDescription": "Komplett renoviertes Bad auf Mallorca 5.990 € + MwSt., alles inklusive. Festpreis, 5 Jahre Garantie und Online-Angebot in 1 Minute.",
             "term": "7-10 Tage",
             "includes": [
                 "Abbruch und Entsorgung alter Sanitärobjekte und Fliesen",
@@ -108,14 +182,14 @@
                 "Professionelle Ausführung und Endreinigung",
                 "Planung und persönliche Beratung"
             ],
-            "priceLabel": "Komplettes Bad ab",
+            "priceLabel": "Komplettes Bad",
             "h1Accent": "auf Mallorca"
         },
         "reforma-cocina": {
             "h1": "Küchenrenovierung auf Mallorca",
             "subtitle": "Neue schlüsselfertige Küche inklusive Möbeln und Geräten. Sie wählen die Ausführung, wir übernehmen den Rest.",
-            "metaTitle": "Küchenrenovierung auf Mallorca ab 9.797 € | Refcon",
-            "metaDescription": "Schlüsselfertige Küchenrenovierung auf Mallorca ab 9.797 € + MwSt., Geräte inklusive. Festpreis und Online-Angebot in 1 Minute.",
+            "metaTitle": "Küchenrenovierung auf Mallorca 9.797 € | Refcon",
+            "metaDescription": "Schlüsselfertige Küchenrenovierung auf Mallorca 9.797 € + MwSt., Geräte inklusive. Festpreis und Online-Angebot in 1 Minute.",
             "term": "2-4 Wochen",
             "includes": [
                 "Demontage der bestehenden Küche",
@@ -130,14 +204,14 @@
                 "Anstrich, Bauschuttentsorgung und Reinigung",
                 "Schlüsselfertige Übergabe"
             ],
-            "priceLabel": "Küchenrenovierung ab",
+            "priceLabel": "Küchenrenovierung",
             "h1Accent": "auf Mallorca"
         },
         "cambiar-banera-por-ducha": {
             "h1": "Badewanne zu Dusche umbauen auf Mallorca",
             "subtitle": "Bequemer, sicherer und barrierefreier. Ohne das ganze Bad zu renovieren und in nur zwei Tagen.",
-            "metaTitle": "Badewanne zu Dusche auf Mallorca ab 1.990 € | Refcon",
-            "metaDescription": "Wir tauschen Ihre Badewanne gegen eine rutschfeste Duschwanne auf Mallorca ab 1.990 € + MwSt. In 1-2 Tagen, Festpreis, alles inklusive.",
+            "metaTitle": "Badewanne zu Dusche auf Mallorca 1.990 € | Refcon",
+            "metaDescription": "Wir tauschen Ihre Badewanne gegen eine rutschfeste Duschwanne auf Mallorca 1.990 € + MwSt. In 1-2 Tagen, Festpreis, alles inklusive.",
             "term": "1-2 Tage",
             "includes": [
                 "Entfernung der Badewanne und des Bauschutts",
@@ -148,7 +222,7 @@
                 "Sanitär- und Maurerarbeiten",
                 "Professionelle Ausführung und Endreinigung"
             ],
-            "priceLabel": "Wannentausch ab",
+            "priceLabel": "Wannentausch",
             "h1Accent": "auf Mallorca"
         },
         "bano-sin-obras": {

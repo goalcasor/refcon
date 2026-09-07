@@ -8,6 +8,9 @@
     "offer": {
         "badge": "Special offer",
         "vat": "+ VAT · All inclusive",
+        "vatPlus": "+ VAT · All inclusive",
+        "vatIncluded": "VAT included",
+        "turnkeySeal": "Turnkey · No worries",
         "termLabel": "Completion time",
         "seals": {
             "fixedPrice": "Fixed price",
@@ -16,7 +19,7 @@
         },
         "ctaPrimary": "Get my quote",
         "ctaSecondary": "Call now",
-        "disclaimer": "Indicative price, not contractually binding. The final quote is issued in writing after a site visit.",
+        "disclaimer": "Fixed, all-in price with no surprises. The free site visit confirms the scope; any additional work is agreed in writing before starting.",
         "ctaWhatsapp": "WhatsApp",
         "ctaQuoteLink": "Or calculate your quote online"
     },
@@ -64,15 +67,86 @@
     },
     "stickyBar": {
         "quote": "Quote",
+        "reserve": "Book",
         "call": "Call",
         "whatsapp": "WhatsApp"
+    },
+    "agenda": {
+        "title": "Book your FREE site visit",
+        "subtitle": "Pick the day and time that suit you best. No obligation, no cost.",
+        "reserveCta": "Book your FREE visit",
+        "urgencyFallback": "Limited installation slots this month · Book your free visit",
+        "steps": {
+            "mode": "How would you like your appointment?",
+            "date": "Choose the day",
+            "time": "Choose the time",
+            "details": "Your contact details"
+        },
+        "modes": {
+            "visit": {
+                "title": "Home visit",
+                "description": "A technician comes to your home to take measurements and advise you."
+            },
+            "call": {
+                "title": "Phone call",
+                "description": "We call you to answer questions and guide you without travelling out."
+            }
+        },
+        "fields": {
+            "name": { "label": "Full name", "placeholder": "Your name" },
+            "email": { "label": "Email", "placeholder": "you@email.com" },
+            "phone": { "label": "Phone", "placeholder": "600 000 000" },
+            "address": { "label": "Visit address", "placeholder": "Street, number and town" },
+            "notes": { "label": "Comments (optional)", "placeholder": "Tell us briefly about your project" }
+        },
+        "slots": {
+            "remaining": "{count} left",
+            "full": "Full",
+            "none": "No slots left on this day. Try another date."
+        },
+        "submit": "Confirm my appointment",
+        "submitting": "Booking…",
+        "errors": {
+            "name": "Please tell us your name.",
+            "email": "Enter a valid email address.",
+            "phone": "Enter a valid phone number.",
+            "address": "An address is required for the home visit.",
+            "slotTaken": {
+                "title": "That slot has just been taken",
+                "description": "Please choose another time, we've updated the availability."
+            },
+            "generic": {
+                "title": "Booking failed",
+                "description": "Please try again in a moment."
+            }
+        },
+        "confirmation": {
+            "title": "Your appointment is booked!",
+            "subtitle": "We've sent you a confirmation email. See you soon.",
+            "dateLabel": "Day",
+            "timeLabel": "Time",
+            "modeLabel": "Type",
+            "addressLabel": "Address",
+            "phoneLabel": "Phone",
+            "restart": "Book another appointment",
+            "doubts": "Any questions? Call us on {phone} or message us on WhatsApp."
+        },
+        "toastSuccess": {
+            "title": "Appointment booked",
+            "description": "Check your email for all the details."
+        },
+        "email": {
+            "clientSubject": "Your appointment with Refcon is booked",
+            "clientIntro": "Thank you for booking with Refcon! Here are your appointment details:",
+            "whatExpect": "A technician will get in touch to confirm the final details. If you need to change the appointment, reply to this email or call us."
+        }
     },
     "pages": {
         "reforma-integral": {
             "h1": "Home Renovation in Mallorca",
             "subtitle": "We renovate your whole property, turnkey. Design, works, finishes and handover on a fixed date.",
-            "metaTitle": "Home Renovation in Mallorca from €437/m² | Refcon",
-            "metaDescription": "Turnkey home renovation in Mallorca from €437/m² + VAT. Fixed price, 5-year guarantee and an online quote in 1 minute.",
+            "metaTitle": "Home Renovation in Mallorca €437/m² | Refcon",
+            "metaDescription": "Turnkey home renovation in Mallorca €437/m² + VAT. Fixed price, 5-year guarantee and an online quote in 1 minute.",
             "term": "4-8 weeks",
             "includes": [
                 "Project design and planning",
@@ -87,14 +161,14 @@
                 "Waste removal and final clean",
                 "Turnkey handover"
             ],
-            "priceLabel": "Full renovation from",
+            "priceLabel": "Full renovation",
             "h1Accent": "in Mallorca"
         },
         "reforma-bano": {
             "h1": "Bathroom Renovation in Mallorca",
             "subtitle": "A complete bathroom with everything included: plumbing, tiling, sanitary ware and screen. Ready in little over a week.",
-            "metaTitle": "Bathroom Renovation in Mallorca from €5,900 | Refcon",
-            "metaDescription": "Complete bathroom renovation in Mallorca from €5,900 + VAT, all inclusive. Fixed price, 5-year guarantee and an online quote in 1 minute.",
+            "metaTitle": "Bathroom Renovation in Mallorca €5,990 | Refcon",
+            "metaDescription": "Complete bathroom renovation in Mallorca €5,990 + VAT, all inclusive. Fixed price, 5-year guarantee and an online quote in 1 minute.",
             "term": "7-10 days",
             "includes": [
                 "Demolition and removal of old sanitary ware and tiling",
@@ -108,14 +182,14 @@
                 "Professional finishes and final clean",
                 "Design and personal guidance"
             ],
-            "priceLabel": "Complete bathroom from",
+            "priceLabel": "Complete bathroom",
             "h1Accent": "in Mallorca"
         },
         "reforma-cocina": {
             "h1": "Kitchen Renovation in Mallorca",
             "subtitle": "A turnkey new kitchen with units and appliances included. You choose the finishes, we handle everything else.",
-            "metaTitle": "Kitchen Renovation in Mallorca from €9,797 | Refcon",
-            "metaDescription": "Turnkey kitchen renovation in Mallorca from €9,797 + VAT, appliances included. Fixed price and an online quote in 1 minute.",
+            "metaTitle": "Kitchen Renovation in Mallorca €9,797 | Refcon",
+            "metaDescription": "Turnkey kitchen renovation in Mallorca €9,797 + VAT, appliances included. Fixed price and an online quote in 1 minute.",
             "term": "2-4 weeks",
             "includes": [
                 "Removal of the existing kitchen",
@@ -130,14 +204,14 @@
                 "Painting, waste removal and cleaning",
                 "Turnkey handover"
             ],
-            "priceLabel": "Kitchen renovation from",
+            "priceLabel": "Kitchen renovation",
             "h1Accent": "in Mallorca"
         },
         "cambiar-banera-por-ducha": {
             "h1": "Bath to Shower Conversion in Mallorca",
             "subtitle": "More comfortable, safer and more accessible. Without renovating the whole bathroom, in just a couple of days.",
-            "metaTitle": "Bath to Shower Conversion in Mallorca from €1,990 | Refcon",
-            "metaDescription": "We swap your bath for a non-slip shower tray in Mallorca from €1,990 + VAT. Done in 1-2 days, fixed price, all inclusive.",
+            "metaTitle": "Bath to Shower Conversion in Mallorca €1,990 | Refcon",
+            "metaDescription": "We swap your bath for a non-slip shower tray in Mallorca €1,990 + VAT. Done in 1-2 days, fixed price, all inclusive.",
             "term": "1-2 days",
             "includes": [
                 "Removal of the bath and all waste",
@@ -148,7 +222,7 @@
                 "Plumbing and building work",
                 "Professional finishes and final clean"
             ],
-            "priceLabel": "Bath to shower from",
+            "priceLabel": "Bath to shower",
             "h1Accent": "in Mallorca"
         },
         "bano-sin-obras": {

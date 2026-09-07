@@ -10,7 +10,9 @@
         "seoGenerator": "Generador SEO",
         "settings": "Configuració",
         "pricing": "Configurar preus",
-        "leads": "Sol·licituds"
+        "leads": "Sol·licituds",
+        "agenda": "Agenda",
+        "agendaSettings": "Configurar Agenda"
     },
     "requestBudget": {
         "title": "Sol·licitar Pressupost",
@@ -50,6 +52,104 @@
             "squareMeters": "Superfície",
             "quality": "Qualitat",
             "estimatedBudget": "Pressupost estimat"
+        }
+    },
+    "agenda": {
+        "title": "Agenda de cites",
+        "subtitle": "Totes les visites i trucades reservades des de les landings, en temps real.",
+        "loading": "Carregant cites…",
+        "empty": "No hi ha cites amb aquest estat.",
+        "errorTitle": "No es poden llegir les cites",
+        "errorHelp": "Normalment vol dir que les regles de seguretat de Firestore no permeten llegir la col·lecció refcon_appointments als usuaris autenticats. Revisa les regles a la consola de Firebase.",
+        "statusError": "No s’ha pogut canviar l’estat",
+        "filters": {
+            "all": "Totes"
+        },
+        "status": {
+            "pending": "Pendent",
+            "confirmed": "Confirmada",
+            "completed": "Completada",
+            "cancelled": "Cancel·lada",
+            "no_show": "No s’hi va presentar"
+        },
+        "modes": {
+            "visit": "Visita",
+            "call": "Trucada"
+        },
+        "stats": {
+            "total": "Cites totals",
+            "today": "Avui",
+            "thisWeek": "Aquesta setmana",
+            "pending": "Pendents",
+            "confirmed": "Confirmades"
+        },
+        "fields": {
+            "mode": "Modalitat",
+            "dateTime": "Data i hora",
+            "phone": "Telèfon",
+            "email": "Correu",
+            "address": "Adreça",
+            "renovationType": "Tipus de reforma",
+            "campaign": "Campanya",
+            "notes": "Notes",
+            "createdAt": "Reservada el"
+        }
+    },
+    "agendaSettings": {
+        "title": "Configurar l’agenda",
+        "description": "Defineix quan i com es poden reservar visites i trucades des de les landings. Els canvis es desen de veritat i afecten els buits que veuen els clients.",
+        "sections": {
+            "schedule": "Dies i modalitats",
+            "windows": "Franges horàries",
+            "limits": "Límits de reserva",
+            "blackout": "Dies tancats",
+            "urgency": "Bàner d’urgència"
+        },
+        "weekdaysLabel": "Dies de la setmana en què s’atenen cites.",
+        "weekdays": {
+            "mon": "Dilluns",
+            "tue": "Dimarts",
+            "wed": "Dimecres",
+            "thu": "Dijous",
+            "fri": "Divendres",
+            "sat": "Dissabte",
+            "sun": "Diumenge"
+        },
+        "modesLabel": "Modalitats ofertes",
+        "modes": {
+            "visit": "Visita tècnica",
+            "call": "Trucada"
+        },
+        "windowsLabel": "Trams horaris del dia (per exemple, matí i tarda).",
+        "windowStart": "Inici",
+        "windowEnd": "Fi",
+        "slotDurationMinutes": "Durada del buit (min)",
+        "capacityPerSlot": "Aforament per buit",
+        "leadTimeHours": "Antelació mínima (h)",
+        "horizonDays": "Dies vista",
+        "blackoutLabel": "Dates concretes en què no s’atenen cites.",
+        "blackoutEmpty": "No hi ha dies tancats.",
+        "blackoutDate": "Data",
+        "urgencyLabel": "Avís d’escassetat que es mostra a la landing.",
+        "urgencyEnabled": "Mostrar el bàner d’urgència",
+        "urgencyMessage": "Missatge",
+        "urgencyUntil": "Vàlid fins a (opcional)",
+        "buttons": {
+            "save": "Desar els canvis",
+            "loading": "Desant…",
+            "addWindow": "Afegir franja",
+            "addBlackout": "Afegir dia tancat",
+            "remove": "Treure"
+        },
+        "toast": {
+            "success": {
+                "title": "Configuració desada",
+                "description": "L’agenda s’ha actualitzat correctament."
+            },
+            "error": {
+                "title": "No s’ha pogut desar",
+                "description": "Revisa les dades i torna-ho a provar."
+            }
         }
     }
 }

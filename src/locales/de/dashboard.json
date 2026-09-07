@@ -10,7 +10,9 @@
         "seoGenerator": "SEO-Generator",
         "settings": "Einstellungen",
         "pricing": "Preise konfigurieren",
-        "leads": "Anfragen"
+        "leads": "Anfragen",
+        "agenda": "Terminkalender",
+        "agendaSettings": "Kalender konfigurieren"
     },
     "requestBudget": {
         "title": "Budget anfordern",
@@ -50,6 +52,104 @@
             "squareMeters": "Fläche",
             "quality": "Qualität",
             "estimatedBudget": "Geschätztes Angebot"
+        }
+    },
+    "agenda": {
+        "title": "Terminkalender",
+        "subtitle": "Alle über die Landingpages gebuchten Besuche und Anrufe, in Echtzeit.",
+        "loading": "Termine werden geladen…",
+        "empty": "Keine Termine mit diesem Status.",
+        "errorTitle": "Termine können nicht gelesen werden",
+        "errorHelp": "In der Regel erlauben die Firestore-Sicherheitsregeln authentifizierten Nutzern nicht, die Sammlung refcon_appointments zu lesen. Prüfen Sie die Regeln in der Firebase-Konsole.",
+        "statusError": "Der Status konnte nicht geändert werden",
+        "filters": {
+            "all": "Alle"
+        },
+        "status": {
+            "pending": "Ausstehend",
+            "confirmed": "Bestätigt",
+            "completed": "Abgeschlossen",
+            "cancelled": "Storniert",
+            "no_show": "Nicht erschienen"
+        },
+        "modes": {
+            "visit": "Besuch",
+            "call": "Anruf"
+        },
+        "stats": {
+            "total": "Termine gesamt",
+            "today": "Heute",
+            "thisWeek": "Diese Woche",
+            "pending": "Ausstehend",
+            "confirmed": "Bestätigt"
+        },
+        "fields": {
+            "mode": "Art",
+            "dateTime": "Datum und Uhrzeit",
+            "phone": "Telefon",
+            "email": "E-Mail",
+            "address": "Adresse",
+            "renovationType": "Art der Renovierung",
+            "campaign": "Kampagne",
+            "notes": "Notizen",
+            "createdAt": "Gebucht am"
+        }
+    },
+    "agendaSettings": {
+        "title": "Kalender konfigurieren",
+        "description": "Legen Sie fest, wann und wie Besuche und Anrufe über die Landingpages gebucht werden können. Änderungen werden tatsächlich gespeichert und wirken sich auf die für Kunden sichtbaren Zeitfenster aus.",
+        "sections": {
+            "schedule": "Tage und Terminarten",
+            "windows": "Zeitfenster",
+            "limits": "Buchungsgrenzen",
+            "blackout": "Geschlossene Tage",
+            "urgency": "Dringlichkeitsbanner"
+        },
+        "weekdaysLabel": "Wochentage, an denen Termine angeboten werden.",
+        "weekdays": {
+            "mon": "Montag",
+            "tue": "Dienstag",
+            "wed": "Mittwoch",
+            "thu": "Donnerstag",
+            "fri": "Freitag",
+            "sat": "Samstag",
+            "sun": "Sonntag"
+        },
+        "modesLabel": "Angebotene Terminarten",
+        "modes": {
+            "visit": "Vor-Ort-Besuch",
+            "call": "Anruf"
+        },
+        "windowsLabel": "Zeitspannen innerhalb des Tages (zum Beispiel vormittags und nachmittags).",
+        "windowStart": "Beginn",
+        "windowEnd": "Ende",
+        "slotDurationMinutes": "Dauer pro Slot (Min.)",
+        "capacityPerSlot": "Kapazität pro Slot",
+        "leadTimeHours": "Mindestvorlaufzeit (Std.)",
+        "horizonDays": "Tage im Voraus",
+        "blackoutLabel": "Bestimmte Tage, an denen keine Termine angeboten werden.",
+        "blackoutEmpty": "Keine geschlossenen Tage.",
+        "blackoutDate": "Datum",
+        "urgencyLabel": "Knappheitshinweis, der auf der Landingpage angezeigt wird.",
+        "urgencyEnabled": "Dringlichkeitsbanner anzeigen",
+        "urgencyMessage": "Nachricht",
+        "urgencyUntil": "Gültig bis (optional)",
+        "buttons": {
+            "save": "Änderungen speichern",
+            "loading": "Wird gespeichert…",
+            "addWindow": "Zeitfenster hinzufügen",
+            "addBlackout": "Geschlossenen Tag hinzufügen",
+            "remove": "Entfernen"
+        },
+        "toast": {
+            "success": {
+                "title": "Konfiguration gespeichert",
+                "description": "Der Kalender wurde erfolgreich aktualisiert."
+            },
+            "error": {
+                "title": "Speichern fehlgeschlagen",
+                "description": "Überprüfen Sie die Daten und versuchen Sie es erneut."
+            }
         }
     }
 }

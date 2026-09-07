@@ -114,6 +114,31 @@ export function trackLead(params: {
   sendAdsConversion(ADS_LEAD_LABEL, amount);
 }
 
+/**
+ * Reserva de cita desde la agenda de las landings.
+ *
+ * Es el nuevo lead principal de las campañas: la landing dejó de pedir
+ * presupuesto y ahora reserva una visita o llamada en un hueco real. Se reutiliza
+ * el mismo evento `generate_lead` y la misma etiqueta de conversión que el
+ * presupuesto (`ADS_LEAD_LABEL`) para no fragmentar la optimización de Ads; los
+ * parámetros permiten segmentar después por modalidad y campaña.
+ */
+export function trackBooking(params: {
+  mode: string;
+  renovationType: string;
+  campaignSlug: string;
+}) {
+  const { mode, renovationType, campaignSlug } = params;
+
+  trackEvent('generate_lead', {
+    renovation_type: renovationType,
+    campaign_slug: campaignSlug,
+    appointment_mode: mode,
+  });
+
+  sendAdsConversion(ADS_LEAD_LABEL);
+}
+
 /** Envía la conversión a Google Ads si la etiqueta está configurada. */
 function sendAdsConversion(label: string, params: Record<string, unknown> = {}) {
   if (!GOOGLE_ADS_ID || !label) return;

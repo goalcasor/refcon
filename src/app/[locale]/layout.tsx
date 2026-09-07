@@ -11,12 +11,14 @@ import { Analytics } from '@/components/analytics';
 import { CookieConsent } from '@/components/cookie-consent';
 import { CONSENT_BOOTSTRAP_SCRIPT, isAnalyticsEnabled } from '@/lib/analytics';
 import { getDictionary } from '@/lib/dictionaries';
+import { SITE_URL, LOGO_URL } from '@/lib/site-config';
+import { JsonLd, localBusiness, webSite } from '@/lib/structured-data';
 
 const siteConfig = {
   name: 'Refcon',
   description: 'Con 30 años de experiencia desde 1995, en Refcon somos constructores de sueños. Ofrecemos soluciones expertas en reformas, construcción y piscinas.',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com',
-  ogImage: '', // Replace with your actual OG image URL
+  url: SITE_URL,
+  ogImage: LOGO_URL,
 };
 
 export const metadata: Metadata = {
@@ -84,6 +86,8 @@ export default async function RootLayout({
         {isAnalyticsEnabled() && (
           <script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
         )}
+        {/* Datos estructurados de marca (SEO + buscadores de IA). */}
+        <JsonLd data={[localBusiness(), webSite(locale)]} />
       </head>
       <body className={cn('font-body antialiased min-h-screen bg-background flex flex-col')}>
         <ThemeProvider

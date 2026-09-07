@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
 import type { Metadata } from 'next';
 import ReactMarkdown from 'react-markdown';
+import { SITE_URL } from '@/lib/site-config';
+import { JsonLd, blogPostingSchema, breadcrumb } from '@/lib/structured-data';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -16,7 +18,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string; locale: string } }): Promise<Metadata> {
   const post = blogPosts.find((p) => p.slug === params.slug);
 
   if (!post) {
@@ -29,6 +31,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title,
     description,
+    alternates: { canonical: `/${params.locale}/blog/${params.slug}` },
     openGraph: {
       title,
       description,
@@ -60,11 +63,28 @@ export default async function BlogPostPage({ params }: { params: { slug: string,
     notFound();
   }
 
+  const url = `${SITE_URL}/${params.locale}/blog/${post.slug}`;
+  const jsonLd = [
+    blogPostingSchema({
+      title: post.title,
+      description: post.excerpt,
+      url,
+      image: post.image,
+      locale: params.locale,
+    }),
+    breadcrumb([
+      { name: 'Refcon', url: `${SITE_URL}/${params.locale}` },
+      { name: 'Blog', url: `${SITE_URL}/${params.locale}/blog` },
+      { name: post.title, url },
+    ]),
+  ];
+
   // Placeholder content
   const fullContent = `${post.excerpt}\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n### Un subtítulo de ejemplo\n\nCurabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicul.`;
 
   return (
     <>
+      <JsonLd data={jsonLd} />
       <Header t={dict} />
       <main className="flex-1">
         <section className="relative h-64 md:h-80 w-full">

@@ -1,7 +1,18 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BadgeCheck, Check, Clock, Gem, Phone, ShieldCheck, UserCheck } from 'lucide-react';
+import {
+  BadgeCheck,
+  CalendarClock,
+  Check,
+  Clock,
+  Gem,
+  KeyRound,
+  Phone,
+  ShieldCheck,
+  UserCheck,
+} from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 import { getDictionary } from '@/lib/dictionaries';
@@ -13,13 +24,21 @@ import {
   type LandingSlug,
 } from '@/lib/landing-pages';
 import { PHONE, PHONE_DISPLAY, WHATSAPP_URL } from '@/lib/site-config';
-import { QuickBudgetForm } from '@/components/budget-request/quick-budget-form';
+import placeholderImages from '@/lib/placeholder-images.json';
+import { BookingAgenda } from '@/components/agenda/booking-agenda';
+import { PromoUrgencyBanner } from '@/components/agenda/promo-urgency-banner';
 import { ReviewsHabitissimo } from '@/components/reviews-habitissimo';
 import { FeaturedProjects } from '@/components/featured-projects';
 import { LandingStickyBar } from '@/components/landing-sticky-bar';
+import { GuaranteeBadge } from '@/components/guarantee-badge';
+import { getIncludeIcon } from '@/lib/include-icons';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { CallButton, WhatsappButton } from '@/components/cta-buttons';
+
+/** Busca una imagen de marcador por id. */
+const findImage = (id: string) =>
+  placeholderImages.placeholderImages.find((p) => p.id === id);
 
 type Props = { params: { locale: string; slug: string } };
 
@@ -97,8 +116,15 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
   // El acento va siempre al final del titular, en cursiva serif.
   const [h1Lead] = page.h1Accent ? page.h1.split(page.h1Accent) : [page.h1];
 
-  const seals = [t.offer.seals.fixedPrice, t.offer.seals.noSurprises, t.offer.seals.warranty];
+  // La garantía se muestra ahora con el sello gráfico (GuaranteeBadge), así que
+  // en la fila de sellos quedan precio cerrado y sin sorpresas.
+  const seals = [t.offer.seals.fixedPrice, t.offer.seals.noSurprises];
   const trustPoints = [t.trust.years, t.trust.written, t.trust.noCost, t.trust.callback];
+
+  // Bloque antes/después: la creatividad de campaña muestra la transformación.
+  // Sin fotos "reales" en el proyecto, se usan las imágenes de marcador.
+  const beforeImage = findImage('hero-construction');
+  const afterImage = findImage('project-1');
 
   return (
     <>
@@ -117,14 +143,24 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
         </div>
       </header>
 
+      {/* Banner de urgencia/escasez, configurable en vivo por el admin. */}
+      <PromoUrgencyBanner fallbackMessage={t.agenda.urgencyFallback} />
+
       {/* pb-24 en móvil deja hueco para la barra fija inferior. */}
       <main className="flex-1 pb-24 md:pb-0">
         <section className="w-full bg-secondary/50 py-12 md:py-20">
           <div className="container-limited grid items-center gap-10 md:grid-cols-2">
             <div>
-              <span className="inline-block rounded-full bg-forest px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-gold">
-                {t.offer.badge}
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-block rounded-full bg-forest px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-gold">
+                  {t.offer.badge}
+                </span>
+                {/* Sello "llave en mano" de las creatividades. */}
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-forest dark:text-gold">
+                  <KeyRound className="h-3.5 w-3.5" />
+                  {t.offer.turnkeySeal}
+                </span>
+              </div>
               <h1 className="mt-5 font-headline text-4xl font-extrabold leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
                 {h1Lead.trim()}{' '}
                 <em className="block font-accent text-[0.85em] font-medium italic text-primary">
@@ -144,6 +180,17 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
                   </li>
                 ))}
               </ul>
+              {/* CTA principal del hero: reservar la visita técnica gratis. */}
+              <Button
+                asChild
+                size="lg"
+                className="mt-8 w-full bg-gradient-to-r from-gold to-gold-light text-base font-extrabold text-forest shadow-lg hover:from-gold-light hover:to-gold sm:w-auto"
+              >
+                <Link href="#reservar">
+                  <CalendarClock className="mr-2 h-5 w-5" />
+                  {t.agenda.reserveCta}
+                </Link>
+              </Button>
             </div>
 
             {/*
@@ -166,10 +213,15 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
                 </p>
 
                 <p className="mt-5 inline-block rounded-md bg-gradient-to-r from-gold to-gold-light px-5 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-forest shadow-lg">
-                  {t.offer.vat}
+                  {config.vatMode === 'included' ? t.offer.vatIncluded : t.offer.vatPlus}
                 </p>
 
-                <div className="mt-8 grid grid-cols-3 gap-3 border-t border-white/15 pt-7">
+                {/* Sello gráfico de garantía, como en las creatividades. */}
+                <div className="mt-6 flex justify-center">
+                  <GuaranteeBadge className="h-28 w-28 drop-shadow-lg" />
+                </div>
+
+                <div className="mx-auto mt-6 grid max-w-[16rem] grid-cols-2 gap-3 border-t border-white/15 pt-7">
                   {seals.map((seal) => (
                     <div key={seal} className="flex flex-col items-center gap-2">
                       <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold/50">
@@ -199,10 +251,10 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
                   </WhatsappButton>
                 <p className="pt-1 text-center">
                   <Link
-                    href="#presupuesto"
+                    href="#reservar"
                     className="text-sm text-white/70 underline underline-offset-4 hover:text-gold"
                   >
-                    {t.offer.ctaQuoteLink}
+                    {t.agenda.reserveCta}
                   </Link>
                 </p>
                 <p className="text-center text-[0.7rem] leading-relaxed text-white/45">
@@ -216,15 +268,22 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
         <section className="w-full bg-background py-16 md:py-24">
           <div className="container-limited max-w-4xl">
             <SectionHeading>{t.includesTitle}</SectionHeading>
-            <ul className="mt-10 grid gap-x-10 gap-y-4 md:grid-cols-2">
-              {page.includes.map((item: string) => (
-                <li key={item} className="flex items-start text-sm">
-                  <span className="mr-3 mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary">
-                    <Check className="h-3 w-3 text-primary-foreground" strokeWidth={3} />
-                  </span>
-                  <span className="leading-relaxed text-muted-foreground">{item}</span>
-                </li>
-              ))}
+            <ul className="mt-10 grid gap-x-10 gap-y-5 md:grid-cols-2">
+              {page.includes.map((item: string, i: number) => {
+                const Icon = getIncludeIcon(config.renovationType, i);
+                return (
+                  <li key={item} className="flex items-start gap-3.5 text-sm">
+                    {/* Icono temático en círculo verde con check dorado, como en el folleto. */}
+                    <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-forest/10 ring-1 ring-forest/15">
+                      <Icon className="h-5 w-5 text-forest" strokeWidth={1.9} />
+                      <span className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-gold text-forest ring-2 ring-background">
+                        <Check className="h-2.5 w-2.5" strokeWidth={4} />
+                      </span>
+                    </span>
+                    <span className="mt-2.5 leading-relaxed text-foreground">{item}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>
@@ -257,8 +316,43 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
           </div>
         </section>
 
+        {/* Antes/después: la prueba visual de la transformación, como el folleto. */}
+        <section className="w-full bg-background py-16 md:py-24">
+          <div className="container-limited max-w-5xl">
+            <SectionHeading>{t.beforeAfter.title}</SectionHeading>
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {[
+                { image: beforeImage, label: t.beforeAfter.before },
+                { image: afterImage, label: t.beforeAfter.after },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-gold/20"
+                >
+                  <div className="relative aspect-[4/3]">
+                    {item.image && (
+                      <Image
+                        src={item.image.imageUrl}
+                        alt={item.label}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={item.image.imageHint}
+                        sizes="(min-width: 768px) 40vw, 100vw"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  </div>
+                  <span className="absolute left-4 top-4 rounded-full bg-forest/90 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-gold shadow-md">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Mismo mosaico que "Proyectos que Inspiran" de la home. Su tarjeta de
-            CTA apunta al formulario de esta página, no a /budget-request. */}
+            CTA apunta a la agenda de esta página, no a /budget-request. */}
         <section className="w-full bg-secondary py-16 md:py-24">
           <div className="container-limited">
             <SectionHeading>{dict.home.projects.title}</SectionHeading>
@@ -266,7 +360,7 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
               {dict.home.projects.subtitle}
             </p>
             <div className="mt-12">
-              <FeaturedProjects t={dict.home.projects} ctaHref="#presupuesto" />
+              <FeaturedProjects t={dict.home.projects} ctaHref="#reservar" />
             </div>
           </div>
         </section>
@@ -299,19 +393,24 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
         </section>
 
         {/*
-          El formulario cierra la página, en segundo plano respecto a llamada y
-          WhatsApp: es la vía para quien prefiere escribir o quiere el importe
-          antes de hablar con nadie.
+          La agenda de citas cierra la página: el visitante reserva una visita
+          técnica gratuita (o una llamada) en un hueco real, en vez de pedir un
+          presupuesto (las ofertas ya llevan precio cerrado).
         */}
-        <section id="presupuesto" className="w-full scroll-mt-16 bg-secondary/40 py-16 md:py-24">
+        <section id="reservar" className="w-full scroll-mt-16 bg-secondary/40 py-16 md:py-24">
           <div className="container-limited">
             <div className="mx-auto mb-12 max-w-2xl">
-              <SectionHeading>{t.formTitle}</SectionHeading>
+              <SectionHeading>{t.agenda.title}</SectionHeading>
               <p className="mt-5 text-center leading-relaxed text-muted-foreground">
-                {t.formSubtitle}
+                {t.agenda.subtitle}
               </p>
             </div>
-            <QuickBudgetForm t={dict} defaultRenovationType={config.renovationType} />
+            <BookingAgenda
+              t={dict}
+              renovationType={config.renovationType}
+              campaignSlug={slug}
+              locale={locale}
+            />
           </div>
         </section>
       </main>

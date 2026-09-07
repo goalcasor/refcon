@@ -7,6 +7,16 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { blogPosts } from '@/lib/blog-posts';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  return {
+    alternates: {
+      canonical: `/${locale}/blog`,
+      languages: { es: '/es/blog', en: '/en/blog', de: '/de/blog', ca: '/ca/blog', 'x-default': '/es/blog' },
+    },
+  };
+}
 
 export default async function BlogPage({ params: { locale } }: { params: { locale: any } }) {
   const dict = await getDictionary(locale);

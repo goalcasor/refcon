@@ -7,6 +7,16 @@ import { ContactForm } from '@/components/contact-form';
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { PHONE, PHONE_DISPLAY } from '@/lib/site-config';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  return {
+    alternates: {
+      canonical: `/${locale}/contact`,
+      languages: { es: '/es/contact', en: '/en/contact', de: '/de/contact', ca: '/ca/contact', 'x-default': '/es/contact' },
+    },
+  };
+}
 
 export default async function ContactPage({ params: { locale } }: { params: { locale: string } }) {
   const dict = await getDictionary(locale);

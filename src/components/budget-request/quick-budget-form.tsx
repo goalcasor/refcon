@@ -43,10 +43,10 @@ const pricingConfig = {
 /**
  * Precio mínimo de intervención. Sin esto, una superficie pequeña devuelve un
  * importe por debajo del "desde" anunciado (un baño de 4 m² salían 4.400 €
- * frente a los 5.900 € del folleto).
+ * frente a los 5.990 € del folleto).
  */
 const minimumBudget: Partial<Record<RenovationType, number>> = {
-    bathrooms: 5900,
+    bathrooms: 5990,
     kitchen: 9797,
 };
 
