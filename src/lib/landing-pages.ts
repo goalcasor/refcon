@@ -33,9 +33,25 @@ type LandingConfig = {
    * Lo ideal es la creatividad de la oferta, que ya lleva precio y antes/después.
    */
   ogImage?: string;
+  /** Par de imágenes para el comparador antes/después. Si falta, la sección usa placeholders. */
+  beforeAfter?: { before: string; after: string };
 };
 
 const STORAGE = 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o';
+
+/** Construye la URL de descarga de una imagen antes/después subida a Storage. */
+const ba = (file: string, token: string) =>
+  `${STORAGE}/refcon%2Fbefore-after%2F${file}?alt=media&token=${token}`;
+
+// El cambio de bañera comparte el par de baño (misma transformación).
+const banoBA = {
+  before: ba('bano-antes.jpg', 'e4b9010a-5bce-4b44-af8d-ab4f7e15cc7a'),
+  after: ba('bano-despues.jpg', '220c99b5-67cc-4a07-91a5-5c59576ba695'),
+};
+const cocinaBA = {
+  before: ba('cocina-antes.jpg', 'e11aa437-3b59-4ec5-85af-3509f424de07'),
+  after: ba('cocina-despues.jpg', 'd0ebd81d-dc43-434e-9189-4bb2a219705a'),
+};
 
 export const landingPages: Record<LandingSlug, LandingConfig> = {
   'reforma-integral': {
@@ -51,7 +67,7 @@ export const landingPages: Record<LandingSlug, LandingConfig> = {
     price: 5990,
     priceMode: 'fixed',
     vatMode: 'plus',
-    // PENDIENTE: creatividad de la oferta de baño.
+    beforeAfter: banoBA,
   },
   'reforma-cocina': {
     renovationType: 'kitchen',
@@ -59,6 +75,7 @@ export const landingPages: Record<LandingSlug, LandingConfig> = {
     priceMode: 'fixed',
     vatMode: 'plus',
     ogImage: `${STORAGE}/refcon%2Fopen-plan-kitchen-area.jpg?alt=media&token=3fadbfd9-bdaa-46af-95e7-90a8860f0974`,
+    beforeAfter: cocinaBA,
   },
   'cambiar-banera-por-ducha': {
     renovationType: 'showerSwap',
@@ -66,7 +83,7 @@ export const landingPages: Record<LandingSlug, LandingConfig> = {
     priceMode: 'fixed',
     // El flyer de esta oferta anuncia "IVA INCLUIDO".
     vatMode: 'included',
-    // PENDIENTE: creatividad del cambio de bañera por ducha.
+    beforeAfter: banoBA,
   },
   'bano-sin-obras': {
     renovationType: 'bathroomNoWorks',

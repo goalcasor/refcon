@@ -33,6 +33,7 @@ import { LandingStickyBar } from '@/components/landing-sticky-bar';
 import { GuaranteeBadge } from '@/components/guarantee-badge';
 import { getIncludeIcon } from '@/lib/include-icons';
 import { JsonLd, offerServiceSchema, breadcrumb } from '@/lib/structured-data';
+import { BeforeAfterSlider } from '@/components/before-after-slider';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { CallButton, WhatsappButton } from '@/components/cta-buttons';
@@ -351,34 +352,50 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
         <section className="w-full bg-background py-16 md:py-24">
           <div className="container-limited max-w-5xl">
             <SectionHeading>{t.beforeAfter.title}</SectionHeading>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {[
-                { image: beforeImage, label: t.beforeAfter.before },
-                { image: afterImage, label: t.beforeAfter.after },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-gold/20"
-                >
-                  <div className="relative aspect-[4/3]">
-                    {item.image && (
-                      <Image
-                        src={item.image.imageUrl}
-                        alt={item.label}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={item.image.imageHint}
-                        sizes="(min-width: 768px) 40vw, 100vw"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            {config.beforeAfter ? (
+              // Comparador arrastrable con las fotos reales de la oferta.
+              <div className="mt-12">
+                <BeforeAfterSlider
+                  before={config.beforeAfter.before}
+                  after={config.beforeAfter.after}
+                  beforeLabel={t.beforeAfter.before}
+                  afterLabel={t.beforeAfter.after}
+                  alt={page.h1}
+                />
+                <p className="mx-auto mt-5 max-w-md text-center text-sm text-muted-foreground">
+                  {{ es: 'Arrastra para comparar', en: 'Drag to compare', de: 'Zum Vergleichen ziehen', ca: 'Arrossega per comparar' }[locale] ?? 'Arrastra para comparar'}
+                </p>
+              </div>
+            ) : (
+              <div className="mt-12 grid gap-6 md:grid-cols-2">
+                {[
+                  { image: beforeImage, label: t.beforeAfter.before },
+                  { image: afterImage, label: t.beforeAfter.after },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-gold/20"
+                  >
+                    <div className="relative aspect-[4/3]">
+                      {item.image && (
+                        <Image
+                          src={item.image.imageUrl}
+                          alt={item.label}
+                          fill
+                          className="object-cover"
+                          data-ai-hint={item.image.imageHint}
+                          sizes="(min-width: 768px) 40vw, 100vw"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    </div>
+                    <span className="absolute left-4 top-4 rounded-full bg-forest/90 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-gold shadow-md">
+                      {item.label}
+                    </span>
                   </div>
-                  <span className="absolute left-4 top-4 rounded-full bg-forest/90 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-gold shadow-md">
-                    {item.label}
-                  </span>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
