@@ -23,7 +23,7 @@ import {
   offerPriceSuffix,
   type LandingSlug,
 } from '@/lib/landing-pages';
-import { PHONE, PHONE_DISPLAY, WHATSAPP_URL } from '@/lib/site-config';
+import { PHONE, PHONE_DISPLAY, WHATSAPP_URL, SITE_URL } from '@/lib/site-config';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { BookingAgenda } from '@/components/agenda/booking-agenda';
 import { PromoUrgencyBanner } from '@/components/agenda/promo-urgency-banner';
@@ -32,6 +32,7 @@ import { FeaturedProjects } from '@/components/featured-projects';
 import { LandingStickyBar } from '@/components/landing-sticky-bar';
 import { GuaranteeBadge } from '@/components/guarantee-badge';
 import { getIncludeIcon } from '@/lib/include-icons';
+import { JsonLd, offerServiceSchema, breadcrumb } from '@/lib/structured-data';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { CallButton, WhatsappButton } from '@/components/cta-buttons';
@@ -61,9 +62,19 @@ export async function generateMetadata({ params: { locale, slug } }: Props): Pro
   return {
     title: page.metaTitle,
     description: page.metaDescription,
-    // Las landings de campaña no se indexan: evitan canibalizar el SEO de /services/.
-    robots: { index: false, follow: false },
-    alternates: { canonical: url },
+    // Indexables: son páginas de oferta con precio cerrado, valiosas para
+    // búsquedas comerciales y de IA. Canonical propio + hreflang para
+    // diferenciarlas entre sí y de /services/.
+    alternates: {
+      canonical: url,
+      languages: {
+        es: `/es/lp/${slug}`,
+        en: `/en/lp/${slug}`,
+        de: `/de/lp/${slug}`,
+        ca: `/ca/lp/${slug}`,
+        'x-default': `/es/lp/${slug}`,
+      },
+    },
     /*
       Open Graph propio de cada oferta. Sin esto se hereda entero el del layout
       raíz y las cinco landings se ven idénticas al compartirlas por WhatsApp.
@@ -126,8 +137,28 @@ export default async function LandingPage({ params: { locale, slug } }: Props) {
   const beforeImage = findImage('hero-construction');
   const afterImage = findImage('project-1');
 
+  // Datos estructurados de la oferta (precio) para SEO comercial y buscadores de IA.
+  const canonical = `${SITE_URL}/${locale}/lp/${slug}`;
+  const jsonLd = [
+    offerServiceSchema({
+      name: page.h1,
+      description: page.subtitle,
+      url: canonical,
+      image: config.ogImage,
+      price: config.price,
+      perSqm: config.priceMode === 'perSqm',
+      vatIncluded: config.vatMode === 'included',
+      locale,
+    }),
+    breadcrumb([
+      { name: 'Refcon', url: `${SITE_URL}/${locale}` },
+      { name: page.h1, url: canonical },
+    ]),
+  ];
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       {/*
         Cabecera reducida a propósito: sin menú de navegación. En una landing de
         campaña, cada enlace que no sea el formulario es una fuga de conversión.

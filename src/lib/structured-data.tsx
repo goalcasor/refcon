@@ -93,6 +93,56 @@ export function serviceSchema(params: {
   };
 }
 
+/**
+ * Oferta con precio (landings /lp): Service con un Offer. Para el precio por m²
+ * (integral) se usa UnitPriceSpecification; para las ofertas cerradas, un Offer
+ * con `price`. Rico para SEO comercial y buscadores de IA.
+ */
+export function offerServiceSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  price: number;
+  perSqm: boolean;
+  vatIncluded: boolean;
+  locale: string;
+}) {
+  const offer = params.perSqm
+    ? {
+        '@type': 'Offer',
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: params.price,
+          priceCurrency: 'EUR',
+          unitText: 'm²',
+          valueAddedTaxIncluded: params.vatIncluded,
+        },
+      }
+    : {
+        '@type': 'Offer',
+        price: params.price,
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        valueAddedTaxIncluded: params.vatIncluded,
+      };
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: params.name,
+    description: params.description,
+    url: params.url,
+    ...(params.image && { image: params.image }),
+    inLanguage: bcp47(params.locale),
+    serviceType: params.name,
+    areaServed: { '@type': 'AdministrativeArea', name: 'Mallorca' },
+    provider: { '@id': ORG_ID },
+    offers: offer,
+  };
+}
+
 /** Artículo de blog (páginas /blog/[slug]). */
 export function blogPostingSchema(params: {
   title: string;

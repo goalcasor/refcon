@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-config';
 import { services } from '@/lib/services';
 import { blogPosts } from '@/lib/blog-posts';
+import { landingSlugs } from '@/lib/landing-pages';
 
 /**
  * Sitemap dinámico de las páginas PÚBLICAS indexables, en los 4 idiomas y con
@@ -31,6 +32,10 @@ function publicPaths(): Entry[] {
   }
   for (const p of blogPosts) {
     list.push({ path: `/blog/${p.slug}`, priority: 0.6, changeFrequency: 'monthly' });
+  }
+  // Landings de oferta: páginas comerciales con precio, indexables (prioridad alta).
+  for (const slug of landingSlugs) {
+    list.push({ path: `/lp/${slug}`, priority: 0.9, changeFrequency: 'monthly' });
   }
   return list;
 }
