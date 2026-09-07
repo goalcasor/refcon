@@ -19,10 +19,10 @@ export const CONTACT_EMAIL = 'goalcasor@gmail.com';
 export const LOGO_URL = 'https://firebasestorage.googleapis.com/v0/b/amparo-aesthetics.firebasestorage.app/o/refcon%2Flogo.png?alt=media&token=65447f6c-174a-45a9-8816-1e9a1688f8c9';
 
 /** Formato E.164, para enlaces `tel:` y `wa.me`. */
-export const PHONE = '+34661959090';
+export const PHONE = '+34694903163';
 
 /** Para mostrar en pantalla. */
-export const PHONE_DISPLAY = '661 95 90 90';
+export const PHONE_DISPLAY = '694 90 31 63';
 
 export const WHATSAPP_URL = `https://wa.me/${PHONE.replace('+', '')}`;
 
