@@ -31,9 +31,9 @@ export default async function DashboardPage({ params: { locale } }: { params: { 
       icon: <Lightbulb className="w-8 h-8 text-primary" />,
     },
      {
-      href: '/dashboard/my-budgets',
-      title: 'Mis Presupuestos',
-      description: 'Ver y gestionar tus solicitudes de presupuesto anteriores.',
+      href: '/dashboard/leads',
+      title: t.leads.title,
+      description: t.leads.subtitle,
       icon: <FileText className="w-8 h-8 text-primary" />,
     },
   ];

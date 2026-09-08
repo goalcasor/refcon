@@ -46,17 +46,17 @@ export function UserNav({ t }: { t: any }) {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/dashboard">{t['userNav.dashboard']}</Link>
+            <Link href="/dashboard">{t.dashboard}</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/dashboard/budget-request">{t['userNav.newBudget']}</Link>
+            <Link href="/dashboard/budget-request">{t.newBudget}</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/dashboard/settings">{t['userNav.settings']}</Link>
+            <Link href="/dashboard/settings">{t.settings}</Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={signOut}>{t['userNav.logout']}</DropdownMenuItem>
+        <DropdownMenuItem onClick={signOut}>{t.logout}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
