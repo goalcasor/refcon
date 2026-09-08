@@ -6,25 +6,42 @@ import { getSafeAuth } from '@/lib/firebase/client';
 
 interface AuthContextType {
   user: User | null;
+  /** Rol del custom claim del ID token: 'admin' | 'superadmin' | null. */
+  role: string | null;
+  isAdmin: boolean;
   loading: boolean;
   signOut: () => void;
 }
 
 export const AuthContext = createContext<AuthContextType>({
   user: null,
+  role: null,
+  isAdmin: false,
   loading: true,
   signOut: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [role, setRole] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // getSafeAuth will only run on the client, preventing build errors
     const auth = getSafeAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
+      // El rol viaja como custom claim en el ID token (lo fija el Admin SDK).
+      if (user) {
+        try {
+          const token = await user.getIdTokenResult();
+          setRole((token.claims.role as string) ?? null);
+        } catch {
+          setRole(null);
+        }
+      } else {
+        setRole(null);
+      }
       setLoading(false);
     });
 
@@ -51,7 +68,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   // Las rutas que sí necesitan sesión se protegen por su cuenta: `dashboard-layout.tsx`
   // consume `loading` del contexto y redirige a /login.
   return (
-    <AuthContext.Provider value={{ user, loading, signOut }}>
+    <AuthContext.Provider
+      value={{ user, role, isAdmin: role === 'admin' || role === 'superadmin', loading, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
