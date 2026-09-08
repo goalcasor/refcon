@@ -19,6 +19,8 @@ export const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? '';
 export const ADS_LEAD_LABEL = process.env.NEXT_PUBLIC_ADS_LEAD_LABEL ?? '';
 export const ADS_WHATSAPP_LABEL = process.env.NEXT_PUBLIC_ADS_WHATSAPP_LABEL ?? '';
 export const ADS_CALL_LABEL = process.env.NEXT_PUBLIC_ADS_CALL_LABEL ?? '';
+/** Reserva de cita desde la agenda de las landings (acción de conversión propia). */
+export const ADS_BOOKING_LABEL = process.env.NEXT_PUBLIC_ADS_BOOKING_LABEL ?? '';
 
 export const CONSENT_COOKIE = 'refcon_consent';
 const CONSENT_MAX_AGE = 60 * 60 * 24 * 180; // 180 días
@@ -136,7 +138,9 @@ export function trackBooking(params: {
     appointment_mode: mode,
   });
 
-  sendAdsConversion(ADS_LEAD_LABEL);
+  // Conversión propia de "reserva de cita"; si aún no está configurada en el
+  // entorno, cae en la etiqueta genérica de lead para no perder la conversión.
+  sendAdsConversion(ADS_BOOKING_LABEL || ADS_LEAD_LABEL);
 }
 
 /** Envía la conversión a Google Ads si la etiqueta está configurada. */

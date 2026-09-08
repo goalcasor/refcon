@@ -9,7 +9,7 @@ import { ContactFab } from '@/components/contact-fab';
 import { ThemeProvider } from "next-themes";
 import { Analytics } from '@/components/analytics';
 import { CookieConsent } from '@/components/cookie-consent';
-import { CONSENT_BOOTSTRAP_SCRIPT, isAnalyticsEnabled } from '@/lib/analytics';
+import { CONSENT_BOOTSTRAP_SCRIPT } from '@/lib/analytics';
 import { getDictionary } from '@/lib/dictionaries';
 import { SITE_URL, LOGO_URL } from '@/lib/site-config';
 import { JsonLd, localBusiness, webSite } from '@/lib/structured-data';
@@ -20,6 +20,9 @@ const siteConfig = {
   url: SITE_URL,
   ogImage: LOGO_URL,
 };
+
+/** Contenedor de Google Tag Manager. Override por entorno en Vercel si hace falta. */
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? 'GTM-W39LNXZR';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -83,13 +86,32 @@ export default async function RootLayout({
           garantizar que se ejecuta antes que gtag.js: el estado por defecto tiene
           que estar en "denied" antes de que cargue ninguna etiqueta de Google.
         */}
-        {isAnalyticsEnabled() && (
-          <script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
+        {/* Consent Mode v2 por defecto (denegado) ANTES de cargar cualquier
+            etiqueta de Google, incluido GTM. */}
+        <script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
+        {/* Google Tag Manager */}
+        {GTM_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`,
+            }}
+          />
         )}
         {/* Datos estructurados de marca (SEO + buscadores de IA). */}
         <JsonLd data={[localBusiness(), webSite(locale)]} />
       </head>
       <body className={cn('font-body antialiased min-h-screen bg-background flex flex-col')}>
+        {/* Google Tag Manager (noscript) */}
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        )}
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { addDoc, collection, doc, onSnapshot } from 'firebase/firestore';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -42,6 +42,7 @@ import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
+import { buttonVariants } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -97,6 +98,9 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
   const [counts, setCounts] = useState<Record<string, number> | undefined>(undefined);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  // Para el auto-scroll en móvil al avanzar de paso.
+  const slotsRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
   const [confirmed, setConfirmed] = useState<{
     dateKey: string;
     time: string;
@@ -151,6 +155,21 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
     }
     return () => unsub();
   }, [selectedDateKey]);
+
+  // Auto-scroll en móvil: al elegir día, lleva a los huecos; al elegir hora, a
+  // los datos. En escritorio (2 columnas) todo se ve, así que no hace falta.
+  const isMobile = () =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+  useEffect(() => {
+    if (selectedDateKey && isMobile()) {
+      slotsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selectedDateKey]);
+  useEffect(() => {
+    if (selectedTime && isMobile()) {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selectedTime]);
 
   const slots = useMemo(() => {
     if (!selectedDateKey) return [];
@@ -422,11 +441,20 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
 
   const showModePicker = cfg.modes.length > 1;
   const showAddress = mode === 'visit';
+  const LMAP: Record<string, { pickDay: string; slotsFor: string }> = {
+    es: { pickDay: 'Elige un día en el calendario para ver las horas disponibles.', slotsFor: 'Horas disponibles para el' },
+    en: { pickDay: 'Pick a day in the calendar to see the available times.', slotsFor: 'Available times for' },
+    de: { pickDay: 'Wähle einen Tag im Kalender, um die freien Zeiten zu sehen.', slotsFor: 'Freie Zeiten am' },
+    ca: { pickDay: 'Tria un dia al calendari per veure les hores disponibles.', slotsFor: 'Hores disponibles per al' },
+  };
+  const L = LMAP[locale] ?? LMAP.es;
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-5xl">
       <Card>
-        <CardContent className="space-y-8 pt-6">
+        <CardContent className="pt-6">
+          <div className="grid gap-8 md:grid-cols-2">
+          <div className="space-y-6">
           {/* Paso 1 · Modalidad (solo si hay más de una) */}
           {showModePicker && (
             <div>
@@ -477,7 +505,7 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
               </span>
               {tt.steps.date}
             </h3>
-            <div className="flex justify-center rounded-lg border bg-background p-2">
+            <div className="flex justify-center rounded-xl border bg-background p-3">
               <Calendar
                 mode="single"
                 selected={selectedDate}
@@ -485,20 +513,40 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
                 disabled={disabledDays}
                 fromDate={new Date()}
                 toDate={horizonDate(cfg)}
+                classNames={{
+                  head_cell: 'text-muted-foreground rounded-md w-11 font-normal text-[0.8rem]',
+                  cell: 'h-11 w-11 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
+                  day: cn(buttonVariants({ variant: 'ghost' }), 'h-11 w-11 p-0 font-normal text-base aria-selected:opacity-100'),
+                  caption_label: 'text-base font-semibold',
+                }}
               />
             </div>
           </div>
+          </div>{/* fin columna izquierda */}
+
+          {/* Columna derecha: huecos + datos */}
+          <div className="md:border-l md:pl-8">
+            {!selectedDateKey ? (
+              <div className="flex h-full min-h-[18rem] flex-col items-center justify-center rounded-xl border border-dashed p-8 text-center">
+                <CalendarClock className="mb-3 h-12 w-12 text-primary/30" />
+                <p className="max-w-xs text-muted-foreground">{L.pickDay}</p>
+              </div>
+            ) : (
+            <div className="space-y-6">
 
           {/* Paso 3 · Hora */}
           {selectedDateKey && (
-            <div>
-              <h3 className="mb-3 flex items-center gap-2 font-semibold">
+            <div ref={slotsRef} className="scroll-mt-24">
+              <h3 className="mb-1 flex items-center gap-2 font-semibold">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-forest text-xs font-bold text-gold">
                   {showModePicker ? 3 : 2}
                 </span>
                 <Clock className="h-4 w-4 text-primary" />
                 {tt.steps.time}
               </h3>
+              <p className="mb-3 text-sm font-medium capitalize text-primary">
+                {L.slotsFor} {formatSlotDate(selectedDateKey, locale)}
+              </p>
               {slots.length === 0 ? (
                 <p className="rounded-lg border border-dashed p-4 text-center text-sm text-muted-foreground">
                   {tt.slots.none}
@@ -537,7 +585,7 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
 
           {/* Paso 4 · Datos de contacto */}
           {selectedDateKey && selectedTime && mode && (
-            <div>
+            <div ref={formRef} className="scroll-mt-24">
               <h3 className="mb-3 flex items-center gap-2 font-semibold">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-forest text-xs font-bold text-gold">
                   {showModePicker ? 4 : 3}
@@ -653,6 +701,10 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
               </Form>
             </div>
           )}
+            </div>
+            )}
+          </div>{/* fin columna derecha */}
+          </div>{/* fin grid */}
         </CardContent>
       </Card>
     </div>
