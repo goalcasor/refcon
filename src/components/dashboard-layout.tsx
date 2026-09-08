@@ -31,7 +31,7 @@ import {
 import { LanguageSwitcher } from './language-switcher';
 
 export function DashboardLayout({ children, t }: { children: React.ReactNode, t: any }) {
-  const { user, loading } = useAuth();
+  const { user, isAdmin, loading } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -50,13 +50,17 @@ export function DashboardLayout({ children, t }: { children: React.ReactNode, t:
   ]
 
   React.useEffect(() => {
-    if (!loading && !user) {
+    if (loading) return;
+    if (!user) {
       router.push('/login');
+    } else if (!isAdmin) {
+      // Autenticado pero sin rol admin: no puede acceder al panel.
+      router.push('/');
     }
-  }, [user, loading, router]);
+  }, [user, isAdmin, loading, router]);
 
-  if (loading || !user) {
-    // You can return a loading spinner here
+  if (loading || !user || !isAdmin) {
+    // Spinner mientras carga o mientras redirige a un usuario sin permisos.
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-primary"></div>
