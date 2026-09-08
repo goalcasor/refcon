@@ -31,6 +31,16 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
+    /* Sidebar del panel (shadcn). Reusa el tema para no salir transparente. */
+    --sidebar-background: 120 10% 97%;
+    --sidebar-foreground: 120 20% 10%;
+    --sidebar-primary: 142.1 76.2% 36.3%;
+    --sidebar-primary-foreground: 142.1 76.2% 96.3%;
+    --sidebar-accent: 120 5% 92%;
+    --sidebar-accent-foreground: 120 15% 20%;
+    --sidebar-border: 120 10% 85%;
+    --sidebar-ring: 142.1 76.2% 36.3%;
+
     /*
       Colores de marca de las creatividades de campaña: verde bosque y dorado.
       NO se redefinen en .dark a propósito: el panel de oferta es una pieza de
@@ -68,6 +78,15 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    --sidebar-background: 120 20% 10%;
+    --sidebar-foreground: 120 10% 97%;
+    --sidebar-primary: 142.1 76.2% 36.3%;
+    --sidebar-primary-foreground: 142.1 76.2% 96.3%;
+    --sidebar-accent: 120 10% 20%;
+    --sidebar-accent-foreground: 120 5% 92%;
+    --sidebar-border: 120 10% 25%;
+    --sidebar-ring: 142.1 76.2% 36.3%;
   }
 }
 

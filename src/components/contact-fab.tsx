@@ -16,9 +16,15 @@ export function ContactFab() {
   const phoneNumber = PHONE;
   const whatsappLink = WHATSAPP_URL;
 
-  // Las landings de campaña ya llevan barra fija con llamada y WhatsApp:
-  // el botón flotante se solaparía y duplicaría las mismas acciones.
-  if (pathname?.includes('/lp/')) {
+  // Solo en páginas públicas. Se oculta en:
+  // - las landings /lp (ya llevan su barra fija de llamada/WhatsApp),
+  // - el panel privado y las pantallas de acceso (donde solaparía la nav).
+  if (
+    pathname?.includes('/lp/') ||
+    pathname?.includes('/dashboard') ||
+    pathname?.includes('/login') ||
+    pathname?.includes('/signup')
+  ) {
     return null;
   }
 
