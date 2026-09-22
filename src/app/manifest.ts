@@ -7,11 +7,15 @@ import type { MetadataRoute } from 'next';
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Refcon · Reformas y Construcción en Mallorca',
+    id: '/',
+    name: 'Refcon · Panel',
     short_name: 'Refcon',
     description:
-      'Reformas, construcción y piscinas en Mallorca. Precio cerrado y presupuesto sin compromiso.',
-    start_url: '/es',
+      'Panel de gestión de Refcon: agenda de citas y solicitudes de presupuesto.',
+    // La app instalada es la herramienta privada de Refcon: abre en el panel.
+    // Sin sesión, el panel redirige a /login (única vía de acceso; el sitio
+    // público no muestra ningún enlace a login/dashboard).
+    start_url: '/es/dashboard',
     scope: '/',
     display: 'standalone',
     orientation: 'portrait-primary',
