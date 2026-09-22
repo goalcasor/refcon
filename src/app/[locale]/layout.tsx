@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '../globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
@@ -6,6 +6,7 @@ import { AuthProvider } from '@/context/auth-context';
 import i18nConfig from '../../../i18nConfig';
 import { notFound } from 'next/navigation';
 import { ContactFab } from '@/components/contact-fab';
+import { ServiceWorkerRegister } from '@/components/service-worker-register';
 import { ThemeProvider } from "next-themes";
 import { Analytics } from '@/components/analytics';
 import { CookieConsent } from '@/components/cookie-consent';
@@ -31,6 +32,15 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  applicationName: 'Refcon',
+  appleWebApp: {
+    capable: true,
+    title: 'Refcon',
+    statusBarStyle: 'default',
+  },
+  icons: {
+    apple: '/apple-touch-icon.png',
+  },
 
   openGraph: {
     type: 'website',
@@ -53,6 +63,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#123d2e',
 };
 
 export function generateStaticParams() {
@@ -126,6 +140,7 @@ export default async function RootLayout({
           </AuthProvider>
         </ThemeProvider>
         <Analytics />
+        <ServiceWorkerRegister />
       </body>
     </html>
   );
