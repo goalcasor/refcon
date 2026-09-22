@@ -24,6 +24,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 }
 import { ReviewsHabitissimo } from '@/components/reviews-habitissimo';
 import { FeaturedProjects } from '@/components/featured-projects';
+import { PwaAuthRedirect } from '@/components/pwa-auth-redirect';
 
 export default async function Home({ params: { locale } }: { params: { locale: any } }) {
   const dict = await getDictionary(locale);
@@ -50,6 +51,7 @@ export default async function Home({ params: { locale } }: { params: { locale: a
   
   return (
     <>
+      <PwaAuthRedirect />
       <Header t={dict} />
       <main className="flex-1">
         <section className="relative w-full py-20 md:py-24 lg:py-28 bg-secondary/50">

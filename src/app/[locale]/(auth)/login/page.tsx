@@ -21,6 +21,7 @@ import { getSafeAuth } from '@/lib/firebase/client';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { getDictionary } from '@/lib/dictionaries';
+import { useAuth } from '@/hooks/use-auth';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Por favor, introduce un correo electrónico válido.' }),
@@ -30,11 +31,20 @@ const formSchema = z.object({
 export default function LoginPage({ params: { locale } }: { params: { locale: any }}) {
   const { toast } = useToast();
   const router = useRouter();
+  const { user, loading } = useAuth();
   const [dict, setDict] = useState<any>(null);
 
   useEffect(() => {
     getDictionary(locale).then(d => setDict(d.login));
   }, [locale]);
+
+  // Si la sesión ya está activa (se conserva entre aperturas de la app), no
+  // mostramos el login: directo al dashboard.
+  useEffect(() => {
+    if (!loading && user) {
+      router.replace(`/${locale}/dashboard`);
+    }
+  }, [user, loading, locale, router]);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -62,7 +72,8 @@ export default function LoginPage({ params: { locale } }: { params: { locale: an
     }
   }
 
-  if (!dict) return null;
+  // Nada de formulario mientras resuelve la sesión o si ya está autenticado.
+  if (!dict || loading || user) return null;
 
   return (
     <Card>
