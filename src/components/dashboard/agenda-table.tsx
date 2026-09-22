@@ -14,11 +14,15 @@ import {
   CalendarCheck,
   CalendarClock,
   CalendarDays,
+  CalendarPlus,
   CheckCircle2,
   Clock,
+  Download,
+  List,
   Mail,
   MapPin,
   Phone,
+  Settings,
   Video,
 } from 'lucide-react';
 
@@ -46,6 +50,9 @@ import {
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
+import { Calendar } from '@/components/ui/calendar';
+import { googleCalendarUrl, icsDataUri } from '@/lib/calendar-links';
+import Link from 'next/link';
 
 /**
  * Tabla de la agenda de citas reservadas desde las landings.
@@ -58,6 +65,8 @@ export function AgendaTable({ t, locale }: { t: any; locale: string }) {
   const [appointments, setAppointments] = useState<Appointment[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<AppointmentStatus | 'all'>('all');
+  const [view, setView] = useState<'calendar' | 'list'>('calendar');
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   useEffect(() => {
     let unsubscribe = () => {};
@@ -122,6 +131,24 @@ export function AgendaTable({ t, locale }: { t: any; locale: string }) {
       confirmed: all.filter((a) => a.status === 'confirmed').length,
     };
   }, [appointments]);
+
+  // Calendario: días con citas (para resaltar) y citas del día seleccionado.
+  const bookedDates = useMemo(() => {
+    const keys = new Set((appointments ?? []).map((a) => a.date).filter(Boolean));
+    return [...keys].map((k) => {
+      const [y, m, d] = k.split('-').map(Number);
+      return new Date(y, m - 1, d);
+    });
+  }, [appointments]);
+
+  const selectedKey = toDateKey(selectedDate);
+  const dayAppointments = useMemo(
+    () =>
+      (appointments ?? [])
+        .filter((a) => a.date === selectedKey)
+        .sort((a, b) => (a.time ?? '').localeCompare(b.time ?? '')),
+    [appointments, selectedKey],
+  );
 
   async function changeStatus(id: string, status: AppointmentStatus) {
     const appt = (appointments ?? []).find((a) => a.id === id);
@@ -191,41 +218,63 @@ export function AgendaTable({ t, locale }: { t: any; locale: string }) {
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        <Button
-          size="sm"
-          variant={filter === 'all' ? 'default' : 'outline'}
-          onClick={() => setFilter('all')}
-        >
-          {t.filters.all} ({stats.total})
-        </Button>
-        {APPOINTMENT_STATUSES.map((s) => (
+      {/* Barra: vista Calendario/Lista + configurar agenda */}
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="inline-flex rounded-lg border p-0.5">
           <Button
-            key={s}
             size="sm"
-            variant={filter === s ? 'default' : 'outline'}
-            onClick={() => setFilter(s)}
+            variant={view === 'calendar' ? 'default' : 'ghost'}
+            onClick={() => setView('calendar')}
           >
-            {t.status[s]}
+            <CalendarDays className="mr-1.5 h-4 w-4" />
+            {t.viewCalendar ?? 'Calendario'}
           </Button>
-        ))}
+          <Button
+            size="sm"
+            variant={view === 'list' ? 'default' : 'ghost'}
+            onClick={() => setView('list')}
+          >
+            <List className="mr-1.5 h-4 w-4" />
+            {t.viewList ?? 'Lista'}
+          </Button>
+        </div>
+        <Button asChild variant="outline" size="sm">
+          <Link href="/dashboard/settings/agenda">
+            <Settings className="mr-1.5 h-4 w-4" />
+            {t.configure ?? 'Configurar agenda'}
+          </Link>
+        </Button>
       </div>
 
-      {visible.length === 0 ? (
-        <Card>
-          <CardContent className="py-16 text-center text-muted-foreground">{t.empty}</CardContent>
-        </Card>
-      ) : (
-        <div className="space-y-8">
-          {groups.map(({ date, items }) => (
-            <div key={date} className="space-y-4">
-              <div className="flex items-center gap-2 border-b pb-2">
-                <CalendarDays className="h-4 w-4 text-primary" />
-                <h2 className="text-sm font-semibold capitalize">{formatSlotDate(date, locale)}</h2>
-                <span className="text-xs text-muted-foreground">({items.length})</span>
-              </div>
+      {view === 'calendar' ? (
+        <div className="grid gap-6 lg:grid-cols-[auto_1fr]">
+          <Card className="self-start">
+            <CardContent className="flex justify-center pt-6">
+              <Calendar
+                mode="single"
+                selected={selectedDate}
+                onSelect={(d) => d && setSelectedDate(d)}
+                weekStartsOn={1}
+                modifiers={{ booked: bookedDates }}
+                modifiersClassNames={{ booked: 'font-bold text-primary underline underline-offset-4' }}
+              />
+            </CardContent>
+          </Card>
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 border-b pb-2">
+              <CalendarDays className="h-4 w-4 text-primary" />
+              <h2 className="text-sm font-semibold capitalize">{formatSlotDate(selectedKey, locale)}</h2>
+              <span className="text-xs text-muted-foreground">({dayAppointments.length})</span>
+            </div>
+            {dayAppointments.length === 0 ? (
+              <Card>
+                <CardContent className="py-12 text-center text-muted-foreground">
+                  {t.emptyDay ?? 'No hay citas este día.'}
+                </CardContent>
+              </Card>
+            ) : (
               <div className="space-y-4">
-                {items.map((app) => (
+                {dayAppointments.map((app) => (
                   <AppointmentCard
                     key={app.id}
                     app={app}
@@ -235,9 +284,60 @@ export function AgendaTable({ t, locale }: { t: any; locale: string }) {
                   />
                 ))}
               </div>
-            </div>
-          ))}
+            )}
+          </div>
         </div>
+      ) : (
+        <>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              size="sm"
+              variant={filter === 'all' ? 'default' : 'outline'}
+              onClick={() => setFilter('all')}
+            >
+              {t.filters.all} ({stats.total})
+            </Button>
+            {APPOINTMENT_STATUSES.map((s) => (
+              <Button
+                key={s}
+                size="sm"
+                variant={filter === s ? 'default' : 'outline'}
+                onClick={() => setFilter(s)}
+              >
+                {t.status[s]}
+              </Button>
+            ))}
+          </div>
+
+          {visible.length === 0 ? (
+            <Card>
+              <CardContent className="py-16 text-center text-muted-foreground">{t.empty}</CardContent>
+            </Card>
+          ) : (
+            <div className="space-y-8">
+              {groups.map(({ date, items }) => (
+                <div key={date} className="space-y-4">
+                  <div className="flex items-center gap-2 border-b pb-2">
+                    <CalendarDays className="h-4 w-4 text-primary" />
+                    <h2 className="text-sm font-semibold capitalize">{formatSlotDate(date, locale)}</h2>
+                    <span className="text-xs text-muted-foreground">({items.length})</span>
+                  </div>
+                  <div className="space-y-4">
+                    {items.map((app) => (
+                      <AppointmentCard
+                        key={app.id}
+                        app={app}
+                        t={t}
+                        locale={locale}
+                        onChangeStatus={changeStatus}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );
@@ -351,6 +451,19 @@ function AppointmentCard({
                 ))}
               </SelectContent>
             </Select>
+            <div className="flex w-full gap-2 lg:w-48">
+              <Button asChild variant="outline" size="sm" className="flex-1">
+                <a href={googleCalendarUrl(app)} target="_blank" rel="noopener noreferrer">
+                  <CalendarPlus className="mr-1.5 h-3.5 w-3.5" />
+                  {t.addToCalendar ?? 'Calendario'}
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="sm" aria-label="Descargar .ics">
+                <a href={icsDataUri(app)} download={`cita-refcon-${app.date}.ics`}>
+                  <Download className="h-3.5 w-3.5" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </CardContent>

@@ -38,6 +38,7 @@ import {
 } from '@/lib/agenda';
 import { PHONE_DISPLAY, WHATSAPP_URL } from '@/lib/site-config';
 import { trackBooking } from '@/lib/analytics';
+import { googleCalendarUrl, buildICS } from '@/lib/calendar-links';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -236,7 +237,7 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
     };
 
     try {
-      await createAppointment(db, input, cfg.capacityPerSlot);
+      const apptId = await createAppointment(db, input, cfg.capacityPerSlot);
 
       // Correos de confirmación (extensión Trigger Email de Firebase).
       const dateText = formatSlotDate(selectedDateKey, locale);
@@ -274,32 +275,46 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
 
       // Textos del botón de gestión, localizados (fuera del dict para no ampliar
       // los 4 JSON solo por esto).
-      const EMAIL_TXT: Record<string, { manageBtn: string; manageText: string; manageMsg: string }> = {
+      const EMAIL_TXT: Record<
+        string,
+        { manageBtn: string; manageText: string; manageMsg: string; calendarBtn: string }
+      > = {
         es: {
           manageBtn: 'Cancelar o cambiar la hora',
           manageText: '¿No te viene bien? Cambia o cancela tu cita en un momento:',
           manageMsg: 'Hola, quiero cancelar o cambiar la hora de mi cita del {date} a las {time}.',
+          calendarBtn: 'Añadir a mi calendario',
         },
         en: {
           manageBtn: 'Cancel or reschedule',
           manageText: "Can't make it? Change or cancel your appointment in a moment:",
           manageMsg: 'Hi, I would like to cancel or reschedule my appointment on {date} at {time}.',
+          calendarBtn: 'Add to my calendar',
         },
         de: {
           manageBtn: 'Termin ändern oder absagen',
           manageText: 'Passt es nicht? Ändern oder stornieren Sie Ihren Termin ganz schnell:',
           manageMsg: 'Hallo, ich möchte meinen Termin am {date} um {time} Uhr ändern oder absagen.',
+          calendarBtn: 'Zu meinem Kalender hinzufügen',
         },
         ca: {
           manageBtn: "Cancel·lar o canviar l'hora",
           manageText: 'No et va bé? Canvia o cancel·la la teva cita en un moment:',
           manageMsg: "Hola, vull cancel·lar o canviar l'hora de la meva cita del {date} a les {time}.",
+          calendarBtn: 'Afegir al meu calendari',
         },
       };
       const el = EMAIL_TXT[locale] ?? EMAIL_TXT.es;
       const waManage = `${WHATSAPP_URL}?text=${encodeURIComponent(
         el.manageMsg.replace('{date}', dateText).replace('{time}', selectedTime),
       )}`;
+
+      // Evento de calendario para el cliente (recordatorio nativo vía .ics).
+      const apptForCal = { ...input, id: apptId, status: 'pending' as const, source: 'landing-agenda' };
+      const gcalUrl = googleCalendarUrl(apptForCal);
+      const icsBase64 = btoa(
+        String.fromCharCode(...new TextEncoder().encode(buildICS(apptForCal))),
+      );
 
       // 1) Al cliente, en su idioma.
       await addDoc(collection(db, MAIL_COLLECTION), {
@@ -315,10 +330,12 @@ export function BookingAgenda({ t, renovationType, campaignSlug, locale }: Props
               <strong>${esc(tt.confirmation.modeLabel)}:</strong> ${esc(modeLabel)}<br/>
               <strong>${contactLine}</strong>
             `)}
-            <p style="margin:0 0 22px;">${esc(tt.email.whatExpect)}</p>
-            <p style="margin:0 0 12px;color:#4b5563;">${esc(el.manageText)}</p>
-            <p style="margin:0 0 20px;">${goldButton(waManage, esc(el.manageBtn))}</p>
+            <p style="margin:0 0 20px;">${esc(tt.email.whatExpect)}</p>
+            <p style="margin:0 0 20px;">${goldButton(gcalUrl, esc(el.calendarBtn))}</p>
+            <p style="margin:0 0 6px;color:#4b5563;font-size:14px;">${esc(el.manageText)}</p>
+            <p style="margin:0;"><a href="${waManage}" style="color:#123d2e;font-weight:bold;text-decoration:underline;">${esc(el.manageBtn)}</a></p>
           `),
+          attachments: [{ filename: 'cita-refcon.ics', content: icsBase64, encoding: 'base64' }],
         },
       });
 
