@@ -50,7 +50,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
-import { Calendar } from '@/components/ui/calendar';
+import { MonthCalendar } from '@/components/dashboard/month-calendar';
 import { googleCalendarUrl, icsDataUri } from '@/lib/calendar-links';
 import Link from 'next/link';
 
@@ -130,15 +130,6 @@ export function AgendaTable({ t, locale }: { t: any; locale: string }) {
       pending: all.filter((a) => (a.status ?? 'pending') === 'pending').length,
       confirmed: all.filter((a) => a.status === 'confirmed').length,
     };
-  }, [appointments]);
-
-  // Calendario: días con citas (para resaltar) y citas del día seleccionado.
-  const bookedDates = useMemo(() => {
-    const keys = new Set((appointments ?? []).map((a) => a.date).filter(Boolean));
-    return [...keys].map((k) => {
-      const [y, m, d] = k.split('-').map(Number);
-      return new Date(y, m - 1, d);
-    });
   }, [appointments]);
 
   const selectedKey = toDateKey(selectedDate);
@@ -247,19 +238,15 @@ export function AgendaTable({ t, locale }: { t: any; locale: string }) {
       </div>
 
       {view === 'calendar' ? (
-        <div className="grid gap-6 lg:grid-cols-[auto_1fr]">
-          <Card className="self-start">
-            <CardContent className="flex justify-center pt-6">
-              <Calendar
-                mode="single"
-                selected={selectedDate}
-                onSelect={(d) => d && setSelectedDate(d)}
-                weekStartsOn={1}
-                modifiers={{ booked: bookedDates }}
-                modifiersClassNames={{ booked: 'font-bold text-primary underline underline-offset-4' }}
-              />
-            </CardContent>
-          </Card>
+        <div className="space-y-6">
+          <MonthCalendar
+            appointments={appointments}
+            selectedDate={selectedDate}
+            onSelectDate={setSelectedDate}
+            locale={locale}
+            todayLabel={t.today ?? 'Hoy'}
+            moreLabel={t.more ?? 'más'}
+          />
           <div className="space-y-4">
             <div className="flex items-center gap-2 border-b pb-2">
               <CalendarDays className="h-4 w-4 text-primary" />

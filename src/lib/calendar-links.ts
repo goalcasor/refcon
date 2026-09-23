@@ -39,18 +39,26 @@ function description(a: Appointment): string {
     .join('\n');
 }
 
-/** "Añadir a Google Calendar" (abre el evento prerrellenado). */
+/**
+ * "Añadir a Google Calendar" (abre el evento prerrellenado).
+ *
+ * Se construye la query a mano: el separador `/` de `dates` y la `/` de
+ * `Europe/Madrid` deben ir LITERALES (URLSearchParams los codifica a %2F y
+ * Google entonces no interpreta bien el evento).
+ */
 export function googleCalendarUrl(a: Appointment, durationMinutes = 60): string {
   const dates = `${stamp(a.date, a.time)}/${stamp(a.date, a.time, durationMinutes)}`;
-  const params = new URLSearchParams({
-    action: 'TEMPLATE',
-    text: title(a),
-    dates,
-    details: description(a),
-    ctz: 'Europe/Madrid',
-  });
-  if (a.mode === 'visit' && a.address) params.set('location', a.address);
-  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  const query = [
+    'action=TEMPLATE',
+    `text=${encodeURIComponent(title(a))}`,
+    `dates=${dates}`,
+    `details=${encodeURIComponent(description(a))}`,
+    'ctz=Europe/Madrid',
+    a.mode === 'visit' && a.address ? `location=${encodeURIComponent(a.address)}` : '',
+  ]
+    .filter(Boolean)
+    .join('&');
+  return `https://calendar.google.com/calendar/render?${query}`;
 }
 
 const escICS = (s: string) =>
